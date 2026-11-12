@@ -1,0 +1,937 @@
+{
+  "schema": "pmt.milestone.v1",
+  "version": "pgmt-p2-2026.10.13",
+  "recorded_at": "2026-10-13T19:12:40+08:00",
+  "base_commit": "f22b03b16c5c49fa6d22b56c3624e59818d1b779",
+  "base_version": "pgmt-p1-2026.10.11",
+  "source_revision": "Resolve the annotated Git tag pgmt-p2-2026.10.13",
+  "scope": "P2 perception_only: v3 height map, four TerrainGlimpse tokens, IFM, explicit Stage1 migration and strict resume; Isaac acceptance passed at 160 environments only",
+  "source_files": [
+    {
+      "path": "configs/network/pgmt_perception.yaml",
+      "sha256": "c03af5ac1dac90c403272bfd3b1c81d90f74a03f5735e72c5542e6a298a187c5"
+    },
+    {
+      "path": "configs/obs/pgmt_stage2.yaml",
+      "sha256": "2f2abd47b19bd64c0ef2aae2a4a2680e489dd701cdf6c88ca7c32c16901790ee"
+    },
+    {
+      "path": "configs/sensor/pgmt_height_scan.yaml",
+      "sha256": "3208bfe8ad7268da5ce67116dbe9cd6b035ca562151d0d1102594d4b1df48bfc"
+    },
+    {
+      "path": "configs/task/pgmt_stage2.yaml",
+      "sha256": "4fbd0eb789eecbc165bd821aee2377bf1d4daccaa460defc0376460b1cb87106"
+    },
+    {
+      "path": "motion_tracking_rl/networks/layers/normalization.py",
+      "sha256": "bbf2b24512820a1a41cb7e427712d82c325f624800602da81a048e318cfbda04"
+    },
+    {
+      "path": "motion_tracking_rl/networks/pgmt_actor_critic.py",
+      "sha256": "7d41520a17333aa635e21e56fdadb2471ee7c61722d1e45e80a4626169d31445"
+    },
+    {
+      "path": "motion_tracking_rl/networks/pgmt_terrain_glimpse.py",
+      "sha256": "94632349c4cf877f842760217b36cef913abb7fcdf1ce7f8a76f50d066a30990"
+    },
+    {
+      "path": "motion_tracking_rl/networks/pgmt_terrain_input.py",
+      "sha256": "99624ee9ab5805cce0602fb8a54553960848dce11ad0feb876b163460fcb1d75"
+    },
+    {
+      "path": "motion_tracking_rl/pgmt_perception_contract.py",
+      "sha256": "ad18aeb000ab55f95ca19a737e485f1088efabd85f861db4a2b34e49045efc26"
+    },
+    {
+      "path": "motion_tracking_rl/runners/__init__.py",
+      "sha256": "9cf093daa1c18675c9ab1aa54f0b60e87eaa128fa3cba66e7649f87f00a78459"
+    },
+    {
+      "path": "motion_tracking_rl/runners/pgmt_runner.py",
+      "sha256": "e57eda47a2904883c73688e14e72a37add1c67d1866b9305b64392a074a8d245"
+    },
+    {
+      "path": "motion_tracking_rl/utils/pgmt_checkpoint.py",
+      "sha256": "d51f9d513cb00be5d3091a48bee8d06ba88341cae25bffdfa7079ef9f0a576d7"
+    },
+    {
+      "path": "pmt_tasks/agent_cfgs/pgmt.py",
+      "sha256": "c6ee315cef7a3230da1722ea8efe0e010453477fb5d702e1c2affaada164398c"
+    },
+    {
+      "path": "pmt_tasks/builder.py",
+      "sha256": "0e70d87f2864c72840f4cbfd3507a8ed904bfb39226eebca62b0d8bce5431157"
+    },
+    {
+      "path": "pmt_tasks/env_cfgs/pgmt/stage2.py",
+      "sha256": "7485f97ad81465d93a680c3821998a8ee36cb3bc7dbd426ff4eda87a6a158e60"
+    },
+    {
+      "path": "pmt_tasks/isaaclab_rl/rsl_rl/vecenv_wrapper.py",
+      "sha256": "1fd35806a12f3e502adb963db9d791d5f6f99151587fbe77d0076de359a5ec89"
+    },
+    {
+      "path": "pmt_tasks/mdp/pgmt_observations.py",
+      "sha256": "d9a58a489c0418ae69a839beb49576a0aec622014116344d62519b09ab979ca2"
+    },
+    {
+      "path": "pmt_tasks/pgmt_curriculum.py",
+      "sha256": "2cb6b5404396933ca7ffe432e71bbccd310de37e4f2e573957c5579ff3729c3f"
+    },
+    {
+      "path": "pmt_tasks/pgmt_height_scan.py",
+      "sha256": "9e0758d171d073e56fb64963a8f4e3633a288c3efd874035e676ef83c8472c40"
+    },
+    {
+      "path": "pmt_tasks/pgmt_height_scanner.py",
+      "sha256": "577562f4f10c69f61f5795f24b7a160076ab358bb0c7bf1329ddfe0895928c2d"
+    },
+    {
+      "path": "pmt_tasks/pgmt_perception.py",
+      "sha256": "1aa9ca3e5196f78d9f9ceedc6486583f37e2991c45168e8fa0ca85ba99ef4213"
+    },
+    {
+      "path": "pmt_tasks/pgmt_perception_viewer.py",
+      "sha256": "4cead13f7ffdd60fb8a56ab7cd4cbc7cf89e6e02dd8ddf579e21d19ed12d31a0"
+    },
+    {
+      "path": "pmt_tasks/pgmt_runtime.py",
+      "sha256": "f0655a8be563bbe2330d4e38e4738084fdea906252df96c48c3413335dfcdb3f"
+    },
+    {
+      "path": "pmt_tasks/registry_gym.py",
+      "sha256": "83401688a7632c2d5bca40dc9fedd94999a38c69e7bcfbf944609fbe0117bce4"
+    },
+    {
+      "path": "scripts/pgmt_perception_checks.py",
+      "sha256": "eb5515457551faf6778025fc34871b23d5e4c26b8bc05be82850949e74fa6ec4"
+    },
+    {
+      "path": "scripts/pgmt_process_guard.py",
+      "sha256": "545cac0a5d11cd786e47dad692cea73732e93cd4018f0888fbeba0eeeeca9bf8"
+    },
+    {
+      "path": "scripts/pgmt_stage2_checks.py",
+      "sha256": "95b13576326758edd1c785efadd122e6e0c01cdadd0b954c73934647759ce3bb"
+    },
+    {
+      "path": "scripts/report_pgmt_stage2.py",
+      "sha256": "c924ef04a6e20ecd45edcb8fdf1133821d80986709da9da6d81c964f40df337f"
+    },
+    {
+      "path": "scripts/train_pgmt_p1.py",
+      "sha256": "751f3dd86a6d9ccd349478df10516c5cd5d6aa50cfb6537ebe5e84a30d93dcba"
+    },
+    {
+      "path": "scripts/train_pgmt_stage2.py",
+      "sha256": "5a9e10b4386da3168d98beb4d3a4dfa118519918344862c94d20c047877f6437"
+    },
+    {
+      "path": "scripts/train_pgmt_stage2.sh",
+      "sha256": "780d2fd400ff50828be46eb65dd486761577bcc38da23eda30045df0c6ad2d06"
+    },
+    {
+      "path": "scripts/validate_pgmt_ifm.py",
+      "sha256": "373950d7e554b701caa89d7ee600f7626f0388e062e32005bc8b759fc79c3424"
+    },
+    {
+      "path": "scripts/validate_pgmt_perception.sh",
+      "sha256": "b6f2864c2232e60966cf3b41401c29c1287bb441c5336147a187aacf6d91e86b"
+    },
+    {
+      "path": "scripts/validate_pgmt_perception_ppo.py",
+      "sha256": "f2726ce728debd7b19abb323cf4dbf08a743bdc939453f39b123471e2d2469a6"
+    },
+    {
+      "path": "scripts/validate_pgmt_stage2.sh",
+      "sha256": "2f42fc5cc4a45910622eef89ec26e3084968cfc4fe26c26970634e1565791045"
+    },
+    {
+      "path": "scripts/validate_pgmt_terrain_glimpse.py",
+      "sha256": "94644046b58d03183ea128ff2d316e538b7ac2ab57e04a0e8e327cd4a623ee4d"
+    },
+    {
+      "path": "scripts/validate_pgmt_v6.py",
+      "sha256": "2b53f08b8a11be55fcc84a85ade15910622fc34941e1edd64dbc21460610d896"
+    },
+    {
+      "path": "scripts/validate_pgmt_v6.sh",
+      "sha256": "60821abdc1ea7e07fe3a53f7363acda330b19b87674363e55c47d1e8cfc8acc9"
+    },
+    {
+      "path": "scripts/view_pgmt_perception.py",
+      "sha256": "d8273f3a9c0f76953dbc6ccc696b917154153180526f10641b3e934925d566e9"
+    },
+    {
+      "path": "scripts/view_pgmt_perception.sh",
+      "sha256": "503be9537cb356ef062bb6d3a297030da14eaa991fced35103766c8daa273d9b"
+    },
+    {
+      "path": "tests/test_normalization_resume.py",
+      "sha256": "aabbc3c6970cd69eaa8bca44f6b6cf5528ea55af4d882a350cdad369c4d78592"
+    },
+    {
+      "path": "tests/test_pgmt_checkpoint.py",
+      "sha256": "5aeba81162061c06bf1d993be48fea83abdbe9568b96196ab4eda1a817914947"
+    },
+    {
+      "path": "tests/test_pgmt_config.py",
+      "sha256": "3b0e1c38c251e501f1f50e0682467fd3db0292550cdce8f0031dbaa6b7780f46"
+    },
+    {
+      "path": "tests/test_pgmt_ifm.py",
+      "sha256": "d78fc7aae6cbf9cdbe85943836b986a4258f622fa43de2b1aba4879f4d8c820f"
+    },
+    {
+      "path": "tests/test_pgmt_perception.py",
+      "sha256": "4dce4720f98b4244c529158d666f768026e4df24448cc0363b82be5ea29e4931"
+    },
+    {
+      "path": "tests/test_pgmt_perception_ppo.py",
+      "sha256": "1c5f7c25117eecde845c86337d66360cf25d0c0482238c5332410c0411646ab4"
+    },
+    {
+      "path": "tests/test_pgmt_process_guard.py",
+      "sha256": "9b8fbc152f8eb4ab0878f4d2f2e327dc26bafe7e2426037f9eccba67dfda9e9e"
+    },
+    {
+      "path": "tests/test_pgmt_terrain_glimpse.py",
+      "sha256": "4a73868ef31ac73780236aa8b571f36218e4a35b3b6819367c30ee711fdd2429"
+    }
+  ],
+  "validation_this_task": {
+    "unit_test_command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py tests/test_normalization_resume.py tests/test_all_tasks_resolve.py tests/test_builder_slice.py tests/test_compat_matrix.py tests/test_group_yaml_valid.py -k 'not test_sonic_agent_cfg_modes_resolve_release_onnx' --junitxml=/tmp/pmt-release-20261013.xml -rs",
+    "passed": 745,
+    "failed": 0,
+    "skipped": 0,
+    "deselected": 1,
+    "devices": [
+      "cpu",
+      "cuda"
+    ],
+    "duration_s": 13.191,
+    "junit": {
+      "path": "/tmp/pmt-release-20261013.xml",
+      "sha256": "7edfec5eda8b74126b35ced163a89722e2e3ac85adc92476e3196fc0b0cd69fe",
+      "uploaded": false
+    },
+    "deselected_test": "tests/test_builder_slice.py::test_sonic_agent_cfg_modes_resolve_release_onnx",
+    "deselection_reason": "Existing SONIC test imports isaaclab.utils, which bootstraps Isaac Sim EULA input; initial full run failed under pytest capture. License was not accepted by this task.",
+    "initial_sandbox_run": {
+      "passed": 696,
+      "failed": 1,
+      "skipped": 49,
+      "reason": "SONIC EULA bootstrap failure; CUDA unavailable within the sandbox"
+    },
+    "warnings": {
+      "count": 34,
+      "reason": "record_property is incompatible with junit_family=xunit2; test assertions passed"
+    },
+    "python_ast": {
+      "passed": true,
+      "files": 39
+    },
+    "shell_syntax": {
+      "passed": true,
+      "files": [
+        "scripts/train_pgmt_stage2.sh",
+        "scripts/validate_pgmt_perception.sh",
+        "scripts/validate_pgmt_stage2.sh",
+        "scripts/validate_pgmt_v6.sh",
+        "scripts/view_pgmt_perception.sh"
+      ]
+    },
+    "diff_check": "passed",
+    "existing_p245_source_hashes": {
+      "checked": 18,
+      "all_match": true,
+      "files": {
+        "scripts/train_pgmt_stage2.py": true,
+        "scripts/train_pgmt_stage2.sh": true,
+        "scripts/validate_pgmt_stage2.sh": true,
+        "scripts/pgmt_stage2_checks.py": true,
+        "scripts/pgmt_process_guard.py": true,
+        "scripts/report_pgmt_stage2.py": true,
+        "motion_tracking_rl/runners/pgmt_runner.py": true,
+        "motion_tracking_rl/utils/pgmt_checkpoint.py": true,
+        "pmt_tasks/agent_cfgs/pgmt.py": true,
+        "pmt_tasks/builder.py": true,
+        "pmt_tasks/pgmt_perception_viewer.py": true,
+        "pmt_tasks/env_cfgs/pgmt/stage2.py": true,
+        "pmt_tasks/pgmt_curriculum.py": true,
+        "pmt_tasks/isaaclab_rl/rsl_rl/vecenv_wrapper.py": true,
+        "configs/task/pgmt_stage2.yaml": true,
+        "configs/obs/pgmt_stage2.yaml": true,
+        "configs/network/pgmt_perception.yaml": true,
+        "configs/sensor/pgmt_height_scan.yaml": true
+      }
+    },
+    "isaac_launched": false,
+    "gui_launched": false,
+    "simulation_training_launched": false,
+    "note": "CPU/CUDA unit tests include synthetic native PPO updates; existing Isaac acceptance was not rerun."
+  },
+  "previous_snapshot": {
+    "path": "docs/versions/pgmt-p1-2026.10.11.json",
+    "sha256": "98911dee6b896cba5ff01dcda0904e34fb7f70df2a7081d21e297291b429935b"
+  },
+  "perception_contract": {
+    "version": 3,
+    "packed_key": "pgmt_terrain",
+    "map_key": "terrain_map",
+    "valid_key": "terrain_valid",
+    "shape": [
+      21,
+      21
+    ],
+    "size_m": [
+      2.0,
+      2.0
+    ],
+    "resolution_m": 0.1,
+    "frame": "actual_torso_yaw",
+    "ordering": "row=y,col=x; -1..+1 m",
+    "height": "sensor_world_z - ground_world_z - offset_m",
+    "offset_m": 0.0,
+    "units": "m",
+    "dtype": "float32",
+    "invalid_world_z_fill_m": 30.0,
+    "invalid_sensor_z_fill_m": 0.78,
+    "mask": "float32 0/1; map_valid AND finite_hit_z AND NOT dropped",
+    "augmentation_enabled": true,
+    "nan_dropout_prob": 0.1,
+    "noise": "independent_uniform",
+    "noise_range_m": [
+      -0.06,
+      0.06
+    ],
+    "clipping_m": [
+      -3.0,
+      3.0
+    ],
+    "normalization_location": "network",
+    "network_z_clip_m": 3.0,
+    "network_normalize_height": true,
+    "noise_refresh": "every_observation_function_call"
+  },
+  "terrain_asset": {
+    "path": "assets/terrain/pgmt_stage2_v6/manifest.json",
+    "sha256": "f3ea564bec413f1b2cc603febdcbf1791242fa167d27ebf2540703544e449ad8",
+    "uploaded": false
+  },
+  "motion_compatibility": {
+    "path": "assets/motions/pgmt_clipped_50hz_tcrs_v1/motion_terrain_compatibility.csv",
+    "sha256": "ea449431728708b753da6877b88997fe463994e8bf2f54bc651242f55db96458",
+    "uploaded": true
+  },
+  "existing_acceptance": {
+    "p1_v6": {
+      "path": "logs/pgmt_v6_acceptance/acceptance_20261011.json",
+      "sha256": "eb6d97866be062de05eddc171e9282eecbdb6393657da69b5e933ac8d6c731db",
+      "uploaded": false,
+      "summary": {
+        "passed": true,
+        "scope": "P1 v6, fixed motion frame 0, random XY/yaw, clean 21x21 scan, actual checkpoint resume",
+        "finished_at": "2026-10-11T15:21:25.912839",
+        "checks": [
+          {
+            "name": "random_start_poses",
+            "passed": true,
+            "report": "logs/pgmt_v6_acceptance/20261011_r2/poses/validation.json",
+            "sha256": "564f4b37f8a413f154e4fe6c6e1ee51cdb3123332fb8f40e7000d34f2ef6b82e",
+            "log": "logs/pgmt_v6_acceptance/20261011_r2/poses.log"
+          },
+          {
+            "name": "height_scan",
+            "passed": true,
+            "report": "logs/pgmt_v6_acceptance/20261011_r2/scan/validation.json",
+            "sha256": "8fbf6663e8884157cd9e4500c003c308785fcf93c2a69207f4cc03e75e631668",
+            "log": "logs/pgmt_v6_acceptance/20261011_r2/scan.log"
+          },
+          {
+            "name": "simulation_resume",
+            "passed": true,
+            "report": "logs/pgmt_v6_acceptance/20261011_r4/resume/validation.json",
+            "sha256": "8c59326ea8cab79d2562798c09d8fc3a32d7a7dcb829ae0dbbe52782023b888e",
+            "log": "logs/pgmt_v6_acceptance/20261011_r4/resume.log"
+          },
+          {
+            "name": "training_cli_resume",
+            "passed": true,
+            "report": "logs/pgmt_v6_acceptance/20261011_cli/training_status.json",
+            "sha256": "89b64467d9ea9d1016ce39bda4d2f2e6fa0f40c6e96d7f243f1916ebdb457f0e",
+            "log": "logs/pgmt_v6_acceptance/20261011_cli/console.log"
+          }
+        ],
+        "unit_tests": {
+          "passed": 119,
+          "failed": 0,
+          "log": "logs/pgmt_v6_acceptance/unit_tests.log"
+        },
+        "limits": [
+          "Finite random XY/yaw samples; not exhaustive over continuous poses.",
+          "Motion start frame remains fixed at 0 by user request.",
+          "Resume restores training statistics and starts fresh simulator episodes; not a bitwise simulator/RNG trajectory continuation.",
+          "Terrain-Glimpse/IFM and stage2 terrain rewards are outside P1; no convergence claim."
+        ]
+      }
+    },
+    "p21_v3": {
+      "path": "logs/pgmt_p21_acceptance/acceptance_20261012_pmt_alignment_v3.json",
+      "sha256": "c3b673958144912ce6e321cfdb363e563a54e57795451743d42eda2a9b0822f8",
+      "uploaded": false,
+      "summary": {
+        "passed": true,
+        "recorded_at": "2026-10-12T10:47:17.306986",
+        "tests": {
+          "command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py tests/test_normalization_resume.py",
+          "passed": 147,
+          "exit_code": 0,
+          "reported_duration_s": 5.92,
+          "dedicated_perception_tests": 28
+        },
+        "ppo_updates": 0,
+        "scope": "Four requested observation/preprocessing semantics aligned. Network input layer implemented and validated, pending P2.2 consumer. Clean geometry and PMT source unchanged."
+      }
+    },
+    "p22": {
+      "path": "logs/pgmt_p22_acceptance/full_20261012_165716/report.json",
+      "sha256": "9da7c8469c247098f9c0e272ba41079ee63d08e65a3a3f2759d9e5c62eeb8c15",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "phase": "P2.2 standalone acceptance",
+        "finished_at": "2026-10-12T16:57:50.997582",
+        "pytest": {
+          "command": [
+            "/home/lzp/miniconda3/envs/pmt/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_pgmt_terrain_glimpse.py",
+            "tests/test_pgmt_perception.py",
+            "tests/test_pgmt_rl.py",
+            "tests/test_normalization_resume.py",
+            "--junitxml=/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p22_acceptance/full_20261012_165716/pytest.xml"
+          ],
+          "tests": 157,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    },
+    "p23": {
+      "path": "logs/pgmt_p23_acceptance/fusion_20261013_144840/report.json",
+      "sha256": "0ce4d38600f1489da989a0c6e25cbf7e68ab043a4dead78f961a55f6da5ae2ab",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "phase": "P2.3 part 5 full-policy fusion acceptance",
+        "finished_at": "2026-10-13T14:49:53.877429+08:00",
+        "pytest": {
+          "command": [
+            "/home/lzp/miniconda3/envs/pmt/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-o",
+            "junit_family=legacy",
+            "tests/test_pgmt_perception_ppo.py",
+            "tests/test_pgmt_ifm.py",
+            "tests/test_pgmt_terrain_glimpse.py",
+            "tests/test_pgmt_perception.py",
+            "tests/test_pgmt_rl.py",
+            "tests/test_normalization_resume.py",
+            "--junitxml=/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p23_acceptance/fusion_20261013_144840/pytest.xml"
+          ],
+          "tests": 285,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "limitations": [
+          "Synthetic proprio/history/commands/privileged observations; real saved terrain scans",
+          "Explicit checked old-weight fixture, not model_15000.pt migration or training",
+          "No Isaac, formal task entry or strict checkpoint resume; these remain P2.4/P2.5"
+        ]
+      }
+    },
+    "p245": {
+      "path": "logs/pgmt_p245/report.json",
+      "sha256": "ba26c56c8d6b762365b07ea1e9317f7e2d1d77e01b5cfc8098acc5b3334db113",
+      "uploaded": false,
+      "summary": {
+        "status": "passed_160_scope",
+        "source_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "copied_tensors": 49,
+        "new_tensors": 10,
+        "migration": {
+          "actor": 0.0,
+          "critic": 0.0
+        },
+        "physics_steps": {
+          "reset_poses": 221,
+          "sampler_outcomes": 221,
+          "physics_control_steps": 600,
+          "done_events": 221,
+          "reference_drift_checks": 95779,
+          "contact_freshness_checks": 96000
+        },
+        "geometry": {
+          "levels": [
+            {
+              "level": 0,
+              "environments": 160,
+              "map_error_m": 4.76837158203125e-06,
+              "min_reset_gap_m": 0.0029904283583164215,
+              "negative_height_cells": 37568
+            },
+            {
+              "level": 5,
+              "environments": 160,
+              "map_error_m": 5.245208740234375e-06,
+              "min_reset_gap_m": 0.002991277724504471,
+              "negative_height_cells": 36812
+            },
+            {
+              "level": 9,
+              "environments": 160,
+              "map_error_m": 5.7220458984375e-06,
+              "min_reset_gap_m": 0.002991076558828354,
+              "negative_height_cells": 38003
+            }
+          ],
+          "low_mid_high": true,
+          "cross_tile": {
+            "actual_family": 1,
+            "actual_level": 5,
+            "birth_family": 0,
+            "birth_level": 9,
+            "reference_unchanged": true
+          },
+          "edge_valid_points": 123,
+          "outer_map": {
+            "all_patch_invalid": true,
+            "finite_policy": true,
+            "done": true,
+            "time_out": true
+          },
+          "physx_scan_cells": 6615,
+          "physx_max_error_m": 4.708766937255859e-06,
+          "restored_persistent_state_exact": true
+        },
+        "resume": {
+          "iterations": [
+            25,
+            30,
+            30
+          ],
+          "exact_payload_keys": [
+            "model_state_dict",
+            "optimizer_state_dict",
+            "environment_state_dict",
+            "policy_metadata",
+            "training_contract",
+            "iter",
+            "next_iteration",
+            "learning_rate",
+            "tot_timesteps",
+            "tot_time",
+            "initialization"
+          ],
+          "probabilities_exact": true,
+          "first": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 25,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          },
+          "second": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 30,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          },
+          "physical_reset": "Restores RNG before fresh physical reset; no PhysX trajectory replay guarantee"
+        },
+        "updates": 42,
+        "total_rollout_transitions": 161280,
+        "parameter_changes": {
+          "selector": 0.0031853122636675835,
+          "patch_encoder": 0.002531297504901886,
+          "ifm": 0.003303326666355133
+        },
+        "fixed_flat_probe_center_max_change_m": 0.2867380380630493,
+        "device": "cuda:1 / RTX 5090 32 GiB",
+        "caveats": [
+          "Finite integration acceptance, not terrain-adaptation convergence.",
+          "Cost means exclude the first update; four updates per profile, same 24-step rollout and PPO settings.",
+          "Torch peaks exclude most PhysX/RTX allocations; total device use is recorded separately.",
+          "GUI uses extra assertions/overlays and is not a throughput baseline."
+        ],
+        "regression": {
+          "name": "pytest",
+          "errors": "0",
+          "failures": "0",
+          "skipped": "0",
+          "tests": "321",
+          "time": "8.256",
+          "timestamp": "2026-10-13T18:43:50.717314+08:00",
+          "hostname": "2204"
+        },
+        "final_guard_smoke": {
+          "next_iteration": 31,
+          "completed_updates": 1,
+          "strict_restore": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 30,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          }
+        },
+        "report_runtime": {
+          "torch": "2.10.0+cu128",
+          "numpy": "2.3.1"
+        }
+      }
+    },
+    "capacity_1024": {
+      "path": "logs/pgmt_p245/scale_limits.json",
+      "sha256": "52b6f3a91884454c58bb47b78ffc498bf941592bcdc80c12c1a11061cfbf7c09",
+      "uploaded": false,
+      "summary": {
+        "num_envs": 1024,
+        "status": "capacity_limited",
+        "requested_allocation_bytes": 29032710144,
+        "requested_allocation_gib": 27.038818359375,
+        "remaining_profiles": "not run after common physics initialization OOM",
+        "invalidated_run": "cost_1024_blind",
+        "guard_verification": "oom_guard_1024_external",
+        "guard_result": "nonzero exit; zero PPO updates; no checkpoint; owned process terminated"
+      }
+    }
+  },
+  "source_checkpoint": {
+    "path": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+    "sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+    "uploaded": false
+  },
+  "completed_acceptance_runs": [
+    {
+      "name": "gui_160",
+      "status": {
+        "path": "logs/pgmt_p245/gui_160/training_status.json",
+        "sha256": "963aa4eb2078563c730e00fee0aa54bcedb7402a5ad611416908d7c89d75094e",
+        "uploaded": false,
+        "summary": {
+          "status": "completed",
+          "started_at": "2026-10-13T18:23:13.288855",
+          "updated_at": "2026-10-13T18:25:50.538798",
+          "completed_updates": 25,
+          "start_iteration": 0,
+          "next_iteration": 25,
+          "source_checkpoint_unchanged": true,
+          "checks": {
+            "reset_poses": 221,
+            "sampler_outcomes": 221,
+            "physics_control_steps": 600,
+            "done_events": 221,
+            "reference_drift_checks": 95779,
+            "contact_freshness_checks": 96000
+          },
+          "curriculum_outcomes": [
+            97,
+            113,
+            11,
+            0,
+            0,
+            0
+          ],
+          "terrain_level_histogram": [
+            68,
+            56,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p245/gui_160/final.pt",
+        "sha256": "d3dfadf599e2f7b61a6e779b63fec5fd3c53cf804aa34a4524c10253ebee0e50",
+        "uploaded": false,
+        "kind": "pgmt_perception_training",
+        "version": 1,
+        "next_iteration": 25,
+        "model_tensor_count": 59,
+        "optimizer_saved": true,
+        "environment_state_keys": [
+          "curriculum",
+          "kind",
+          "sampler"
+        ],
+        "rng_saved": true
+      }
+    },
+    {
+      "name": "resume_160",
+      "status": {
+        "path": "logs/pgmt_p245/resume_160/training_status.json",
+        "sha256": "f0d22a153f4ae7dab879698452efb8e6d1e0b64b0deab6b320774629bf9b2b6d",
+        "uploaded": false,
+        "summary": {
+          "status": "completed",
+          "started_at": "2026-10-13T18:26:28.936129",
+          "updated_at": "2026-10-13T18:27:15.645028",
+          "completed_updates": 5,
+          "start_iteration": 25,
+          "next_iteration": 30,
+          "source_checkpoint_unchanged": true,
+          "strict_restore": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 25,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          },
+          "checks": {},
+          "curriculum_outcomes": [
+            97,
+            129,
+            12,
+            0,
+            0,
+            0
+          ],
+          "terrain_level_histogram": [
+            73,
+            56,
+            31,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p245/resume_160/final.pt",
+        "sha256": "eb800b36a7994364c366ae096565867be017e4aaf3bf1fc80583f2303615691e",
+        "uploaded": false,
+        "kind": "pgmt_perception_training",
+        "version": 1,
+        "next_iteration": 30,
+        "model_tensor_count": 59,
+        "optimizer_saved": true,
+        "environment_state_keys": [
+          "curriculum",
+          "kind",
+          "sampler"
+        ],
+        "rng_saved": true
+      }
+    },
+    {
+      "name": "restore_160",
+      "status": {
+        "path": "logs/pgmt_p245/restore_160/training_status.json",
+        "sha256": "076694bbaacd220979c1001847c210f6db6dd09e9871b680019cb5eea34eb640",
+        "uploaded": false,
+        "summary": {
+          "status": "completed",
+          "started_at": "2026-10-13T18:28:20.712021",
+          "updated_at": "2026-10-13T18:28:45.420104",
+          "completed_updates": 0,
+          "start_iteration": 30,
+          "next_iteration": 30,
+          "source_checkpoint_unchanged": true,
+          "strict_restore": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 30,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          }
+        }
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p245/restore_160/final.pt",
+        "sha256": "bde3cd449abc40f14ced4cf9dcd33b464665ab52a9c083f93aa8eff54ac883c8",
+        "uploaded": false,
+        "kind": "pgmt_perception_training",
+        "version": 1,
+        "next_iteration": 30,
+        "model_tensor_count": 59,
+        "optimizer_saved": true,
+        "environment_state_keys": [
+          "curriculum",
+          "kind",
+          "sampler"
+        ],
+        "rng_saved": true
+      }
+    },
+    {
+      "name": "guard_smoke_160",
+      "status": {
+        "path": "logs/pgmt_p245/guard_smoke_160/training_status.json",
+        "sha256": "6933d3d6d5b94634c105fa3bf7324fbb1af32a4a7d0c1a06aa57f30541a81705",
+        "uploaded": false,
+        "summary": {
+          "status": "completed",
+          "started_at": "2026-10-13T18:42:41.530640",
+          "updated_at": "2026-10-13T18:43:13.866987",
+          "completed_updates": 1,
+          "start_iteration": 30,
+          "next_iteration": 31,
+          "source_checkpoint_unchanged": true,
+          "strict_restore": {
+            "model": true,
+            "normalizers": true,
+            "optimizer": true,
+            "curriculum": true,
+            "sampler": true,
+            "sampling_probabilities": true,
+            "learning_rate": true,
+            "next_iteration": 30,
+            "physical_episode": "fresh; no phantom sampler outcome"
+          },
+          "checks": {},
+          "curriculum_outcomes": [
+            97,
+            129,
+            12,
+            0,
+            0,
+            0
+          ],
+          "terrain_level_histogram": [
+            73,
+            56,
+            31,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p245/guard_smoke_160/final.pt",
+        "sha256": "0a1da5a39e9161f7afa7b00b9e5d9902567ff4d46742cbdf4a20038305ac2f44",
+        "uploaded": false,
+        "kind": "pgmt_perception_training",
+        "version": 1,
+        "next_iteration": 31,
+        "model_tensor_count": 59,
+        "optimizer_saved": true,
+        "environment_state_keys": [
+          "curriculum",
+          "kind",
+          "sampler"
+        ],
+        "rng_saved": true
+      }
+    }
+  ],
+  "remaining_work": [
+    "P3 fourth value head, terrain rewards/tolerances, termination delay and recovery",
+    "P4 fixed benchmark, long-run convergence and full Stage2 performance evaluation",
+    "1024-environment PhysX capacity limitation; scan-only/perception scale profiles were not run"
+  ],
+  "evidence_note": "Existing reports are historical observations at their recorded times; this task reran unit/regression checks and hashed local evidence. Generated terrain/motions, checkpoint binaries and raw logs remain local. Strict resume restores persistent training state and starts fresh physical episodes; it does not replay the PhysX trajectory.",
+  "additional_training_snapshot": {
+    "path": "logs/pgmt_p245/20261013_185821/training_status.json",
+    "sha256": "3a3af53bdaf440024b18fc4ad259040e37d9c7c96b4d3f63a201e51db36a6a71",
+    "uploaded": false,
+    "summary": {
+      "status": "training",
+      "started_at": "2026-10-13T18:58:22.021084",
+      "updated_at": "2026-10-13T19:02:25.619830",
+      "completed_updates": 44,
+      "start_iteration": 0,
+      "next_iteration": 44,
+      "checks": {
+        "reset_poses": 419,
+        "sampler_outcomes": 419,
+        "physics_control_steps": 1056,
+        "done_events": 419,
+        "reference_drift_checks": 168541,
+        "contact_freshness_checks": 168960
+      },
+      "curriculum_outcomes": [
+        197,
+        202,
+        20,
+        0,
+        0,
+        0
+      ],
+      "terrain_level_histogram": [
+        65,
+        34,
+        39,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "launch": {
+        "num_envs": 160,
+        "max_iterations": 1000,
+        "save_interval": 50,
+        "headless": false,
+        "device": "cuda:1",
+        "initialize_from": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "resume": null,
+        "acceptance": false
+      }
+    },
+    "note": "Point-in-time status only; separate user-requested 1000-update run, not part of finite acceptance. Status text is not proof of current process liveness. It was not stopped or modified by this task.",
+    "latest_saved_checkpoint_at_read": {
+      "path": "logs/pgmt_p245/20261013_185821/model_0.pt",
+      "sha256": "cf90dcc178be2891428ae338825e5ce3bc7774ee60378949af2969eaf3a8c377",
+      "uploaded": false,
+      "next_iteration": 1
+    }
+  }
+}

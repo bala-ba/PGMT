@@ -1,0 +1,22 @@
+# PMT task (plan §3, P3) — PPO-finetune the DISTILLED vision student (latent anchor).
+# Third stage of teacher -> distill -> finetune. Uses PAIRED motion commands:
+# reward computed from optimized trajectory (motion command), policy obs from raw
+# trajectory (student_motion command). Matches whole_body_tracking finetune logic.
+#
+# Runs on the big_map mesh + walk_dance1sub2start paired clips (optimized + raw).
+defaults:
+  - robot: g1
+  - terrain: big_map
+  - motion: walk_dance_paired
+  - scene: none
+  - sensor: height_scan
+  - obs: vision_teacher
+  - reward: deepmimic_anchor
+  - network: vision_transformer_latent_anchor
+  - algorithm: ppo          # runner derived -> on_policy
+  - stage: finetune
+experiment_name: ppoft_vt_ss_latent_anchor
+
+# Warm-start the finetune policy from the distilled vision student (resolved by builder).
+network:
+  base_policy_ckpt: ${checkpoints.distilled_student}

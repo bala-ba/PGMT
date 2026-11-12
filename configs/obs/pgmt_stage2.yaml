@@ -1,0 +1,11 @@
+history_length: 10
+command_frames: 8
+groups: [proprio, proprio_history, command_window, critic, terrain_map, terrain_valid]
+obs_groups:
+  policy: [proprio]
+  policy_history: [proprio_history]
+  command_window: [command_window]
+  critic: [critic]
+  terrain_map: [terrain_map]
+  terrain_valid: [terrain_valid]
+terms: [pgmt_proprio, pgmt_command_window, pgmt_critic, pgmt_terrain_observation]

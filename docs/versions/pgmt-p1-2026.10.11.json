@@ -1,0 +1,327 @@
+{
+  "schema": "pmt.milestone.v1",
+  "version": "pgmt-p1-2026.10.11",
+  "recorded_at": "2026-10-11T14:17:33+08:00",
+  "base_commit": "a084b142d6fc045835027c7ca296fa19c41f7c2e",
+  "base_version": "pgmt-p1-2026.10.10-r2",
+  "source_revision": "Resolve the annotated Git tag pgmt-p1-2026.10.11",
+  "scope": "Optional v6 repeated-patch terrain, random patch placement, compatibility mapping and completed blind PPO run; full stage 2 remains incomplete",
+  "source_files": [
+    {
+      "path": "configs/terrain/pgmt_stage2_v6.yaml",
+      "sha256": "d409b88466c4620623fe9e43e376ee8283c8e55fc545e859984c21d6af127b9c"
+    },
+    {
+      "path": "pmt_tasks/mdp/commands/pgmt_motion_command.py",
+      "sha256": "2999c13961165bf063fa23de6727b756c232bce1136d32b2aa027f60d154a2d7"
+    },
+    {
+      "path": "pmt_tasks/pgmt_curriculum.py",
+      "sha256": "11a6bdee460092d4f01a5b7d939db51f078fcfbbaab712212ef9134691c7a409"
+    },
+    {
+      "path": "pmt_tasks/pgmt_patch_terrain.py",
+      "sha256": "c8b3cbfb5d96116cec477c061b9d9c80ce3359ded44feb060c9b5c628daf3c0a"
+    },
+    {
+      "path": "pmt_tasks/pgmt_terrain_importer.py",
+      "sha256": "0e18f2fb3b0e222516e60811ede35d4dde8b71a444bd897e8fa6235e6f6b6ba0"
+    },
+    {
+      "path": "pmt_tasks/pgmt_terrain_layout.py",
+      "sha256": "0a9ca5a9cdae2cc6db92f37278a09eba37078bb1d0e7bb7d65a6788c81a927ef"
+    },
+    {
+      "path": "pmt_tasks/pgmt_terrain_query.py",
+      "sha256": "738f14955300a55cdca778905fc22fab4a69a6376224f5ab50c4cbc771a37602"
+    },
+    {
+      "path": "scripts/build_pgmt_patch_terrain.py",
+      "sha256": "a2739ece118ebde835290fc4a1b6ca379e9932cf882ff5cfa3e1f137ca81be59"
+    },
+    {
+      "path": "scripts/train_pgmt_p1.py",
+      "sha256": "7b5ebdb06b9530e7afaed3a3608d9a735876fb1a318b3f98e34b29877ec392e6"
+    },
+    {
+      "path": "scripts/view_pgmt_patch_terrain.py",
+      "sha256": "468c221ec21192ec974e99ba3f5025393a15d913386b8ade76587366f18bdc60"
+    },
+    {
+      "path": "tests/test_pgmt_patch_layout.py",
+      "sha256": "8f62d8b61b6aaaf89b563eccb119213c8e9b73b4ad29c39f2e65cd3c1359b086"
+    }
+  ],
+  "validation_this_task": {
+    "unit_test_command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py",
+    "passed": 118,
+    "failed": 0,
+    "python_ast": "passed for all changed Python files",
+    "shell_syntax": "bash -n scripts/train_pgmt_p1_gui.sh passed",
+    "offline_argparse": "documented v6 training arguments accepted; v5 remains default",
+    "asset_integrity": "v6 config/USD/800 PLY/generator hashes and 6 preserved v5 files verified",
+    "gui_launched": false,
+    "training_launched": false
+  },
+  "previous_snapshot": {
+    "path": "docs/versions/pgmt-p1-2026.10.10-r2.json",
+    "sha256": "0176261a983946b174db710d87d5f41a16edf178b52c2002b476270c793f65ac"
+  },
+  "terrain_asset": {
+    "path": "assets/terrain/pgmt_stage2_v6/manifest.json",
+    "sha256": "f3ea564bec413f1b2cc603febdcbf1791242fa167d27ebf2540703544e449ad8",
+    "summary": {
+      "schema": "pmt.pgmt.terrain.patches.v1",
+      "version": "pgmt_stage2_v6",
+      "region_count": 50,
+      "patch_count": 800,
+      "map_bounds": [
+        [
+          -120.0,
+          -60.0
+        ],
+        [
+          120.0,
+          60.0
+        ]
+      ],
+      "asset_sha256": "5fc8e5e577feff19adfdc29bfeffe6bc2dc6736dbb4a54a8134d562c73bb665d",
+      "configuration_sha256": "d409b88466c4620623fe9e43e376ee8283c8e55fc545e859984c21d6af127b9c",
+      "native_interfaces": {
+        "flat": "MeshPlaneTerrainCfg",
+        "stairs": "MeshInvertedPyramidStairsTerrainCfg",
+        "slope": "HfInvertedPyramidSlopedTerrainCfg",
+        "boxes": "MeshRandomGridTerrainCfg",
+        "rough": "HfRandomUniformTerrainCfg"
+      },
+      "level_difficulty": [
+        0.02405221794161728,
+        0.19574688534128765,
+        0.28977182426911324,
+        0.3523768513448089,
+        0.430652401008523,
+        0.5639396311505395,
+        0.6826533112868999,
+        0.7075334297103227,
+        0.8655810168765191,
+        0.9530444653875996
+      ]
+    },
+    "verification": {
+      "configuration": "passed",
+      "usd": "passed",
+      "ply_meshes": 800,
+      "generator_sources": "passed",
+      "preserved_v5_files": 6
+    },
+    "generator_sources": {
+      "pmt_tasks/pgmt_patch_terrain.py": "c8b3cbfb5d96116cec477c061b9d9c80ce3359ded44feb060c9b5c628daf3c0a",
+      "scripts/build_pgmt_patch_terrain.py": "a2739ece118ebde835290fc4a1b6ca379e9932cf882ff5cfa3e1f137ca81be59",
+      "pmt_tasks/pgmt_terrain.py": "3f74e706f0bfb80cc2dbbec485b08c6481bd6be54c1ebfe180f3f9e0a0c2938b"
+    },
+    "preserved_v5": {
+      "configs/terrain/pgmt_stage2.yaml": "9a5b2420b4e4b6951de20dea7414acfa2dfb47beccb3b0020c0535fbdfada707",
+      "pmt_tasks/pgmt_terrain.py": "3f74e706f0bfb80cc2dbbec485b08c6481bd6be54c1ebfe180f3f9e0a0c2938b",
+      "scripts/build_pgmt_terrain.py": "a365b6d3906e5c46d19fbb71e89688deace1808803af27f2dbec61f1a52b2aec",
+      "scripts/view_pgmt_terrain.py": "c8a6694b307ee0779531496c01e550d671b1020b9cd24ffdfa20e7431393af89",
+      "assets/terrain/pgmt_stage2_v5/manifest.json": "b6c1e7be8845dc2f704978f2661996736183098e3fca12d9ac8d36333f236d7d",
+      "assets/terrain/pgmt_stage2_v5/terrain.usdc": "0695b91ce7be56bf9b3ea086c51296d9546ac4e20b087ff1cd17a4c620d00c72"
+    }
+  },
+  "existing_preview_validation": {
+    "path": "logs/pgmt_terrain_preview_v6/collision_validation.json",
+    "sha256": "6383e6c2c125a2f14025bd659105eae28fb0ca2e15b39fc6fad1460b30a07d0c",
+    "summary": {
+      "passed": true,
+      "regions": 50,
+      "patches": 800,
+      "geometry_rays": 60640,
+      "candidate_surface_rays": 12800,
+      "seam_rays": 4620,
+      "total_rays": 78060,
+      "max_height_error_m": 2.47173011302948e-06,
+      "max_seam_error_m": 0.0,
+      "per_family_max_error_m": {
+        "flat": 0.0,
+        "stairs": 1.7483440917231974e-07,
+        "slope": 2.024792931543118e-06,
+        "boxes": 2.47173011302948e-06,
+        "rough": 1.8085093813624553e-06
+      },
+      "tolerance_m": 0.002,
+      "renderer": "Isaac Sim 6",
+      "physics": "PhysX triangle-mesh collision",
+      "asset_sha256": "5fc8e5e577feff19adfdc29bfeffe6bc2dc6736dbb4a54a8134d562c73bb665d",
+      "robot_placement_validated": false
+    }
+  },
+  "existing_startup_validation": {
+    "path": "logs/pgmt_v6_blind/20261011_02/startup_validation.json",
+    "sha256": "88d708b5012481bf3191d943609e2ce18329c5bd2a188203d4c09caa981d2a21",
+    "summary": {
+      "unit_tests_passed": 70,
+      "source_checkpoint_unchanged": true,
+      "no_collision_stack_overflow": true
+    },
+    "historical_training_snapshot": {
+      "updated_at": "2026-10-11T12:14:07.425477",
+      "completed_updates": 30,
+      "current_iteration": 15029,
+      "checks": {
+        "reset_poses": 410,
+        "sampler_outcomes": 250,
+        "physics_control_steps": 720,
+        "done_events": 250,
+        "reference_drift_checks": 114950,
+        "contact_freshness_checks": 115200
+      }
+    }
+  },
+  "completed_training": {
+    "path": "logs/pgmt_v6_blind/20261011_02/training_status.json",
+    "sha256": "cbb743538dd8aa6edb9100e65d0027f9090f3b856bb6f6e73db6d8b3df21a788",
+    "summary": {
+      "status": "completed",
+      "started_at": "2026-10-11T12:11:09.420261",
+      "updated_at": "2026-10-11T13:34:26.361376",
+      "num_envs": 160,
+      "headless": false,
+      "terrain_sha256": "5fc8e5e577feff19adfdc29bfeffe6bc2dc6736dbb4a54a8134d562c73bb665d",
+      "terrain_families": [
+        "flat",
+        "stairs",
+        "slope",
+        "boxes",
+        "rough"
+      ],
+      "terrain_regions": 50,
+      "terrain_patches": 800,
+      "requested_updates": 1000,
+      "completed_updates": 1000,
+      "current_iteration": 15999,
+      "loaded_iteration": 15000,
+      "loaded_tensor_count": 49,
+      "checkpoint_weights_exact": true,
+      "policy_signature_match": true,
+      "observation_schema_match": true,
+      "perception_injected": false,
+      "motion_count": 862,
+      "placement_mode": "patch",
+      "compatibility_families": [
+        "flat",
+        "up_stairs",
+        "up_slope",
+        "boxes",
+        "random_rough"
+      ],
+      "training_runtime_terrain_probes": 65260,
+      "training_runtime_height_error_m": 2.47173011302948e-06,
+      "training_runtime_mesh_query_error_m": 3.814697265625e-06,
+      "checks": {
+        "reset_poses": 10582,
+        "sampler_outcomes": 10422,
+        "physics_control_steps": 24000,
+        "done_events": 10422,
+        "reference_drift_checks": 3829578,
+        "contact_freshness_checks": 3840000
+      },
+      "curriculum_outcomes": [
+        5463,
+        4683,
+        276,
+        0,
+        0,
+        0
+      ],
+      "terrain_level_histogram": [
+        45,
+        20,
+        16,
+        9,
+        3,
+        4,
+        2,
+        4,
+        19,
+        38
+      ],
+      "max_placement_attempts_observed": 7,
+      "source_checkpoint_unchanged": true
+    }
+  },
+  "invalid_first_run": {
+    "path": "logs/pgmt_v6_blind/20261011_01/training_status.json",
+    "sha256": "a00253e40a5c0b6f4c87387d3ebd6b61e309d508f351ce2e9894783ecb7c3d36",
+    "summary": {
+      "status": "stopped_invalid",
+      "valid_training_run": false,
+      "completed_updates": 1,
+      "stop_reason": "PhysX GPU collision stack overflow; contact dropping. Stopped, increased stack from 64 MiB to 256 MiB; restart from original stage1 checkpoint in 20261011_02."
+    }
+  },
+  "launch": {
+    "path": "logs/pgmt_v6_blind/20261011_02/launch.json",
+    "sha256": "9272db75a1e246f6408cfac79cb46bd67ef065268dcebe4a1dbd05d7693c98e5",
+    "summary": {
+      "num_envs": 160,
+      "max_iterations": 1000,
+      "save_interval": 50,
+      "seed": 722,
+      "terrain_asset": "assets/terrain/pgmt_stage2_v6",
+      "device": "cuda:1",
+      "headless": false,
+      "viewer_mode": "tile",
+      "viewer_terrain": "stairs",
+      "viewer_level": 0,
+      "viewer_tile_offset": [
+        14.0,
+        -18.0,
+        20.0
+      ],
+      "isaacsim6_compat": true
+    }
+  },
+  "initial_spawns": {
+    "path": "logs/pgmt_v6_blind/20261011_02/initial_spawns.json",
+    "sha256": "96b0d8d53bfd549195b6374b77838cb6f47d6ef73d0488b5003d5244d306e5c2",
+    "summary": {
+      "environments": 160,
+      "fields": [
+        "level",
+        "family",
+        "patch",
+        "xy",
+        "yaw",
+        "min_gap",
+        "attempts"
+      ],
+      "minimum_gap_m": 0.002990925684571266,
+      "maximum_attempts": 4
+    }
+  },
+  "source_checkpoint": {
+    "path": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+    "sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+    "uploaded": false
+  },
+  "final_checkpoint": {
+    "path": "logs/pgmt_v6_blind/20261011_02/model_15999.pt",
+    "sha256": "a63f0c718b8369c4a14089d5d7849d3f137a01b3b1b9056ba5aa83e3d39ab99b",
+    "uploaded": false,
+    "iteration": 15999,
+    "optimizer_saved": true,
+    "policy_metadata_saved": true,
+    "environment_state_keys": [
+      "kind",
+      "curriculum",
+      "sampler"
+    ]
+  },
+  "evidence_note": "This task reran local tests and checked file hashes/metadata. Physics, GUI and PPO evidence comes from existing local reports; those runs were not repeated. Generated assets, checkpoints and raw logs are not uploaded.",
+  "remaining_validation": [
+    "v6 perception scan integration",
+    "v6 full simulation resume acceptance",
+    "all-level random-pose acceptance",
+    "policy convergence and full stage 2 evaluation"
+  ]
+}

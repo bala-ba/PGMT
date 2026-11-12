@@ -1,0 +1,102 @@
+{
+  "schema": "pmt.milestone.v1",
+  "version": "pgmt-p1-2026.10.10-r2",
+  "recorded_at": "2026-10-10T22:25:58+08:00",
+  "base_commit": "274f1ff77944097e0bc0be188de43bcde33140ab",
+  "base_version": "pgmt-p1-2026.10.10",
+  "source_revision": "Resolve the annotated Git tag pgmt-p1-2026.10.10-r2",
+  "scope": "Training GUI global/free, selected-robot follow and fixed-tile views with configurable camera offsets",
+  "source_files": [
+    {
+      "path": "scripts/train_pgmt_p1.py",
+      "sha256": "cda6d4f72adc4df12577eeda011af529b12c0f2b286e3e09463601844b07239d"
+    }
+  ],
+  "validation_this_task": {
+    "unit_test_command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py",
+    "passed": 111,
+    "failed": 0,
+    "python_ast": "passed for scripts/train_pgmt_p1.py",
+    "shell_syntax": "bash -n scripts/train_pgmt_p1_gui.sh passed",
+    "offline_argparse": "Default follow, global mode, and documented up_stairs/L5/offset 20 -28 48 example passed using extracted parser definitions",
+    "full_entrypoint_help": "Not completed: Isaac import required interactive EULA acknowledgement",
+    "gui_launched": false,
+    "training_launched": false,
+    "gui_interaction_validation": "not performed in this task"
+  },
+  "previous_snapshot": {
+    "path": "docs/versions/pgmt-p1-2026.10.10.json",
+    "sha256": "567dce1af39da3251cce673d7310344ccaff142e2bc9f3982ed6fcba9e86b0ec"
+  },
+  "existing_training_status": {
+    "path": "logs/pgmt_p1_blind/20261010_212841/training_status.json",
+    "sha256": "a78479a4b95cd7e61c62f0a8192415f7f424896dcd97d3429c8c683a628b859c",
+    "summary": {
+      "status": "training",
+      "started_at": "2026-10-10T21:28:41.941257",
+      "updated_at": "2026-10-10T22:03:05.525225",
+      "num_envs": 140,
+      "headless": false,
+      "requested_updates": 1000,
+      "completed_updates": 667,
+      "current_iteration": 15666,
+      "perception_injected": false,
+      "training_runtime_terrain_probes": 720,
+      "training_runtime_height_error_m": 2.1756490067303957e-06,
+      "checks": {
+        "reset_poses": 6180,
+        "sampler_outcomes": 6180,
+        "physics_control_steps": 16008,
+        "done_events": 6180,
+        "reference_drift_checks": 2234940,
+        "contact_freshness_checks": 2241120
+      },
+      "gui": {
+        "mode": "tile",
+        "visible_robots": 140,
+        "tile_family": "stairs",
+        "tile_level": 1,
+        "tile_name": "L01_stairs",
+        "tile_difficulty": 0.19433308971826052,
+        "tile_origin": [
+          -84.0,
+          -24.0,
+          3.1546647177460843
+        ],
+        "tile_camera_offset": [
+          19.200000000000003,
+          -28.799999999999997,
+          48.0
+        ],
+        "eye": [
+          -64.8,
+          -52.8,
+          51.15466471774609
+        ],
+        "target": [
+          -84.0,
+          -24.0,
+          3.1546647177460843
+        ],
+        "fabric_enabled": true
+      }
+    }
+  },
+  "existing_launch": {
+    "path": "logs/pgmt_p1_blind/20261010_212841/launch.json",
+    "sha256": "46dfde3a74b5123fa7ae842861ad83eec212125d01be0177adc9e8e2d67ca9ab",
+    "viewer_arguments": {
+      "viewer_mode": "follow",
+      "viewer_terrain": "flat",
+      "viewer_level": 0,
+      "viewer_tile_offset": null
+    }
+  },
+  "last_periodic_checkpoint": {
+    "path": "logs/pgmt_p1_blind/20261010_212841/model_15650.pt",
+    "sha256": "d7798e7721aabeb7e3d386e2261b1e68b7eea15efd0b1141bdf913669fbad8b8",
+    "uploaded": false
+  },
+  "existing_evidence_note": "Existing local status as recorded; status=training does not establish current process liveness. No GUI or PPO run was started for this version. The exact source revision used by this older run was not verified.",
+  "checkpoint_note": "Last periodic save model_15650.pt differs from status iteration 15666. Generated assets, raw logs and checkpoints are not uploaded."
+}

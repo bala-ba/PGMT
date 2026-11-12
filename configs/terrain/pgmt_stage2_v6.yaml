@@ -1,0 +1,55 @@
+# Independent preview specification; v5 and the training defaults stay intact.
+type: pgmt_patch_regions
+version: pgmt_stage2_v6
+seed: 1731
+curriculum: true
+difficulty_range: [0.0, 1.0]
+num_rows: 10
+num_cols: 5
+families: [flat, stairs, slope, boxes, rough]
+region_size: [24.0, 24.0]
+patch_grid: [4, 4]
+patch_size: [6.0, 6.0]
+border_width: 20.0
+horizontal_scale: 0.10
+vertical_scale: 0.005
+platform_width: 2.0
+flat:
+  class_name: MeshPlaneTerrainCfg
+stairs:
+  class_name: MeshInvertedPyramidStairsTerrainCfg
+  shape: inverted_pyramid
+  height_range: [0.05, 0.30]
+  # Temporarily disable difficulty-dependent tread depth.
+  depth_range: [0.32, 0.32]
+  border_width: 1.0
+slope:
+  class_name: HfInvertedPyramidSlopedTerrainCfg
+  shape: inverted_pyramid
+  platform_width: 0.5
+  angle_range_deg: [0.0, 30.0]
+  border_width: 0.25
+boxes:
+  class_name: MeshRandomGridTerrainCfg
+  # Native semantics: H increases with difficulty; cell tops sample [-H, H].
+  grid_height_range: [0.05, 0.40]
+  grid_width: 0.70
+  platform_width: 0.0
+  # Total width between adjacent patches, verified against native grid packing.
+  # 6 - floor(6 / 0.7) * 0.7 = 0.4 m; each patch contributes 0.2 m.
+  connection_width: 0.40
+  holes: false
+rough:
+  class_name: HfRandomUniformTerrainCfg
+  amplitude_range: [0.01, 0.08]
+  horizontal_scale: 0.15
+  noise_step: 0.01
+  downsampled_scale: 0.30
+  border_width: 0.25
+  slope_threshold: 0.75
+spawn_preview:
+  # Surface samples visualize the proposed XY/yaw distribution, not valid robot poses.
+  samples_per_patch: 16
+  boundary_margin: 0.25
+  yaw_range: [-3.141592653589793, 3.141592653589793]
+  fixed_start_frame: 0

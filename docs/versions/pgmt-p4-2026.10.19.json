@@ -1,0 +1,2439 @@
+{
+  "schema": "pmt-research-version-v1",
+  "version": "pgmt-p4-2026.10.19",
+  "recorded_at": "2026-10-19T16:12:55.204461+08:00",
+  "base_commit": "e7e70fab6dbfb8c215937a3261ceecbfc7504170",
+  "base_version": "pgmt-p4-2026.10.15",
+  "source_revision": "The annotated tag identifies the commit containing this manifest; this file excludes its own hash.",
+  "scope": "Stage2 collection/PPO optimizations, multi-GPU, central spawn patches, timeout boundary handling, continuous support-pattern T1, policy playback and training analysis.",
+  "source_files": {
+    "CHANGELOG.md": "2ca2d5f1461dd343cbac32a6a8aa269aabe2635e7370059173aa19ad772e6ae8",
+    "README.md": "c932c020ed6df791fb5919fe519dcda882247b9916da437fc563edebb1eb9a6d",
+    "configs/reward/pgmt_stage2_terrain.yaml": "755c49b5704e8bb42e0fbb4c100d56f6d07eeb287a1e28061f8e56b798164215",
+    "docs/PGMT_COLLECTION_OPTIMIZATION.zh-CN.md": "fd1479299b0f3b4013b36c1556bb3a7b7c52afa35f828326234c36741a99c2c5",
+    "docs/PGMT_COLLECTION_PERFORMANCE.zh-CN.md": "1b3e3a5771c5124b765c5cbd39de1a57d571a15655a097500c9c5228b3a78514",
+    "docs/PGMT_CONTACT_STATE.zh-CN.md": "f4e7f0c40e63bb012ba8d9ef412c2cf8ef27a0886cc63c35cc25bdbf8bf1c066",
+    "docs/PGMT_GUI_STARTUP.zh-CN.md": "075d6b695bde5f0e970efd79ada4136194ee3759c9b0d6c60ab4c04897947678",
+    "docs/PGMT_MULTI_GPU.zh-CN.md": "ee1ee67343fa38efebcb2033a663a18b29fd439a906467b36b1ec2c332d7d4b0",
+    "docs/PGMT_P3_REWARD_AUDIT.zh-CN.md": "24b97a7579d6325985d043d76d0d6e9a78aab9c1bd63f81c650a57b4105fc305",
+    "docs/PGMT_PPO_LOG_SCALARS.zh-CN.md": "3ef1c58024d38aae15d9c9468c77577b19f8efe220cb4c5085601e00a2bd02c7",
+    "docs/PGMT_REFERENCE_PLACEMENT.zh-CN.md": "e21ae4ef47f1d79fceef9335b309372d57a1e1e8e793d87f47fb44576880e124",
+    "docs/PGMT_SHARED_ENCODING.zh-CN.md": "1ddd8ca44df97c39906aa7a9ff8c19acc0c19a144435d039489b7e3ad8393cd7",
+    "docs/PGMT_STAGE1_FLAT_PLAY.zh-CN.md": "e4d0f09738b30dd032834ccf66ef7a3571dd01a579082c85890b0ae6936c2a71",
+    "docs/PGMT_STAGE2_PLAN.zh-CN.md": "19c78313629e444e7f22d537c9ea917f722d9e0dabc88fcb3504ad9b3c63385d",
+    "docs/PGMT_STAGE2_TERMINATIONS.zh-CN.md": "bd911fc1fd7ad396dff9dc29a311cfc37641d685117e7540bfd5f2c0128b9f0d",
+    "docs/PGMT_STAGE2_TERRAIN_REWARD_ANALYSIS.zh-CN.md": "a7c33c4a3b2ae2943acc188c23265faa6a182afb286fcf0a6f4ad9f52e838334",
+    "docs/PGMT_TERRAIN_CURRICULUM.zh-CN.md": "3f9fa9187271e8fbb2dc43bccfe6aae681f11cdb47ba9b1af41bb4909ec74802",
+    "docs/PGMT_TERRAIN_POLICY_TEST.zh-CN.md": "38091059417ed1189a0f902d211794be4bd3411603300c61a0c374d4bfe3d6ea",
+    "docs/PGMT_TOUCHDOWN_QUALITY.zh-CN.md": "9a90e5028f1aab09c65c22855191005667484678e7d3ea6747191a271054d55f",
+    "docs/USER_READ.md": "e20307e86e5bd232594c79db759ed533c4357f0e42da49968366e952ed4a207a",
+    "motion_tracking_rl/algorithms/ppo.py": "fa4f6a30a825e6bc0cf8a14174e650492e970eebb5078c14579243bb9bd6888d",
+    "motion_tracking_rl/algorithms/ppo_logging.py": "a02fa527d9b850c604a752e251e72688c6f0469c810a7e28b85a5425d185ce9a",
+    "motion_tracking_rl/networks/layers/normalization.py": "ac75cf5f459a0d4995645e2e3b54330c1ef468bb3b56bc3d6091ef040c907fb2",
+    "motion_tracking_rl/networks/pgmt_actor_critic.py": "484dee1b3ec08b4efb544fbfc5528707df8059eb517085f558a31f63ef60f082",
+    "motion_tracking_rl/runners/on_policy_runner.py": "ad2afe82e6a0ea49e9021d5b9e99ae8f02277c0cd9a8fd0dbb8f909cf7275835",
+    "motion_tracking_rl/runners/pgmt_runner.py": "07312e2966e9bf264c0c944a3e63788a1c52d75e954d4670e824bca66cb82d63",
+    "motion_tracking_rl/utils/pgmt_distributed.py": "65ffa6b674ca7d8a362165ba18c855606e97a6c92208542ab0267661e3fd170e",
+    "pmt_tasks/env_cfgs/pgmt/stage2.py": "a7258c0f917554cb6042ba00919405e5e5d786490de3a8d7f738ea727fd7e7a9",
+    "pmt_tasks/mdp/commands/pgmt_motion_command.py": "f5bea44a1c9b3c637a5472f7b1b830dd122232d9b066758630b6288744d00d6e",
+    "pmt_tasks/pgmt_contact_state.py": "317a5ef6136c6275281300f80316f96599e142d23e5aff07b1488f088749e68d",
+    "pmt_tasks/pgmt_curriculum.py": "9868473b37f6f24e133beefe18a5d56576d65cb3a7dde409ca090519b3a4719a",
+    "pmt_tasks/pgmt_fast_placement.py": "9a128b3cc79963e490a0eaebc4b417c25d9c57f9e40efbe9d892387b27e88011",
+    "pmt_tasks/pgmt_performance.py": "fb2ea9c94233f07be4a06de1b65bc8c0f06f1efa0aaeb6fcff12665228fb94d4",
+    "pmt_tasks/pgmt_reference.py": "ec9e097fbd015b86093596f109d8f3f5830f3c6df46f19108f93bb37fa672367",
+    "pmt_tasks/pgmt_reference_ghost.py": "c0d25c3d921f5d673bfbb51aeb1d9a704b6dc2a8c886198cfd6e1b9da9f9a9d4",
+    "pmt_tasks/pgmt_runtime.py": "2b98567adee825afa0aef23a9c9898192938395228cf6a31d56bd0a5c8507c2f",
+    "pmt_tasks/pgmt_terminations.py": "acc93e68af6a72caa1119859b5fc1599f560d734b891606beeb4bb418b27143a",
+    "pmt_tasks/pgmt_terrain_importer.py": "f8d88ab8a53cd35680153cf509352f2ad46e5638c9680d26fdf888af7f6f1c5a",
+    "pmt_tasks/pgmt_terrain_layout.py": "250929ed32809cf64fe22f8134add1e19fc321345a188e9cafbf759da1ec4a1b",
+    "pmt_tasks/pgmt_touchdown.py": "301e2b7d421f859969b51eaa3e9e62e2ae8bb502de33496e98171769cf879693",
+    "scripts/analyze_pgmt_terrain_rewards.py": "85a1f180cefd0d27a730af35d1711511f5988b0414278dc9c319aa096799c3e1",
+    "scripts/analyze_pgmt_training_metrics.py": "f27c60fadc45d637750370bb183c3ad1989d61af22b4397eb77ee64168a0cce4",
+    "scripts/pgmt_distributed.py": "ae62bc698f3495a29f440feb90c841f2018309f7c8ec907f68d66244499432fa",
+    "scripts/pgmt_process_guard.py": "25df63f2ac43e657bca2489905f3d8f8864039fae9007d472244ad44222cee66",
+    "scripts/pgmt_stage2_checks.py": "cd4ac5f28db0108bfe0798cb9c18e8f4c0d46c74179e115774d727a45a35010f",
+    "scripts/pgmt_touchdown_checks.py": "67e8d386671da917be8bb684a061a40c87f0c164f456c1adbfec1c32d33fb450",
+    "scripts/pgmt_touchdown_visualization.py": "f2becdfbc2bf3d59156f21c4d9ccd038d9100b9cec2ea520e7ab62070b745182",
+    "scripts/play_pgmt_stage1_flat.py": "73cae5d91a3db9f899e79551a5707999e571d3f0d0ba25d87a9af1e149fbbfea",
+    "scripts/play_pgmt_stage1_flat.sh": "558886c032ac90af5b108860faef96a1e756adffa7c1eacb28883183366a7bbd",
+    "scripts/play_pgmt_stage2_stairs.py": "24cbba01dcb8a9f97bf178fe92bf51c4d5b0cbd38763e645e47aebd1ff792fb4",
+    "scripts/play_pgmt_stage2_stairs.sh": "6e041c0f15ee2e567964366200d70ee244577b617e5d5307afb1bc734cf4ca57",
+    "scripts/train_pgmt_stage2.py": "184d808c589dfab77c11aabe1081a1073d6bd4bb9bb89365177169b58153f4f1",
+    "scripts/train_pgmt_stage2_native.sh": "18455e1112eecd1c04c035859654b26b17187c186b1a80a9b0376eee73f2694d",
+    "scripts/validate_pgmt_contact_state.py": "a2de4bb690c03e171bd392ceb1ac6072d307056fba019c43711a9449b43803d0",
+    "scripts/validate_pgmt_terminations.py": "05f6e420150a178e6a9501079c332eebb8e4c6bde7430a18791bb2813546b3e3",
+    "tests/test_pgmt_contact_state.py": "9898969159a1cdacf041870a734bfedc25c3f8f7b06ef1b04eb075a8b7ab1ba6",
+    "tests/test_pgmt_distributed.py": "b1cf6855e324ecf2f3a23516b358564227ffa32d3e4142a7a759785539c1dbc3",
+    "tests/test_pgmt_four_head.py": "4e0645162b6cc5a396a466a6fe4f9e257f2820def8e139bee465d9f008170bfb",
+    "tests/test_pgmt_joint_forward.py": "f71974cc31d7496e235836f7cf271d5bb6fa258336491be9a84ca3656dc5b6e7",
+    "tests/test_pgmt_patch_layout.py": "cf7fea2badb512faf2b0374c79c6ddc8ed9547d20e29216609619011921b00d8",
+    "tests/test_pgmt_perception_ppo.py": "d7226dc18a25e38a35cba586439ea59a45ca18e7ab2a781ee0ffd4841b0e2fea",
+    "tests/test_pgmt_performance.py": "785838f035f9f8a8ed75035ee18c770b45a98fa8cc5e350890cb11820a403b95",
+    "tests/test_pgmt_process_guard.py": "088e3b3dcb0c487a50cac3e0596a533774748439a829489bca8b03787b84b96c",
+    "tests/test_pgmt_reference.py": "b52e3928045ee763475785b841fe0e77c6792597ea75605d42c5d7ab454fdc91",
+    "tests/test_pgmt_terminations.py": "b33c7572ca7dadbd4fac56cc4e81cbc11fa8935b7a53160d07a58d77f80df54e",
+    "tests/test_pgmt_touchdown.py": "cbcab6478b86e2a52f7bb8ab47a44b6278abfc3481a9e4c2107b614727d5a63f",
+    "tests/test_ppo_logging.py": "e045298065ae0101106ae444d5bb28024123cf3c19bba4f94bd608f3740f369d"
+  },
+  "validation_this_task": {
+    "suites": [
+      {
+        "command": "CUDA_VISIBLE_DEVICES='' PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 OMP_NUM_THREADS=2 /home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py tests/test_ppo_logging.py tests/test_normalization_resume.py tests/test_all_tasks_resolve.py tests/test_builder_slice.py tests/test_compat_matrix.py tests/test_group_yaml_valid.py -k 'not test_sonic_agent_cfg_modes_resolve_release_onnx and not test_pgmt_four_head' --junitxml=/tmp/pmt-release-20261019-main.xml -o junit_family=legacy -rs",
+        "junit_path": "/tmp/pmt-release-20261019-main.xml",
+        "junit_sha256": "b9f5627a87abe788e0235681332d91bfe34d80438d7036364a0556a4a3c7eb65",
+        "passed": 1012,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 85
+      },
+      {
+        "command": "CUDA_VISIBLE_DEVICES='' PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 OMP_NUM_THREADS=2 /home/lzp/miniconda3/envs/isaacsim/bin/python -m pytest -q tests/test_pgmt_four_head.py --junitxml=/tmp/pmt-release-20261019-four-head.xml -o junit_family=legacy -rs",
+        "junit_path": "/tmp/pmt-release-20261019-four-head.xml",
+        "junit_sha256": "5a4e08d65e33f16e42bf3f47c7561304f1d4a84b4b96f9d8408f3f2d5457e051",
+        "passed": 25,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 2
+      }
+    ],
+    "total_passed": 1037,
+    "total_skipped": 87,
+    "total_failed": 0,
+    "excluded": [
+      "test_sonic_agent_cfg_modes_resolve_release_onnx: existing Isaac EULA interaction"
+    ],
+    "split_reason": "NumPy 2 historical checkpoint RNG requires isaacsim environment; pmt is used for remaining tests. Third-party pytest plugin autoload disabled.",
+    "gpu_policy": "CUDA_VISIBLE_DEVICES is empty to avoid contending with the active user training; all CUDA/NCCL cases skipped, two-process CPU Gloo test passed.",
+    "syntax": {
+      "python": [
+        "motion_tracking_rl/algorithms/ppo.py",
+        "motion_tracking_rl/algorithms/ppo_logging.py",
+        "motion_tracking_rl/networks/layers/normalization.py",
+        "motion_tracking_rl/networks/pgmt_actor_critic.py",
+        "motion_tracking_rl/runners/on_policy_runner.py",
+        "motion_tracking_rl/runners/pgmt_runner.py",
+        "motion_tracking_rl/utils/pgmt_distributed.py",
+        "pmt_tasks/env_cfgs/pgmt/stage2.py",
+        "pmt_tasks/mdp/commands/pgmt_motion_command.py",
+        "pmt_tasks/pgmt_contact_state.py",
+        "pmt_tasks/pgmt_curriculum.py",
+        "pmt_tasks/pgmt_fast_placement.py",
+        "pmt_tasks/pgmt_performance.py",
+        "pmt_tasks/pgmt_reference.py",
+        "pmt_tasks/pgmt_reference_ghost.py",
+        "pmt_tasks/pgmt_runtime.py",
+        "pmt_tasks/pgmt_terminations.py",
+        "pmt_tasks/pgmt_terrain_importer.py",
+        "pmt_tasks/pgmt_terrain_layout.py",
+        "pmt_tasks/pgmt_touchdown.py",
+        "scripts/analyze_pgmt_terrain_rewards.py",
+        "scripts/analyze_pgmt_training_metrics.py",
+        "scripts/pgmt_distributed.py",
+        "scripts/pgmt_process_guard.py",
+        "scripts/pgmt_stage2_checks.py",
+        "scripts/pgmt_touchdown_checks.py",
+        "scripts/pgmt_touchdown_visualization.py",
+        "scripts/play_pgmt_stage1_flat.py",
+        "scripts/play_pgmt_stage2_stairs.py",
+        "scripts/train_pgmt_stage2.py",
+        "scripts/validate_pgmt_contact_state.py",
+        "scripts/validate_pgmt_terminations.py",
+        "tests/test_pgmt_contact_state.py",
+        "tests/test_pgmt_distributed.py",
+        "tests/test_pgmt_four_head.py",
+        "tests/test_pgmt_joint_forward.py",
+        "tests/test_pgmt_patch_layout.py",
+        "tests/test_pgmt_perception_ppo.py",
+        "tests/test_pgmt_performance.py",
+        "tests/test_pgmt_process_guard.py",
+        "tests/test_pgmt_reference.py",
+        "tests/test_pgmt_terminations.py",
+        "tests/test_pgmt_touchdown.py",
+        "tests/test_ppo_logging.py"
+      ],
+      "shell": [
+        "scripts/play_pgmt_stage1_flat.sh",
+        "scripts/play_pgmt_stage2_stairs.sh",
+        "scripts/train_pgmt_stage2_native.sh"
+      ],
+      "yaml": [
+        "configs/reward/pgmt_stage2_terrain.yaml"
+      ]
+    },
+    "new_isaac_or_training_runs": false,
+    "diff_check": "passed",
+    "disjoint_suite_case_ids_verified": true
+  },
+  "completed_training": {
+    "status": {
+      "path": "logs/pgmt_stage2_center2x2/train_01/training_status.json",
+      "sha256": "7ec82643e7656d184263c36adf6deba683a4cef849eb04592762d70966a5e0be",
+      "uploaded": false,
+      "snapshot": {
+        "status": "completed",
+        "pid": 1525557,
+        "started_at": "2026-10-15T16:39:29.501610",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage2_center2x2/train_01",
+        "completed_updates": 20000,
+        "updated_at": "2026-10-17T03:51:36.148533",
+        "checkpoint_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "migration_comparison_mode": "blind",
+        "migrated_tensor_count": 47,
+        "initialized_tensor_count": 10,
+        "start_iteration": 0,
+        "next_iteration": 20000,
+        "stop_reason": "iteration_limit",
+        "training_walltime_s": 126665.36296995501,
+        "source_checkpoint_unchanged": true,
+        "final_checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage2_center2x2/train_01/final.pt",
+        "mean_collection_s": 4.909524682295478,
+        "mean_update_s": 1.3558483295330042,
+        "simulator_version": "5.1.0.0"
+      }
+    },
+    "launch": {
+      "path": "logs/pgmt_stage2_center2x2/train_01/launch.json",
+      "sha256": "d8dd7775374b9513667674f1c213186ee1430ad28c10e1e17e17319c94b87363",
+      "uploaded": false,
+      "snapshot": {
+        "task": "pgmt_stage2_terrain",
+        "initialize_from": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "resume": null,
+        "num_envs": 8192,
+        "max_iterations": 20000,
+        "save_interval": 100,
+        "max_runtime_s": 0.0,
+        "stop_file": null,
+        "env_id_bits": 0,
+        "flat_only": false,
+        "log_dir": "logs/pgmt_stage2_center2x2/train_01",
+        "seed": 722,
+        "acceptance": false,
+        "profile": "perception",
+        "robot_usd": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p1_acceptance/native_robot/main.usd",
+        "isaacsim6_compat": false,
+        "performance": "all",
+        "tracking_relaxation": false,
+        "tracking_relaxation_config": null,
+        "enable_cameras": false,
+        "xr": false,
+        "device": "cuda:1",
+        "cpu": false,
+        "verbose": false,
+        "info": false,
+        "rendering_mode": null,
+        "kit_args": "",
+        "anim_recording_enabled": false,
+        "anim_recording_start_time": 0,
+        "anim_recording_stop_time": 10,
+        "multi_gpu": false,
+        "fast_shutdown": true,
+        "headless": true,
+        "hide_ui": true,
+        "create_new_stage": false,
+        "physics_gpu": 1,
+        "active_gpu": 1
+      }
+    },
+    "checkpoint": {
+      "path": "logs/pgmt_stage2_center2x2/train_01/final.pt",
+      "bytes": 15293298,
+      "sha256": "e3f23fde8bbc44a82d98b64faa0d45c471e56eb088aae5f34b0bf3f2d1c81acd",
+      "uploaded": false,
+      "kind": "pgmt_terrain_training",
+      "iteration": 20000,
+      "next_iteration": 20000,
+      "model_finite": true,
+      "optimizer_finite": true,
+      "training_contract_sha256": "e53976c6e78f5379f7d495e5e75acac38cd02a1a38d41780735dece013828f2e",
+      "num_envs": 8192,
+      "num_steps_per_env": 24,
+      "touchdown_config": {
+        "length_m": 0.2,
+        "width_m": 0.1,
+        "center_x_m": 0.039,
+        "sigma_m": 0.03
+      },
+      "time_out": {
+        "func": "pmt_tasks.pgmt_terminations:pgmt_time_out",
+        "params": {
+          "command_name": "motion",
+          "boundary_tolerance_steps": 2
+        },
+        "time_out": true
+      },
+      "placement_patch_grid": [
+        2,
+        2
+      ],
+      "execution_options": {
+        "version": 1,
+        "features": [
+          "audit",
+          "contact_sensor",
+          "placement",
+          "reset_stats",
+          "reward_compile"
+        ],
+        "placement": {
+          "source_frame_cache": true,
+          "geometry_only": true,
+          "local_reference_updates": true,
+          "indexed_buffer_clears": true
+        },
+        "contact_sensor": {
+          "before_history": 3,
+          "before_track_air_time": true,
+          "history_length": 0,
+          "track_air_time": false
+        },
+        "reward_compile": {
+          "backend": "inductor",
+          "fullgraph": true,
+          "dynamic": false
+        },
+        "actor_critic_forward": "joint_encode",
+        "ppo_log_scalars": "gpu_accumulate_single_read"
+      },
+      "total_timesteps": 3932160000,
+      "required_persistent_state_present": true
+    },
+    "playback_checkpoint": {
+      "path": "logs/pgmt_stage2_center2x2/train_01/model_19999.pt",
+      "bytes": 15294856,
+      "sha256": "f475b8d1f035a378fc548218cf806b8ec422f9dee094ecaf00531f509b844982",
+      "uploaded": false
+    },
+    "environment_transitions": 3932160000,
+    "reward_semantics": "Historical event-gated T1; does not validate support_pattern_mean_v2 or establish convergence."
+  },
+  "ongoing_training": {
+    "status": {
+      "path": "logs/pgmt_stage2_center2x2/train_02/training_status.json",
+      "sha256": "72425e4566c7857e230d4f9dc83fa2fe8cbf3ddb46256f905b73b4b6d261c214",
+      "uploaded": false,
+      "snapshot": {
+        "status": "training",
+        "pid": 3800016,
+        "started_at": "2026-10-18T17:19:23.688775",
+        "run_id": "6135338a041849b1b5058314afa3caf7",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage2_center2x2/train_02",
+        "completed_updates": 13318,
+        "rank": 0,
+        "world_size": 1,
+        "local_num_envs": 8192,
+        "total_num_envs": 8192,
+        "seed": 722,
+        "updated_at": "2026-10-19T16:12:51.639102",
+        "checkpoint_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "migration_comparison_mode": "blind",
+        "migrated_tensor_count": 47,
+        "initialized_tensor_count": 10,
+        "start_iteration": 0,
+        "next_iteration": 13318
+      },
+      "process_observed_alive": true,
+      "snapshot_note": "Point-in-time status; active run was not stopped or resumed by this archival task.",
+      "process_verification": {
+        "method": "Host ps -p 3800016 -o pid=,etime=,args= outside filesystem sandbox",
+        "identity": "pmt Python scripts/train_pgmt_stage2.py --log_dir logs/pgmt_stage2_center2x2/train_02",
+        "elapsed_at_check": "22:53:49",
+        "note": "Read-only confirmation; no signals or process mutations."
+      }
+    },
+    "launch": {
+      "path": "logs/pgmt_stage2_center2x2/train_02/launch.json",
+      "sha256": "2a21bb0dd7eaadc4776282f4d0aae7962a30b7e465a21fae8139d2a4a28279a5",
+      "uploaded": false,
+      "snapshot": {
+        "task": "pgmt_stage2_terrain",
+        "initialize_from": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "resume": null,
+        "num_envs": 8192,
+        "gpus": null,
+        "distributed": false,
+        "max_iterations": 20000,
+        "save_interval": 100,
+        "max_runtime_s": 0.0,
+        "stop_file": null,
+        "env_id_bits": 0,
+        "flat_only": false,
+        "log_dir": "logs/pgmt_stage2_center2x2/train_02",
+        "seed": 722,
+        "acceptance": false,
+        "profile": "perception",
+        "robot_usd": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p1_acceptance/native_robot/main.usd",
+        "isaacsim6_compat": false,
+        "performance": "all",
+        "tracking_relaxation": false,
+        "tracking_relaxation_config": null,
+        "enable_cameras": false,
+        "xr": false,
+        "device": "cuda:1",
+        "cpu": false,
+        "verbose": false,
+        "info": false,
+        "rendering_mode": null,
+        "kit_args": "",
+        "anim_recording_enabled": false,
+        "anim_recording_start_time": 0,
+        "anim_recording_stop_time": 10,
+        "multi_gpu": false,
+        "fast_shutdown": true,
+        "headless": true,
+        "hide_ui": true,
+        "create_new_stage": false,
+        "physics_gpu": 1,
+        "active_gpu": 1
+      }
+    },
+    "saved_checkpoint": {
+      "path": "logs/pgmt_stage2_center2x2/train_02/model_13200.pt",
+      "bytes": 15294920,
+      "sha256": "f316f2dc5d2035dd69fe79e1eb4a01c715e22b57be5a4ef31804918b517eb0d7",
+      "uploaded": false,
+      "kind": "pgmt_terrain_training",
+      "iteration": 13201,
+      "next_iteration": 13201,
+      "model_finite": true,
+      "optimizer_finite": true,
+      "training_contract_sha256": "615711c1239ee8f755d630629b47c453f3c1a75ae2c0c4a525af5e11ba9400cf",
+      "num_envs": 8192,
+      "num_steps_per_env": 24,
+      "touchdown_config": {
+        "length_m": 0.2,
+        "width_m": 0.1,
+        "center_x_m": 0.039,
+        "sigma_m": 0.03,
+        "settlement": "support_pattern_mean_v2"
+      },
+      "time_out": {
+        "func": "pmt_tasks.pgmt_terminations:pgmt_time_out",
+        "params": {
+          "command_name": "motion",
+          "boundary_tolerance_steps": 2
+        },
+        "time_out": true
+      },
+      "placement_patch_grid": [
+        2,
+        2
+      ],
+      "execution_options": {
+        "version": 1,
+        "features": [
+          "audit",
+          "contact_sensor",
+          "placement",
+          "reset_stats",
+          "reward_compile"
+        ],
+        "placement": {
+          "source_frame_cache": true,
+          "geometry_only": true,
+          "local_reference_updates": true,
+          "indexed_buffer_clears": true
+        },
+        "contact_sensor": {
+          "before_history": 3,
+          "before_track_air_time": true,
+          "history_length": 0,
+          "track_air_time": false
+        },
+        "reward_compile": {
+          "backend": "inductor",
+          "fullgraph": true,
+          "dynamic": false
+        },
+        "actor_critic_forward": "joint_encode",
+        "ppo_log_scalars": "gpu_accumulate_single_read"
+      },
+      "total_timesteps": 2595422208,
+      "required_persistent_state_present": true
+    },
+    "checkpoint_note": "A completed immutable periodic checkpoint, distinct from the later live status counter; filename 13200 stores next_iteration 13201.",
+    "reward_semantics": "support_pattern_mean_v2"
+  },
+  "source_checkpoint": {
+    "path": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+    "bytes": 9591383,
+    "sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+    "uploaded": false
+  },
+  "previous_formal_checkpoint": {
+    "path": "logs/pgmt_p4_20261014/formal_8192/final.pt",
+    "bytes": 15292594,
+    "sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+    "uploaded": false
+  },
+  "historical_evidence": [
+    {
+      "path": "logs/pgmt_speed_20261015/summary.json",
+      "sha256": "9086720178f45f26ed2b5ff879919d188fc6957642da4a76dd965013c55603a9",
+      "uploaded": false,
+      "snapshot": {
+        "runs": {
+          "baseline_v2": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [],
+            "collection_all_s": [
+              8.238742113113403,
+              10.714714527130127,
+              14.08703064918518,
+              14.818915605545044,
+              14.450681924819946,
+              14.310198068618774,
+              14.23228144645691,
+              15.084599018096924
+            ],
+            "collection_mean_s": 14.497284452120462,
+            "collection_std_s": 0.3805503605404836,
+            "ppo_mean_s": 3.8271305163701377,
+            "transitions_per_second": 13561.712239925244,
+            "reset_mean_s": 6.502773572850856,
+            "reset_calls": 144,
+            "physics_mean_s": 3.3168088773454656,
+            "reward_mean_s": 1.5033713781570743,
+            "reward_exclusive_mean_s": 1.0483866860061728,
+            "placement_mean_s": 2.318580095333649,
+            "reward_reset_mean_s": 0.7880778119918735,
+            "contact_sensor_mean_s": 0.41996896616668283,
+            "contact_sensor_calls": 576,
+            "audit_wrapper_exclusive_mean_s": 0.23587588584147548,
+            "total_outcomes": 1552,
+            "done_events": 1552,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15156.84765625,
+            "peak_reserved_mib": 16288.0,
+            "training_walltime_s": 154.00840367500496,
+            "optimization_checks": null,
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 89 %, 2485 MiB, 32607 MiB\n1, 94 %, 4922 MiB, 32607 MiB\n",
+            "execution_options": null
+          },
+          "reset_stats": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "reset_stats"
+            ],
+            "collection_all_s": [
+              8.502376556396484,
+              11.31066346168518,
+              13.2119619846344,
+              13.58221983909607,
+              14.217010259628296,
+              13.994917631149292,
+              14.265357494354248,
+              14.952786684036255
+            ],
+            "collection_mean_s": 14.037375648816427,
+            "collection_std_s": 0.602079544595798,
+            "ppo_mean_s": 3.8519601424535117,
+            "transitions_per_second": 14006.03680621578,
+            "reset_mean_s": 6.3410038061774685,
+            "reset_calls": 144,
+            "physics_mean_s": 3.31388014418917,
+            "reward_mean_s": 1.4773445923395532,
+            "reward_exclusive_mean_s": 1.0332569975143997,
+            "placement_mean_s": 2.182771354341336,
+            "reward_reset_mean_s": 0.8566916395090326,
+            "contact_sensor_mean_s": 0.4350448568026574,
+            "contact_sensor_calls": 576,
+            "audit_wrapper_exclusive_mean_s": 0.15143098131617685,
+            "total_outcomes": 1555,
+            "done_events": 1555,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15159.36962890625,
+            "peak_reserved_mib": 16568.0,
+            "training_walltime_s": 148.30856351400143,
+            "optimization_checks": null,
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 93 %, 2485 MiB, 32607 MiB\n1, 95 %, 4544 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "reset_stats"
+              ]
+            },
+            "change_vs_previous_percent": 3.1723789708545502
+          },
+          "placement": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "placement",
+              "reset_stats"
+            ],
+            "collection_all_s": [
+              8.624062299728394,
+              10.728622436523438,
+              11.11794114112854,
+              11.119425058364868,
+              11.566469430923462,
+              11.404933452606201,
+              11.015383958816528,
+              11.480331659317017
+            ],
+            "collection_mean_s": 11.284080783526102,
+            "collection_std_s": 0.2279363921205933,
+            "ppo_mean_s": 3.863629142443339,
+            "transitions_per_second": 17423.483912578213,
+            "reset_mean_s": 3.7638538129782924,
+            "reset_calls": 144,
+            "physics_mean_s": 3.4947672610384566,
+            "reward_mean_s": 1.436006069345846,
+            "reward_exclusive_mean_s": 1.0265868288794688,
+            "placement_mean_s": 1.765030964835508,
+            "reward_reset_mean_s": 0.009872680828266311,
+            "contact_sensor_mean_s": 0.4814186401636107,
+            "contact_sensor_calls": 576,
+            "audit_wrapper_exclusive_mean_s": 0.07430608682140398,
+            "total_outcomes": 1656,
+            "done_events": 1656,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15160.431640625,
+            "peak_reserved_mib": 16334.0,
+            "training_walltime_s": 131.62059585400857,
+            "optimization_checks": null,
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 94 %, 2485 MiB, 32607 MiB\n1, 95 %, 4551 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "placement",
+                "reset_stats"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              }
+            },
+            "change_vs_previous_percent": 19.61402853476014
+          },
+          "contact_sensor_v2": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "contact_sensor",
+              "placement",
+              "reset_stats"
+            ],
+            "collection_all_s": [
+              8.193019390106201,
+              10.005865812301636,
+              10.935755014419556,
+              10.349558353424072,
+              9.86288857460022,
+              9.916661739349365,
+              10.198747158050537,
+              11.500412225723267
+            ],
+            "collection_mean_s": 10.460670510927836,
+            "collection_std_s": 0.6389063562409212,
+            "ppo_mean_s": 3.7957956790924072,
+            "transitions_per_second": 18794.971105782526,
+            "reset_mean_s": 3.605899699177826,
+            "reset_calls": 144,
+            "physics_mean_s": 3.4924143405345,
+            "reward_mean_s": 1.5826540660151902,
+            "reward_exclusive_mean_s": 1.1049822742133983,
+            "placement_mean_s": 1.8951110866789047,
+            "reward_reset_mean_s": 0.00988534816133324,
+            "contact_sensor_mean_s": 0.10901520066787877,
+            "contact_sensor_calls": 144,
+            "audit_wrapper_exclusive_mean_s": 0.08077564419606158,
+            "total_outcomes": 1636,
+            "done_events": 1636,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15153.306640625,
+            "peak_reserved_mib": 16464.0,
+            "training_walltime_s": 125.31948226399254,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8177,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 0.0001220703125,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 0,
+                "air_time": false
+              },
+              "placement_comparison": [
+                {
+                  "level": 0,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 5,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 9,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                }
+              ]
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 94 %, 2485 MiB, 32607 MiB\n1, 95 %, 4323 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "contact_sensor",
+                "placement",
+                "reset_stats"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              },
+              "contact_sensor": {
+                "before_history": 3,
+                "before_track_air_time": true,
+                "history_length": 0,
+                "track_air_time": false
+              }
+            },
+            "change_vs_previous_percent": 7.2970965769793334
+          },
+          "audit": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "audit",
+              "contact_sensor",
+              "placement",
+              "reset_stats"
+            ],
+            "collection_all_s": [
+              8.134774208068848,
+              10.757142305374146,
+              11.398270845413208,
+              11.706067085266113,
+              11.791991233825684,
+              11.767165899276733,
+              11.66420316696167,
+              11.551343441009521
+            ],
+            "collection_mean_s": 11.646506945292154,
+            "collection_std_s": 0.1485005601015128,
+            "ppo_mean_s": 4.0076431433359785,
+            "transitions_per_second": 16881.28474258752,
+            "reset_mean_s": 4.015714637680503,
+            "reset_calls": 144,
+            "physics_mean_s": 3.9919797079831674,
+            "reward_mean_s": 1.9027934183371447,
+            "reward_exclusive_mean_s": 1.2320677597163012,
+            "placement_mean_s": 1.9721144311624812,
+            "reward_reset_mean_s": 0.010893947655858938,
+            "contact_sensor_mean_s": 0.15410425299827088,
+            "contact_sensor_calls": 144,
+            "audit_wrapper_exclusive_mean_s": 0.044435256320866756,
+            "total_outcomes": 1620,
+            "done_events": 1620,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15153.49560546875,
+            "peak_reserved_mib": 16464.0,
+            "training_walltime_s": 135.2592957040033,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8176,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 0.0001220703125,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 0,
+                "air_time": false
+              },
+              "placement_comparison": [
+                {
+                  "level": 0,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 5,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 9,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                }
+              ]
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 94 %, 2485 MiB, 32607 MiB\n1, 1 %, 2445 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "audit",
+                "contact_sensor",
+                "placement",
+                "reset_stats"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              },
+              "contact_sensor": {
+                "before_history": 3,
+                "before_track_air_time": true,
+                "history_length": 0,
+                "track_air_time": false
+              }
+            },
+            "change_vs_previous_percent": -11.336141723664127
+          },
+          "reward_compile": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "audit",
+              "contact_sensor",
+              "placement",
+              "reset_stats",
+              "reward_compile"
+            ],
+            "collection_all_s": [
+              11.990792036056519,
+              4.639281511306763,
+              4.697142601013184,
+              4.628401517868042,
+              4.723443984985352,
+              4.813015699386597,
+              4.6716742515563965,
+              4.669410943984985
+            ],
+            "collection_mean_s": 4.700514833132426,
+            "collection_std_s": 0.06355017571377707,
+            "ppo_mean_s": 2.439160625139872,
+            "transitions_per_second": 41826.907685552454,
+            "reset_mean_s": 1.3340636453358456,
+            "reset_calls": 144,
+            "physics_mean_s": 1.9707074808563145,
+            "reward_mean_s": 0.836923940985192,
+            "reward_exclusive_mean_s": 0.6931335460709912,
+            "placement_mean_s": 1.197126121847153,
+            "reward_reset_mean_s": 0.0107584406650858,
+            "contact_sensor_mean_s": 0.0037429020133762,
+            "contact_sensor_calls": 144,
+            "audit_wrapper_exclusive_mean_s": 0.02460185381884609,
+            "total_outcomes": 1673,
+            "done_events": 1673,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15273.98779296875,
+            "peak_reserved_mib": 16598.0,
+            "training_walltime_s": 76.69831106500351,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8188,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 6.103515625e-05,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 0,
+                "air_time": false
+              },
+              "placement_comparison": [
+                {
+                  "level": 0,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 5,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 9,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                }
+              ],
+              "compiled_reward_comparison": {
+                "upper_body_position": 9.238719940185547e-07,
+                "upper_body_orientation": 2.384185791015625e-07,
+                "upper_body_linear_velocity": 5.960464477539062e-07,
+                "upper_body_angular_velocity": 3.2782554626464844e-07,
+                "upper_joint_position": 1.4901161193847656e-07,
+                "upper_joint_velocity": 1.1920928955078125e-07,
+                "lower_body_position": 1.4156103134155273e-06,
+                "lower_body_orientation": 6.407499313354492e-07,
+                "lower_body_linear_velocity": 2.682209014892578e-07,
+                "lower_body_angular_velocity": 1.7881393432617188e-07,
+                "lower_joint_position": 1.7881393432617188e-07,
+                "lower_joint_velocity": 1.1920928955078125e-07,
+                "auxiliary_root_orientation": 2.682209014892578e-07,
+                "auxiliary_root_velocity": 2.384185791015625e-07,
+                "auxiliary_anchor_position": 1.7881393432617188e-07,
+                "auxiliary_base_acceleration": 0.0,
+                "auxiliary_end_effector_acceleration": 0.0009765625,
+                "auxiliary_action_rate": 9.5367431640625e-07,
+                "auxiliary_joint_limit": 0.0,
+                "auxiliary_undesired_contacts": 0.0,
+                "auxiliary_anchor_contact_force": 0.5
+              }
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 0 %, 694 MiB, 32607 MiB\n1, 15 %, 4805 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "audit",
+                "contact_sensor",
+                "placement",
+                "reset_stats",
+                "reward_compile"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              },
+              "contact_sensor": {
+                "before_history": 3,
+                "before_track_air_time": true,
+                "history_length": 0,
+                "track_air_time": false
+              },
+              "reward_compile": {
+                "backend": "inductor",
+                "fullgraph": true,
+                "dynamic": false
+              }
+            }
+          },
+          "optimized_no_audit": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "contact_sensor",
+              "placement",
+              "reset_stats",
+              "reward_compile"
+            ],
+            "collection_all_s": [
+              11.367827415466309,
+              10.334117650985718,
+              10.289005517959595,
+              10.525077104568481,
+              10.789392471313477,
+              10.381917238235474,
+              10.792128086090088,
+              10.874630212783813
+            ],
+            "collection_mean_s": 10.608691771825155,
+            "collection_std_s": 0.24398454096194333,
+            "ppo_mean_s": 3.848955750465393,
+            "transitions_per_second": 18532.728090202105,
+            "reset_mean_s": 3.6052457589952005,
+            "reset_calls": 143,
+            "physics_mean_s": 3.513461901486153,
+            "reward_mean_s": 1.5332955288419423,
+            "reward_exclusive_mean_s": 1.1194947391583507,
+            "placement_mean_s": 1.799314858306995,
+            "reward_reset_mean_s": 0.011184936168623002,
+            "contact_sensor_mean_s": 0.08802358848576357,
+            "contact_sensor_calls": 144,
+            "audit_wrapper_exclusive_mean_s": 0.1029444737941958,
+            "total_outcomes": 1539,
+            "done_events": 1539,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15273.892578125,
+            "peak_reserved_mib": 16464.0,
+            "training_walltime_s": 130.55257877901022,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8181,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 0.0001220703125,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 0,
+                "air_time": false
+              },
+              "placement_comparison": [
+                {
+                  "level": 0,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 5,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 9,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                }
+              ],
+              "compiled_reward_comparison": {
+                "upper_body_position": 4.76837158203125e-07,
+                "upper_body_orientation": 2.8312206268310547e-07,
+                "upper_body_linear_velocity": 5.364418029785156e-07,
+                "upper_body_angular_velocity": 2.384185791015625e-07,
+                "upper_joint_position": 1.1920928955078125e-07,
+                "upper_joint_velocity": 1.1920928955078125e-07,
+                "lower_body_position": 5.066394805908203e-07,
+                "lower_body_orientation": 5.364418029785156e-07,
+                "lower_body_linear_velocity": 2.384185791015625e-07,
+                "lower_body_angular_velocity": 1.9371509552001953e-07,
+                "lower_joint_position": 1.1920928955078125e-07,
+                "lower_joint_velocity": 1.1920928955078125e-07,
+                "auxiliary_root_orientation": 2.384185791015625e-07,
+                "auxiliary_root_velocity": 4.76837158203125e-07,
+                "auxiliary_anchor_position": 1.7881393432617188e-07,
+                "auxiliary_base_acceleration": 0.0,
+                "auxiliary_end_effector_acceleration": 0.00048828125,
+                "auxiliary_action_rate": 9.5367431640625e-07,
+                "auxiliary_joint_limit": 0.0,
+                "auxiliary_undesired_contacts": 0.0,
+                "auxiliary_anchor_contact_force": 0.25
+              }
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 87 %, 2483 MiB, 32607 MiB\n1, 15 %, 4816 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "contact_sensor",
+                "placement",
+                "reset_stats",
+                "reward_compile"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              },
+              "contact_sensor": {
+                "before_history": 3,
+                "before_track_air_time": true,
+                "history_length": 0,
+                "track_air_time": false
+              },
+              "reward_compile": {
+                "backend": "inductor",
+                "fullgraph": true,
+                "dynamic": false
+              }
+            }
+          },
+          "baseline_final": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [],
+            "collection_all_s": [
+              8.936954975128174,
+              11.370471954345703,
+              13.89577841758728,
+              14.215358972549438,
+              14.548841714859009,
+              15.172801971435547,
+              14.944615840911865,
+              14.604900360107422
+            ],
+            "collection_mean_s": 14.563716212908426,
+            "collection_std_s": 0.46593584061659166,
+            "ppo_mean_s": 3.7898812691370645,
+            "transitions_per_second": 13499.851076865818,
+            "reset_mean_s": 6.543411632165468,
+            "reset_calls": 144,
+            "physics_mean_s": 3.47887871984373,
+            "reward_mean_s": 1.557814289519835,
+            "reward_exclusive_mean_s": 1.1183245531550103,
+            "placement_mean_s": 2.5159113486564215,
+            "reward_reset_mean_s": 0.815806092658022,
+            "contact_sensor_mean_s": 0.41301179133248905,
+            "contact_sensor_calls": 576,
+            "audit_wrapper_exclusive_mean_s": 0.14289526565456376,
+            "total_outcomes": 1625,
+            "done_events": 1625,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15157.91015625,
+            "peak_reserved_mib": 16568.0,
+            "training_walltime_s": 156.7318779030029,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8177,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 0.000244140625,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 3,
+                "air_time": true
+              }
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 88 %, 2483 MiB, 32607 MiB\n1, 15 %, 4442 MiB, 32607 MiB\n",
+            "execution_options": null
+          },
+          "optimized_repeat": {
+            "status": "passed",
+            "additional_updates": 8,
+            "next_iteration": 391,
+            "features": [
+              "audit",
+              "contact_sensor",
+              "placement",
+              "reset_stats",
+              "reward_compile"
+            ],
+            "collection_all_s": [
+              10.200958251953125,
+              9.777585506439209,
+              9.703652143478394,
+              10.968228816986084,
+              10.677537679672241,
+              10.432822227478027,
+              10.295796632766724,
+              10.159881591796875
+            ],
+            "collection_mean_s": 10.372986515363058,
+            "collection_std_s": 0.43589576955448534,
+            "ppo_mean_s": 3.8521984020868936,
+            "transitions_per_second": 18953.847063120244,
+            "reset_mean_s": 3.5816484116609595,
+            "reset_calls": 144,
+            "physics_mean_s": 3.530836483182308,
+            "reward_mean_s": 1.446235208158517,
+            "reward_exclusive_mean_s": 1.0715366177197818,
+            "placement_mean_s": 1.6855954506754642,
+            "reward_reset_mean_s": 0.011132095317104055,
+            "contact_sensor_mean_s": 0.0845860364982703,
+            "contact_sensor_calls": 144,
+            "audit_wrapper_exclusive_mean_s": 0.05379746614441198,
+            "total_outcomes": 1621,
+            "done_events": 1621,
+            "optimizer_tensors": 141,
+            "initial_model_and_state_exact": true,
+            "configs_exact": true,
+            "finite_losses_gradients_models_optimizer": true,
+            "scalar_tags": 1078,
+            "reward_tags": 27,
+            "peak_allocated_mib": 15275.69091796875,
+            "peak_reserved_mib": 16464.0,
+            "training_walltime_s": 127.39891517799697,
+            "optimization_checks": {
+              "status": "passed",
+              "current_net_forces": {
+                "nonreset_environments": 8181,
+                "sensor_vs_direct_max_error_n": 0.0001220703125,
+                "repeated_direct_max_error_n": 0.0001220703125,
+                "contact_threshold_mismatches": 0
+              },
+              "contact_sensor": {
+                "history": 0,
+                "air_time": false
+              },
+              "placement_comparison": [
+                {
+                  "level": 0,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 5,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                },
+                {
+                  "level": 9,
+                  "environments": 40,
+                  "exact": true,
+                  "errors": {
+                    "reference_rotation": 0.0,
+                    "reference_translation": 0.0,
+                    "placement_min_gap": 0.0,
+                    "placement_attempts": 0.0,
+                    "placement_patch_ids": 0.0,
+                    "placement_xy": 0.0,
+                    "placement_yaw": 0.0
+                  }
+                }
+              ],
+              "compiled_reward_comparison": {
+                "upper_body_position": 4.470348358154297e-07,
+                "upper_body_orientation": 2.384185791015625e-07,
+                "upper_body_linear_velocity": 6.258487701416016e-07,
+                "upper_body_angular_velocity": 4.76837158203125e-07,
+                "upper_joint_position": 1.1920928955078125e-07,
+                "upper_joint_velocity": 1.1920928955078125e-07,
+                "lower_body_position": 6.556510925292969e-07,
+                "lower_body_orientation": 5.364418029785156e-07,
+                "lower_body_linear_velocity": 2.384185791015625e-07,
+                "lower_body_angular_velocity": 3.8743019104003906e-07,
+                "lower_joint_position": 1.7881393432617188e-07,
+                "lower_joint_velocity": 1.1920928955078125e-07,
+                "auxiliary_root_orientation": 2.384185791015625e-07,
+                "auxiliary_root_velocity": 4.172325134277344e-07,
+                "auxiliary_anchor_position": 1.7881393432617188e-07,
+                "auxiliary_base_acceleration": 0.0,
+                "auxiliary_end_effector_acceleration": 0.0009765625,
+                "auxiliary_action_rate": 9.5367431640625e-07,
+                "auxiliary_joint_limit": 0.0,
+                "auxiliary_undesired_contacts": 0.0,
+                "auxiliary_anchor_contact_force": 0.125
+              },
+              "compiled_reward_scaled_error": {
+                "upper_body_position": 0.0074610356241464615,
+                "upper_body_orientation": 0.004364705178886652,
+                "upper_body_linear_velocity": 0.011016802862286568,
+                "upper_body_angular_velocity": 0.007765728514641523,
+                "upper_joint_position": 0.002141488017514348,
+                "upper_joint_velocity": 0.0019038546597585082,
+                "lower_body_position": 0.011902643367648125,
+                "lower_body_orientation": 0.008684742264449596,
+                "lower_body_linear_velocity": 0.004315245430916548,
+                "lower_body_angular_velocity": 0.0069063641130924225,
+                "lower_joint_position": 0.002738739363849163,
+                "lower_joint_velocity": 0.0020332804415374994,
+                "auxiliary_root_orientation": 0.004170093219727278,
+                "auxiliary_root_velocity": 0.007143811788409948,
+                "auxiliary_anchor_position": 0.002946756547316909,
+                "auxiliary_base_acceleration": 0.0,
+                "auxiliary_end_effector_acceleration": 0.013623994775116444,
+                "auxiliary_action_rate": 0.0038681048899888992,
+                "auxiliary_joint_limit": 0.0,
+                "auxiliary_undesired_contacts": 0.0,
+                "auxiliary_anchor_contact_force": 0.00551616633310914
+              },
+              "compiled_reward_step_max_error": {
+                "upper_body_position": 8.940696716308593e-09,
+                "upper_body_orientation": 4.76837158203125e-09,
+                "upper_body_linear_velocity": 6.258487701416015e-09,
+                "upper_body_angular_velocity": 4.76837158203125e-09,
+                "upper_joint_position": 2.384185791015625e-09,
+                "upper_joint_velocity": 1.1920928955078125e-09,
+                "lower_body_position": 6.556510925292969e-09,
+                "lower_body_orientation": 2.1457672119140624e-08,
+                "lower_body_linear_velocity": 2.384185791015625e-09,
+                "lower_body_angular_velocity": 3.874301910400391e-09,
+                "lower_joint_position": 1.7881393432617187e-09,
+                "lower_joint_velocity": 1.1920928955078125e-09,
+                "auxiliary_root_orientation": 2.384185791015625e-09,
+                "auxiliary_root_velocity": 1.6689300537109377e-08,
+                "auxiliary_anchor_position": 3.5762786865234374e-09,
+                "auxiliary_base_acceleration": 0.0,
+                "auxiliary_end_effector_acceleration": 1.953125e-08,
+                "auxiliary_action_rate": 9.5367431640625e-10,
+                "auxiliary_joint_limit": 0.0,
+                "auxiliary_undesired_contacts": 0.0,
+                "auxiliary_anchor_contact_force": 2.5000000000000002e-08
+              }
+            },
+            "gpu_before": "index, utilization.gpu [%], memory.used [MiB], memory.total [MiB]\n0, 86 %, 2483 MiB, 32607 MiB\n1, 13 %, 4431 MiB, 32607 MiB\n",
+            "execution_options": {
+              "version": 1,
+              "features": [
+                "audit",
+                "contact_sensor",
+                "placement",
+                "reset_stats",
+                "reward_compile"
+              ],
+              "placement": {
+                "source_frame_cache": true,
+                "geometry_only": true,
+                "local_reference_updates": true,
+                "indexed_buffer_clears": true
+              },
+              "contact_sensor": {
+                "before_history": 3,
+                "before_track_air_time": true,
+                "history_length": 0,
+                "track_air_time": false
+              },
+              "reward_compile": {
+                "backend": "inductor",
+                "fullgraph": true,
+                "dynamic": false
+              }
+            }
+          }
+        },
+        "formal_checkpoint_sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+        "protocol": "pmt / Isaac Sim 5.1.0; CUDA 0; 8192 envs; 8 PPO updates; last 6 timed; same initial checkpoint/seed/config; cumulative feature switches",
+        "caveats": [
+          "Shared GPU, not an exclusive-hardware benchmark.",
+          "reward_compile was measured with GPU 0 initially idle; all other groups had a concurrent compute load. Its 4.70 s is not a controlled speedup comparison.",
+          "Host wall timings include asynchronous CUDA waits; individual nested timings are not isolated GPU kernel costs.",
+          "Physics trajectories need not be bitwise equal; every run starts from identical physical/model states.",
+          "Finite headless tests, not long training or GUI validation."
+        ],
+        "primary_comparison": {
+          "baseline": "baseline_final",
+          "optimized": "optimized_repeat",
+          "collection_reduction_percent": 28.775139780813298,
+          "collection_speedup": 1.4040041593940789,
+          "collection_plus_ppo_reduction_percent": 22.493751258488604,
+          "caveat": "Both measured while GPU 0 was shared; background load was not controlled."
+        },
+        "strict_resume": {
+          "status": "passed",
+          "entrypoint": "scripts/train_pgmt_stage2_native.sh",
+          "additional_updates": 2,
+          "restored_next_iteration": 391,
+          "next_iteration": 393,
+          "exact_initial_keys": [
+            "model",
+            "optimizer",
+            "environment",
+            "learning_rate",
+            "training_contract",
+            "execution_options"
+          ],
+          "outcome_count": 40,
+          "optimizer_tensors": 141,
+          "reward_tags": 27,
+          "scalar_tags": 1078,
+          "collection_s": [
+            10.251004695892334,
+            9.734552383422852
+          ],
+          "ppo_s": [
+            3.916137456893921,
+            3.7475578784942627
+          ],
+          "source_checkpoint_unchanged": true,
+          "features": [
+            "audit",
+            "contact_sensor",
+            "placement",
+            "reset_stats",
+            "reward_compile"
+          ]
+        },
+        "final_process_audit": {
+          "alive_test_workers": [],
+          "formal_checkpoint_sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+          "gpu_processes": "pid, used_gpu_memory [MiB]\n1232974, 1784 MiB\n1221564, 2256 MiB\n"
+        }
+      }
+    },
+    {
+      "path": "logs/pgmt_joint_encode_20261015/comparison.json",
+      "sha256": "e56497d38b94cf2267a072c86f6ed9cdf6f0adfc794a04939657b8216cc8f394",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "separate": {
+          "status": "passed",
+          "restored_iteration": 383,
+          "next_iteration": 391,
+          "rewards": 27,
+          "scalar_tags": 1078,
+          "outcomes": 1598,
+          "optimizer_tensors": 141,
+          "execution": "separate_encode",
+          "source_unchanged": true,
+          "strict_initial_state_equal": true,
+          "collection_all_s": [
+            7.136462450027466,
+            4.89417028427124,
+            4.7763001918792725,
+            5.24035382270813,
+            5.1104981899261475,
+            5.156526327133179,
+            5.023503065109253,
+            5.259432077407837
+          ],
+          "ppo_all_s": [
+            2.949176073074341,
+            2.838876485824585,
+            2.829514503479004,
+            2.870577573776245,
+            2.8588809967041016,
+            2.854048013687134,
+            2.8581907749176025,
+            2.86419415473938
+          ],
+          "peak_allocated_mib": 15274.44091796875,
+          "peak_reserved_mib": 16464.0,
+          "training_encodings_per_iteration": 89,
+          "logging_encodings_per_iteration": 1,
+          "collection_mean_s": 5.094435612360637,
+          "collection_std_s": 0.16272204976202245,
+          "ppo_mean_s": 2.855901002883911,
+          "ppo_std_s": 0.012896914616803775,
+          "collection_plus_ppo_s": 7.950336615244548
+        },
+        "joint": {
+          "status": "passed",
+          "restored_iteration": 383,
+          "next_iteration": 391,
+          "rewards": 27,
+          "scalar_tags": 1078,
+          "outcomes": 1592,
+          "optimizer_tensors": 141,
+          "execution": "joint_encode",
+          "source_unchanged": true,
+          "strict_initial_state_equal": true,
+          "collection_all_s": [
+            5.86386775970459,
+            4.7933619022369385,
+            4.782132625579834,
+            4.905446767807007,
+            5.128413438796997,
+            5.203418254852295,
+            5.210206508636475,
+            5.068518877029419
+          ],
+          "ppo_all_s": [
+            1.6167397499084473,
+            1.5229623317718506,
+            1.5288100242614746,
+            1.5235097408294678,
+            1.5153918266296387,
+            1.482828140258789,
+            1.482001781463623,
+            1.507453203201294
+          ],
+          "peak_allocated_mib": 11766.03466796875,
+          "peak_reserved_mib": 13280.0,
+          "training_encodings_per_iteration": 45,
+          "logging_encodings_per_iteration": 1,
+          "collection_mean_s": 5.049689412117004,
+          "collection_std_s": 0.1572380843121931,
+          "ppo_mean_s": 1.506665786107381,
+          "ppo_std_s": 0.018382040091943913,
+          "collection_plus_ppo_s": 6.556355198224385
+        },
+        "initial_model_physics_and_configuration_equal": true,
+        "reduction_percent": {
+          "collection_mean_s": 0.8783347881571868,
+          "ppo_mean_s": 47.24376704283733,
+          "collection_plus_ppo_s": 17.53361504652825,
+          "peak_allocated_mib": 22.969130384816474
+        },
+        "caveat": "Sequential short runs on shared GPU; no claim of identical PhysX trajectories after PPO."
+      }
+    },
+    {
+      "path": "logs/pgmt_joint_encode_20261015/resume_report.json",
+      "sha256": "940503457aa857714527e852e3fc2ada462e436cfb6074a0c679af6fb5ee8b72",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "restored_iteration": 391,
+        "next_iteration": 393,
+        "rewards": 27,
+        "scalar_tags": 1074,
+        "outcomes": 38,
+        "optimizer_tensors": 141,
+        "execution": "joint_encode",
+        "source_unchanged": true,
+        "strict_initial_state_equal": true,
+        "collection_all_s": [
+          6.882732629776001,
+          4.593964338302612
+        ],
+        "ppo_all_s": [
+          1.6133065223693848,
+          1.5146067142486572
+        ],
+        "peak_allocated_mib": 11764.27685546875,
+        "peak_reserved_mib": 12968.0
+      }
+    },
+    {
+      "path": "logs/pgmt_ppo_scalars_20261015/comparison.json",
+      "sha256": "48a243accea3e9a4d7a057090c9c6b520de3ca46751cfc5798e1e6bb49fe01f6",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "legacy": {
+          "status": "passed",
+          "restored_iteration": 383,
+          "next_iteration": 391,
+          "rewards": 27,
+          "scalar_tags": 1078,
+          "outcomes": 1635,
+          "optimizer_tensors": 141,
+          "execution": "joint_encode",
+          "log_scalar_mode": "per_minibatch",
+          "source_unchanged": true,
+          "strict_initial_state_equal": true,
+          "collection_all_s": [
+            5.741373538970947,
+            4.976353406906128,
+            4.766009569168091,
+            5.035315275192261,
+            5.076485633850098,
+            5.163770914077759,
+            5.13779091835022,
+            5.1406097412109375
+          ],
+          "ppo_all_s": [
+            1.6226308345794678,
+            1.5206258296966553,
+            1.5245919227600098,
+            1.5233676433563232,
+            1.5220863819122314,
+            1.519714593887329,
+            1.5322623252868652,
+            1.5120413303375244
+          ],
+          "peak_allocated_mib": 11762.7763671875,
+          "peak_reserved_mib": 13282.0,
+          "collection_mean_s": 5.0533303419748945,
+          "collection_std_s": 0.1356234610471041,
+          "ppo_mean_s": 1.5223440329233806,
+          "ppo_std_s": 0.006022171877100939,
+          "collection_plus_ppo_s": 6.575674374898275
+        },
+        "batched": {
+          "status": "passed",
+          "restored_iteration": 383,
+          "next_iteration": 391,
+          "rewards": 27,
+          "scalar_tags": 1078,
+          "outcomes": 1622,
+          "optimizer_tensors": 141,
+          "execution": "joint_encode",
+          "log_scalar_mode": "gpu_accumulate_single_read",
+          "source_unchanged": true,
+          "strict_initial_state_equal": true,
+          "collection_all_s": [
+            5.756422519683838,
+            4.931734800338745,
+            4.941934108734131,
+            4.831354141235352,
+            5.106219530105591,
+            5.2474212646484375,
+            5.2095372676849365,
+            5.002029657363892
+          ],
+          "ppo_all_s": [
+            1.5759522914886475,
+            1.443901538848877,
+            1.448183536529541,
+            1.5081217288970947,
+            1.513380765914917,
+            1.51619553565979,
+            1.5275239944458008,
+            1.5234379768371582
+          ],
+          "peak_allocated_mib": 11763.47509765625,
+          "peak_reserved_mib": 12968.0,
+          "collection_mean_s": 5.056415994962056,
+          "collection_std_s": 0.14670056993503297,
+          "ppo_mean_s": 1.5061405897140503,
+          "ppo_std_s": 0.026686190607673486,
+          "collection_plus_ppo_s": 6.5625565846761065
+        },
+        "initial_model_physics_and_configuration_equal": true,
+        "reduction_percent": {
+          "collection_mean_s": -0.061061770720405306,
+          "ppo_mean_s": 1.064374599886897,
+          "collection_plus_ppo_s": 0.19948965648670658,
+          "peak_allocated_mib": -0.0059401832266381405
+        },
+        "caveat": "Sequential short runs on shared GPU; no claim of identical PhysX trajectories after PPO."
+      }
+    },
+    {
+      "path": "logs/pgmt_ppo_scalars_20261015/resume_report.json",
+      "sha256": "2e562ce16aaca82de584692605e3614cb9567d24caecdfce63c15bbcc90d44a1",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "restored_iteration": 391,
+        "next_iteration": 393,
+        "rewards": 27,
+        "scalar_tags": 1074,
+        "outcomes": 38,
+        "optimizer_tensors": 141,
+        "execution": "joint_encode",
+        "log_scalar_mode": "gpu_accumulate_single_read",
+        "source_unchanged": true,
+        "strict_initial_state_equal": true,
+        "collection_all_s": [
+          6.1501076221466064,
+          4.9038801193237305
+        ],
+        "ppo_all_s": [
+          1.6193227767944336,
+          1.5140798091888428
+        ],
+        "peak_allocated_mib": 11763.24267578125,
+        "peak_reserved_mib": 12966.0
+      }
+    },
+    {
+      "path": "logs/pgmt_timeout_boundary_20261015/acceptance_report.json",
+      "sha256": "489f9fe04f8af25c8689c608d2f7569846b64d2d3777ad14c3e88f7f9fe23a7b",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "hard_limit_s": 10.0,
+        "boundary_tolerance_steps": 2,
+        "control_dt_s": 0.02,
+        "formula": "steps >= max_steps OR (steps >= max(1, max_steps - 2) AND motion_finished)",
+        "effective_done_and_ppo_truncation_unchanged": true,
+        "curriculum_complete_motion_still_success": true,
+        "tests": {
+          "cpu_numpy2": {
+            "passed": 62,
+            "skipped": 2
+          },
+          "pmt_cpu_cuda": {
+            "passed": 56,
+            "skipped": 0
+          },
+          "initial_pmt_checkpoint_suite": {
+            "passed": 54,
+            "failed": 8,
+            "skipped": 2,
+            "reason": "NumPy 2 checkpoint incompatible with NumPy 1.26; rerun in isaacsim environment passed"
+          }
+        },
+        "isaac": {
+          "status": "passed",
+          "pid": 1419565,
+          "started_at": "2026-10-15T15:19:09.162662",
+          "regions_checked": 50,
+          "probes": {
+            "cross_tile_actual_ground_fixed_reference_birth": true,
+            "root_xy_10_physics_steps_then_reset_once": true,
+            "root_failure_demotes_once": true,
+            "anchor_pos_10_physics_steps_then_reset_once": true,
+            "global_z_changes_torso_not_relative_wrists": true,
+            "ee_body_pos_10_physics_steps_then_reset_once": true,
+            "physical_wrist_failure_on_current_reference_frame": true,
+            "anchor_ori_10_physics_steps_then_reset_once": true,
+            "map_exit_immediate_before_failure_delay": true,
+            "motion_finished_immediate": true,
+            "boundary_frame_497_success_reset_once": true,
+            "boundary_frame_498_success_reset_once": true,
+            "timeout_500_neutral_course": true
+          },
+          "checks": {
+            "reset_poses": 121,
+            "sampler_outcomes": 21,
+            "physics_control_steps": 56,
+            "done_events": 21,
+            "reference_drift_checks": 259,
+            "contact_freshness_checks": 280
+          },
+          "active_terms": [
+            "time_out",
+            "anchor_pos",
+            "anchor_ori",
+            "ee_body_pos",
+            "motion_finished",
+            "map_out_of_bounds",
+            "root_xy"
+          ],
+          "stage1_unchanged": true,
+          "episode_length_s": 10.0,
+          "max_episode_length": 500,
+          "boundary_tolerance_steps": 2,
+          "boundary_tolerance_s": 0.04,
+          "tracking_duration_s": 0.2,
+          "tracking_required_steps": 10,
+          "repeated_reads_reference_unchanged": true
+        },
+        "isaac_exit_code": 0,
+        "training_started": false,
+        "old_checkpoints_modified": false,
+        "strict_resume_requires_explicit_contract_migration": true,
+        "source_sha256": {
+          "pmt_tasks/pgmt_terminations.py": "acc93e68af6a72caa1119859b5fc1599f560d734b891606beeb4bb418b27143a",
+          "pmt_tasks/env_cfgs/pgmt/stage2.py": "e683831c2827a4ff18ccb34fb7401f4fa740eb9f9eb7fe0130454ffc47f810c2",
+          "tests/test_pgmt_terminations.py": "b33c7572ca7dadbd4fac56cc4e81cbc11fa8935b7a53160d07a58d77f80df54e",
+          "scripts/validate_pgmt_terminations.py": "cdc1939f2b020144b6b1ea060ca8f0f4b926cd37a16cfe9dc60e1d0371a1dc17",
+          "docs/PGMT_STAGE2_TERMINATIONS.zh-CN.md": "bd911fc1fd7ad396dff9dc29a311cfc37641d685117e7540bfd5f2c0128b9f0d",
+          "docs/PGMT_TERRAIN_CURRICULUM.zh-CN.md": "abc036baad9d47edb844bfdfab0ad9084016e7790e1acc470efbc1d43d1cfec5"
+        }
+      },
+      "source_hash_comparison_at_archive": {
+        "pmt_tasks/pgmt_terminations.py": "matches",
+        "pmt_tasks/env_cfgs/pgmt/stage2.py": "changed_since_report",
+        "tests/test_pgmt_terminations.py": "matches",
+        "scripts/validate_pgmt_terminations.py": "changed_since_report",
+        "docs/PGMT_STAGE2_TERMINATIONS.zh-CN.md": "matches",
+        "docs/PGMT_TERRAIN_CURRICULUM.zh-CN.md": "changed_since_report"
+      }
+    },
+    {
+      "path": "logs/pgmt_center_spawn_20261015/acceptance_report.json",
+      "sha256": "0a586f1b72def6bc530c7e27b4b169cd8c1545f344c382f6d1944d83f3b8d329",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "scope": "finite CPU/CUDA proposals and real Isaac controlled resets; no PPO training",
+        "spawn_grid": [
+          2,
+          2
+        ],
+        "region_size_m": [
+          24,
+          24
+        ],
+        "spawn_block_size_m": [
+          12,
+          12
+        ],
+        "patch_ids": [
+          5,
+          6,
+          9,
+          10
+        ],
+        "logged_manual_reset_samples": 100,
+        "logged_patch_counts": {
+          "5": 21,
+          "6": 23,
+          "9": 28,
+          "10": 28
+        },
+        "logged_regions": 50,
+        "max_abs_spawn_offset_m": 5.545817852020264,
+        "yaw_min_max_rad": [
+          -3.0254383087158203,
+          3.1307499408721924
+        ],
+        "max_logged_placement_attempts": 5,
+        "tests": {
+          "cpu_passed": 57,
+          "cpu_cuda_passed": 58
+        },
+        "isaac": {
+          "status": "passed",
+          "pid": 1453236,
+          "started_at": "2026-10-15T15:45:05.392478",
+          "regions_checked": 50,
+          "probes": {
+            "cross_tile_actual_ground_fixed_reference_birth": true,
+            "root_xy_10_physics_steps_then_reset_once": true,
+            "root_failure_demotes_once": true,
+            "anchor_pos_10_physics_steps_then_reset_once": true,
+            "global_z_changes_torso_not_relative_wrists": true,
+            "ee_body_pos_10_physics_steps_then_reset_once": true,
+            "physical_wrist_failure_on_current_reference_frame": true,
+            "anchor_ori_10_physics_steps_then_reset_once": true,
+            "map_exit_immediate_before_failure_delay": true,
+            "motion_finished_immediate": true,
+            "boundary_frame_497_success_reset_once": true,
+            "boundary_frame_498_success_reset_once": true,
+            "timeout_500_neutral_course": true
+          },
+          "checks": {
+            "reset_poses": 121,
+            "sampler_outcomes": 21,
+            "physics_control_steps": 56,
+            "done_events": 21,
+            "reference_drift_checks": 259,
+            "contact_freshness_checks": 280
+          },
+          "active_terms": [
+            "time_out",
+            "anchor_pos",
+            "anchor_ori",
+            "ee_body_pos",
+            "motion_finished",
+            "map_out_of_bounds",
+            "root_xy"
+          ],
+          "stage1_unchanged": true,
+          "episode_length_s": 10.0,
+          "max_episode_length": 500,
+          "boundary_tolerance_steps": 2,
+          "boundary_tolerance_s": 0.04,
+          "spawn_patch_grid": [
+            2,
+            2
+          ],
+          "spawn_patch_ids": [
+            5,
+            6,
+            9,
+            10
+          ],
+          "tracking_duration_s": 0.2,
+          "tracking_required_steps": 10,
+          "repeated_reads_reference_unchanged": true
+        },
+        "isaac_exit_code": 0,
+        "original_terrain_assets_changed": false,
+        "old_checkpoints_modified": false
+      }
+    },
+    {
+      "path": "logs/pgmt_t1_support_match_20261018/isaac_01/training_status.json",
+      "sha256": "fc05c8ad5f5e33a97ef2260ea3e2108eeb389466806565eb804a20a68223e571",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "pid": 3790206,
+        "arguments": {
+          "log_dir": "logs/pgmt_t1_support_match_20261018/isaac_01",
+          "steps": 40,
+          "touchdown": true,
+          "contact_match": false,
+          "slip": false,
+          "stumble": false,
+          "contact_switching": false,
+          "contact_force": false,
+          "enable_cameras": false,
+          "xr": false,
+          "device": "cuda:1",
+          "cpu": false,
+          "verbose": false,
+          "info": false,
+          "rendering_mode": null,
+          "kit_args": "--/exts/omni.syntheticdata/menubar/visible=false",
+          "anim_recording_enabled": false,
+          "anim_recording_start_time": 0,
+          "anim_recording_stop_time": 10,
+          "multi_gpu": false,
+          "fast_shutdown": true,
+          "headless": true,
+          "hide_ui": true,
+          "create_new_stage": false,
+          "physics_gpu": 1,
+          "active_gpu": 1
+        },
+        "started_at": "2026-10-18T17:09:04.670520",
+        "sensors": {
+          "pgmt_left_foot_terrain": {
+            "bodies": [
+              "left_ankle_roll_link"
+            ],
+            "filter_count": 800,
+            "first_filter": "/World/ground/terrain/Terrain/L00_boxes/P00/Mesh",
+            "matrix_shape": [
+              5,
+              1,
+              800,
+              3
+            ]
+          },
+          "pgmt_right_foot_terrain": {
+            "bodies": [
+              "right_ankle_roll_link"
+            ],
+            "filter_count": 800,
+            "first_filter": "/World/ground/terrain/Terrain/L00_boxes/P00/Mesh",
+            "matrix_shape": [
+              5,
+              1,
+              800,
+              3
+            ]
+          }
+        },
+        "terrain_collider_count": 800,
+        "touchdown": {
+          "geometry_footprints": 100,
+          "geometry_rays": 900,
+          "support_rays": 3780,
+          "max_height_error_m": 1.6689300537109375e-06,
+          "max_quality_error": 1.0010627304768427e-05,
+          "settled_steps": 67,
+          "rewarded_feet": 420,
+          "reward_sum": 38.40361770987511,
+          "negative_height_points": 3542,
+          "continuous_without_touchdown": 412,
+          "mismatched_env_steps": 125,
+          "unknown_env_steps": 0,
+          "settlement": "support_pattern_mean_v2",
+          "families": [
+            "flat",
+            "stairs",
+            "slope",
+            "boxes",
+            "rough"
+          ],
+          "levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "control_steps": 67,
+        "max_upward_force_per_family": [
+          [
+            296.583740234375,
+            374.8510437011719
+          ],
+          [
+            325.16748046875,
+            499.5670471191406
+          ],
+          [
+            486.3822326660156,
+            796.8486328125
+          ],
+          [
+            278.5220031738281,
+            355.7060852050781
+          ],
+          [
+            434.64971923828125,
+            302.1481018066406
+          ]
+        ],
+        "events": {
+          "touchdown": 10,
+          "contact_started": 10,
+          "contact_ended": 1,
+          "fast_contact_switch": 0
+        },
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.6680908203125,
+        "nonterrain_max_filtered_force_n": 0.0,
+        "active_rewards": [
+          "upper_body_position",
+          "upper_body_orientation",
+          "upper_body_linear_velocity",
+          "upper_body_angular_velocity",
+          "upper_joint_position",
+          "upper_joint_velocity",
+          "lower_body_position",
+          "lower_body_orientation",
+          "lower_body_linear_velocity",
+          "lower_body_angular_velocity",
+          "lower_joint_position",
+          "lower_joint_velocity",
+          "auxiliary_root_orientation",
+          "auxiliary_root_velocity",
+          "auxiliary_anchor_position",
+          "auxiliary_base_acceleration",
+          "auxiliary_end_effector_acceleration",
+          "auxiliary_action_rate",
+          "auxiliary_joint_limit",
+          "auxiliary_undesired_contacts",
+          "auxiliary_anchor_contact_force",
+          "terrain_touchdown_quality"
+        ]
+      }
+    },
+    {
+      "path": "logs/pgmt_terrain_policy_validation_20261017/switches_03/validation_summary.json",
+      "sha256": "995e2c9b1cd0f5275552662c9d51aa3edd34555c37f1bf6affb12f66f2b564e5",
+      "uploaded": false,
+      "snapshot": {
+        "status": "passed",
+        "simulator": "Isaac Sim 6.0.1 (GUI compatibility entry)",
+        "device": "cuda:1",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage2_center2x2/train_01/model_19999.pt",
+        "checkpoint_sha256": "f475b8d1f035a378fc548218cf806b8ec422f9dee094ecaf00531f509b844982",
+        "motion": "assets/motions/pgmt_clipped_50hz_tcrs_v1/walk1_subject1_clip1.npz",
+        "control_steps": 520,
+        "selections": [
+          {
+            "terrain": "stairs",
+            "level": 1,
+            "direction": "up"
+          },
+          {
+            "terrain": "flat",
+            "level": 1,
+            "direction": "center"
+          },
+          {
+            "terrain": "slope",
+            "level": 1,
+            "direction": "down"
+          },
+          {
+            "terrain": "boxes",
+            "level": 1,
+            "direction": "center"
+          },
+          {
+            "terrain": "rough",
+            "level": 1,
+            "direction": "center"
+          },
+          {
+            "terrain": "stairs",
+            "level": 1,
+            "direction": "down"
+          },
+          {
+            "terrain": "slope",
+            "level": 1,
+            "direction": "up"
+          },
+          {
+            "terrain": "rough",
+            "level": 9,
+            "direction": "center"
+          }
+        ],
+        "max_map_mesh_error_m": 3.814697265625e-06,
+        "all_reset_frames_zero": true,
+        "all_reset_root_reference_matches": true,
+        "manual_switches_logged_as_completed_episodes": 0,
+        "paused_perception_overlay_follows_selected_tile": true,
+        "ghost_physics_prims": 0,
+        "policy_state_unchanged": true,
+        "source_checkpoint_unchanged": true,
+        "stairs_regression": {
+          "baseline": "logs/pgmt_stairs_policy_20261017/reference_side_by_side_01/trajectory.jsonl",
+          "steps": 100,
+          "max_root_difference_m": 0.0,
+          "max_reference_difference_m": 0.0,
+          "frames_equal": true,
+          "done_equal": true
+        },
+        "source_sha256": {
+          "scripts/play_pgmt_stage2_stairs.py": "c5056ecc297bfea68ceb776d8ccedb93d0263a108a66358d3710f3ac50b2799f",
+          "logs/pgmt_terrain_policy_validation_20261017/validate_switches.py": "0171ade9535bfbcb0296f9e511324828212c39f28799f81341f31fc127adea75"
+        }
+      },
+      "source_hash_comparison_at_archive": {
+        "scripts/play_pgmt_stage2_stairs.py": "changed_since_report",
+        "logs/pgmt_terrain_policy_validation_20261017/validate_switches.py": "matches"
+      }
+    },
+    {
+      "path": "logs/pgmt_stage1_flat_policy_20261017/validation_summary.json",
+      "sha256": "53803bc4eb654c56f0f4cc1d326e5bd23026e148983478f43d7229ba89ae23b7",
+      "uploaded": false,
+      "snapshot": {
+        "status": "running_visualization_verified",
+        "active_run": "viewer_04",
+        "pid": 2960784,
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "source_checkpoint_unchanged": true,
+        "policy_family": "pgmt_stage1",
+        "value_groups": [
+          "upper",
+          "lower",
+          "auxiliary"
+        ],
+        "observation_shapes": {
+          "proprio": [
+            1,
+            96
+          ],
+          "proprio_history": [
+            1,
+            10,
+            96
+          ],
+          "command_window": [
+            1,
+            8,
+            61
+          ],
+          "critic": [
+            1,
+            251
+          ]
+        },
+        "reference_display": {
+          "bodies": 30,
+          "visual_meshes": 35,
+          "physics_prims": 0,
+          "body_position_error_m": 0.0,
+          "quaternion_error": 1.4409921219767327e-07,
+          "visible": true,
+          "display_offset_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "source": "PGMTState.reference(); same frame and episode transform; no terrain height adjustment"
+        },
+        "first_full_clip_validation": {
+          "sequence": 1,
+          "steps": 499,
+          "reference_finished": true,
+          "termination_flags": {
+            "time_out": false,
+            "anchor_pos": false,
+            "anchor_ori": false,
+            "ee_body_pos": false
+          },
+          "failed": false,
+          "root": [
+            0.6019573211669922,
+            -0.5841116905212402,
+            0.7650763392448425
+          ]
+        },
+        "visual_fix_regression_steps": 100,
+        "visual_fix_max_root_difference_m": 0.0,
+        "visual_fix_frames_equal": true,
+        "original_viewer_shutdown": "viewer_02 did not exit on SIGTERM; owned worker was killed after timeout; rollout before stop remains recorded",
+        "screenshot": "viewer_04/step_100.png"
+      }
+    }
+  ],
+  "historical_multi_gpu": [
+    {
+      "path": "logs/pgmt_multi_gpu_validation/single/training_status.json",
+      "sha256": "cbabeac2bffcf4c271ef5541b9b6d52fa96603967bcb8e0f5425def5f3c1140f",
+      "uploaded": false,
+      "snapshot": {
+        "status": "completed",
+        "pid": 1585435,
+        "started_at": "2026-10-15T17:45:46.109177",
+        "run_id": "5a609cfb34bd46ebac7d4f21959cc46c",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/single",
+        "completed_updates": 1,
+        "rank": 0,
+        "world_size": 1,
+        "local_num_envs": 10,
+        "total_num_envs": 10,
+        "seed": 722,
+        "updated_at": "2026-10-15T17:46:04.965167",
+        "checkpoint_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "migration_comparison_mode": "blind",
+        "migrated_tensor_count": 47,
+        "initialized_tensor_count": 10,
+        "start_iteration": 0,
+        "next_iteration": 1,
+        "stop_reason": "iteration_limit",
+        "training_walltime_s": 1.643104830000084,
+        "source_checkpoint_unchanged": true,
+        "final_checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/single/final.pt",
+        "mean_collection_s": 1.1680631637573242,
+        "mean_update_s": 0.20753192901611328,
+        "simulator_version": "5.1.0.0"
+      }
+    },
+    {
+      "path": "logs/pgmt_multi_gpu_validation/dual/training_status.json",
+      "sha256": "7fbb869ec0ab8b5ca2a003260286fddc4653316c13aa010ef42fbf72565c961f",
+      "uploaded": false,
+      "snapshot": {
+        "status": "failed",
+        "pid": 1589021,
+        "started_at": "2026-10-15T17:48:59.212517",
+        "run_id": "73175e0a4e98456e9c75ba22589c134a",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual",
+        "completed_updates": 0,
+        "rank": 0,
+        "world_size": 2,
+        "local_num_envs": 10,
+        "total_num_envs": 20,
+        "seed": 722,
+        "updated_at": "2026-10-15T17:50:57.151336",
+        "checkpoint_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "migration_comparison_mode": "blind",
+        "migrated_tensor_count": 47,
+        "initialized_tensor_count": 10,
+        "error": "Training worker group exited with code 1"
+      }
+    },
+    {
+      "path": "logs/pgmt_multi_gpu_validation/dual_v2/training_status.json",
+      "sha256": "5dec55be3fd4cf4fab02529b2291d37b44e8d5fd5bfd374ba726c8b0cc4656b1",
+      "uploaded": false,
+      "snapshot": {
+        "status": "completed",
+        "pid": 1596732,
+        "started_at": "2026-10-15T17:55:34.087927",
+        "run_id": "7c7ad1376a264f6ea13a44838fed3e14",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_v2",
+        "completed_updates": 2,
+        "rank": 0,
+        "world_size": 2,
+        "local_num_envs": 10,
+        "total_num_envs": 20,
+        "seed": 722,
+        "updated_at": "2026-10-15T17:55:57.971966",
+        "checkpoint_sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+        "migration_comparison_mode": "blind",
+        "migrated_tensor_count": 47,
+        "initialized_tensor_count": 10,
+        "start_iteration": 0,
+        "next_iteration": 2,
+        "stop_reason": "iteration_limit",
+        "training_walltime_s": 5.09853254200425,
+        "source_checkpoint_unchanged": true,
+        "final_checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_v2/final.pt",
+        "mean_collection_s": 2.4990053176879883,
+        "mean_update_s": 0.20936846733093262,
+        "simulator_version": "5.1.0.0"
+      }
+    },
+    {
+      "path": "logs/pgmt_multi_gpu_validation/dual_resume/training_status.json",
+      "sha256": "ecd1edb9ef2c952b161b3cd9e9459298fb0041a0faf90d31e1e05f666c607ac7",
+      "uploaded": false,
+      "snapshot": {
+        "status": "completed",
+        "pid": 1598761,
+        "started_at": "2026-10-15T17:57:08.724543",
+        "run_id": "77f7c9a3c4214dbd80c4ea650f0fae98",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_v2/final.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_resume",
+        "completed_updates": 1,
+        "rank": 0,
+        "world_size": 2,
+        "local_num_envs": 10,
+        "total_num_envs": 20,
+        "seed": 722,
+        "updated_at": "2026-10-15T17:57:31.604172",
+        "checkpoint_sha256": "b936fef77de75814fd790a74e6c8d4f86f77e97f72d4247d3a7258ef1eaf4c44",
+        "start_iteration": 2,
+        "next_iteration": 3,
+        "stop_reason": "walltime_limit",
+        "training_walltime_s": 2.000360191988875,
+        "source_checkpoint_unchanged": true,
+        "final_checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_resume/final.pt",
+        "mean_collection_s": 1.4405052661895752,
+        "mean_update_s": 0.3178238868713379,
+        "simulator_version": "5.1.0.0"
+      }
+    },
+    {
+      "path": "logs/pgmt_multi_gpu_validation/dual_default/training_status.json",
+      "sha256": "dd176d9e7757bd4b3ae2a44b02d49e38b72401be10f6b07411629be3a435b35e",
+      "uploaded": false,
+      "snapshot": {
+        "status": "completed",
+        "pid": 1604326,
+        "started_at": "2026-10-15T17:59:19.098148",
+        "run_id": "5f65f4b272a14effb2d2d97752e3c514",
+        "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_v2/final.pt",
+        "output": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_default",
+        "completed_updates": 1,
+        "rank": 0,
+        "world_size": 2,
+        "local_num_envs": 10,
+        "total_num_envs": 20,
+        "seed": 722,
+        "updated_at": "2026-10-15T17:59:49.812775",
+        "checkpoint_sha256": "b936fef77de75814fd790a74e6c8d4f86f77e97f72d4247d3a7258ef1eaf4c44",
+        "start_iteration": 2,
+        "next_iteration": 3,
+        "stop_reason": "iteration_limit",
+        "training_walltime_s": 10.398344418004854,
+        "source_checkpoint_unchanged": true,
+        "final_checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_multi_gpu_validation/dual_default/final.pt",
+        "mean_collection_s": 9.814971923828125,
+        "mean_update_s": 0.2650744915008545,
+        "simulator_version": "5.1.0.0"
+      }
+    }
+  ],
+  "compatibility_notes": [
+    "383/393-update checkpoints predate timeout/spawn contract changes; train_01 lacks the new T1 settlement. They cannot strictly resume as the current task.",
+    "Single/multi-GPU strict resume requires identical topology, per-rank environment counts, seed and training contracts.",
+    "Performance execution options are recorded separately from semantic training contracts; historic performance reports precede the new T1.",
+    "Native training uses pmt / Isaac Sim 5.1; GUI playback uses Isaac Sim 6.0.1 with Isaac Lab 2.3.2 compatibility."
+  ],
+  "remaining_validation": [
+    "GPU/NCCL regression and Isaac simulation were not rerun during this archival task.",
+    "Recovery pool/reward remains deferred by the existing user scope.",
+    "Full terrain/difficulty success evaluation, fixed 30-second benchmark, export and convergence are not established.",
+    "The active new-T1 run is incomplete at snapshot time; old-T1 training analysis does not measure new-T1 policy quality.",
+    "Historical reports retain their original measurements; later source edits are not retroactively covered by those reports."
+  ],
+  "evidence_note": "Git stores source/config/tests/docs and selected local evidence snapshots and SHA256. Weights, generated assets, raw logs and images remain local. No active process or checkpoint was modified.",
+  "source_files_updated_at": "2026-10-19T16:15:43.247072+08:00"
+}

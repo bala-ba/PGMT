@@ -1,0 +1,15 @@
+# User-confirmed 2B baseline: native MultiMotionV2-Flat, plus PGMT network/rewards.
+defaults:
+  - robot: g1
+  - terrain: flat
+  - motion: multi_bin_adaptive
+  - scene: none
+  - sensor: none
+  - obs: pgmt_stage1
+  - reward: pgmt_stage1
+  - network: pgmt
+  - algorithm: ppo
+  - stage: scratch
+experiment_name: pgmt_stage1
+motion:
+  motion_files: ${oc.env:PMT_PGMT_MOTION_ROOT,${oc.env:PMT_REPO_ROOT,.}/assets/motions/pgmt_lafan1_50hz}

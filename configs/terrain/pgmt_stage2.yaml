@@ -1,0 +1,38 @@
+# PGMT P1 terrain specification. Training-task wiring is a separate stage.
+type: pgmt_procedural
+version: pgmt_stage2_v5
+seed: 1731
+curriculum: true
+difficulty_range: [0.0, 1.0]
+num_rows: 10
+num_cols: 7
+max_init_terrain_level: 1
+size: [24.0, 24.0]
+border_width: 20.0
+horizontal_scale: 0.10
+vertical_scale: 0.005
+platform_width: 2.0
+families: [flat, slopes, stairs, boxes, random_rough, up_stairs, up_slope]
+# up_stairs / up_slope are the native INVERTED pyramid variants. They share
+# the stairs/slopes ranges and start on the central low platform.
+slopes:
+  angle_range_deg: [0.0, 30.0]
+  border_width: 0.25
+stairs:
+  height_range: [0.05, 0.30]
+  depth_range: [0.25, 0.35]
+  border_width: 1.0
+boxes:
+  height_range: [0.05, 0.40]
+  width: 0.70
+  # PGMT random-grid style: touching cells, plus a 2 m center platform.
+  gap: 0.0
+random_rough:
+  # Match PGMT's HfRandomUniformTerrainCfg. Amplitude is the input noise
+  # half-range; native cubic interpolation can overshoot it.
+  amplitude_range: [0.01, 0.08]
+  horizontal_scale: 0.15
+  noise_step: 0.01
+  downsampled_scale: 0.30
+  border_width: 0.25
+  slope_threshold: 0.75

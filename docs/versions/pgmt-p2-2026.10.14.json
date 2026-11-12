@@ -1,0 +1,525 @@
+{
+  "schema": "pmt.milestone.v1",
+  "version": "pgmt-p2-2026.10.14",
+  "recorded_at": "2026-10-14T14:33:10+08:00",
+  "base_commit": "88dadd0dc389e5f45d035ba2abab48e05637405f",
+  "base_version": "pgmt-p2-2026.10.13",
+  "source_revision": "Resolve the annotated Git tag pgmt-p2-2026.10.14",
+  "scope": "PhysX memory diagnosis and P3 reward audit; production P2 behavior unchanged, P3 not implemented",
+  "source_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "1fb803573b2e1ce553adac62c2431daba7ff83fb5697cf48af4b84910ab1389a",
+      "uploaded": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "ed85321c66eb8c668daf6c90e648df2e36fadd8e7b95792c9cbc196b2e26cc6e",
+      "uploaded": true
+    },
+    {
+      "path": "docs/PGMT_P245_ACCEPTANCE.zh-CN.md",
+      "sha256": "c11df4f4ce069a5a6d5e33f739ceb48bb0a30cf5622c654eca9e8050fcfc7ad7",
+      "uploaded": true
+    },
+    {
+      "path": "docs/PGMT_P3_REWARD_AUDIT.zh-CN.md",
+      "sha256": "80b00aa24e3d6052bc0e556b5965bfae05e14343e3f498a7faae90dca904dc91",
+      "uploaded": true
+    },
+    {
+      "path": "docs/PGMT_PHYSX_MEMORY_DIAGNOSIS.zh-CN.md",
+      "sha256": "1e9ea2e7c0bc109425fc6fbb6317b2d5783fe8f0ca408bc9d2fdd27ac813ac61",
+      "uploaded": true
+    },
+    {
+      "path": "docs/PGMT_STAGE2_PLAN.zh-CN.md",
+      "sha256": "c6a87d29a8b7cc364421d37d7edc00997b9f1e6f5a2b822b76a20cf373f4e133",
+      "uploaded": true
+    },
+    {
+      "path": "docs/USER_READ.md",
+      "sha256": "09add73882b26f3458564538e8bb3d0819d27a52f979037171e1f3de9b89d58d",
+      "uploaded": true
+    },
+    {
+      "path": "scripts/diagnose_pgmt_physx_memory.py",
+      "sha256": "fd931383fdada422ff834d51f801655aafbdf1505bc370145c81e2b2bdeca60b",
+      "uploaded": true
+    },
+    {
+      "path": "scripts/diagnose_pgmt_physx_memory.sh",
+      "sha256": "34d4ed2bdc336fc0e9cd39c722027833878d9ca01abde3820e121cbeff2620fc",
+      "uploaded": true
+    }
+  ],
+  "previous_snapshot": {
+    "path": "docs/versions/pgmt-p2-2026.10.13.json",
+    "sha256": "fc8e6e271413c522ee68737254b6ffe54e071d842755727ec8421341da4f360a",
+    "uploaded": true
+  },
+  "validation_this_task": {
+    "command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt_mdp.py tests/test_pgmt_process_guard.py --junitxml=/tmp/pmt-release-20261014.xml -o junit_family=legacy",
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 1.006,
+    "junit": {
+      "path": "/tmp/pmt-release-20261014.xml",
+      "sha256": "a602691b9bfb9c756b475e869f755d5b452c5241d573379d2288f642f08c8774",
+      "uploaded": false
+    },
+    "python_ast": "passed for diagnose_pgmt_physx_memory.py",
+    "shell_syntax": "passed for diagnose_pgmt_physx_memory.sh",
+    "launcher_smoke": "Passed with a temporary stub interpreter: repository root, PGMT_GUI_ENV override, headless/cuda:1 defaults and arguments containing spaces preserved; no Isaac import",
+    "reward_weights_and_scales_match": true,
+    "diagnostic_source_matches_existing_report": true,
+    "raw_diagnostic_runs_checked": 4,
+    "raw_diagnostic_samples_checked": 8,
+    "allocation_formula_verified": true,
+    "diff_check": "passed",
+    "isaac_launched": false,
+    "simulation_or_ppo_launched": false
+  },
+  "unchanged_production_files": [
+    {
+      "path": "configs/task/pgmt_stage2.yaml",
+      "sha256": "4fbd0eb789eecbc165bd821aee2377bf1d4daccaa460defc0376460b1cb87106",
+      "uploaded": true
+    },
+    {
+      "path": "configs/reward/pgmt_stage1.yaml",
+      "sha256": "6fc94954679ee7639931a7677001e0c6f8ada5ab88990e473066cd838bb4e7c2",
+      "uploaded": true
+    },
+    {
+      "path": "configs/network/pgmt_perception.yaml",
+      "sha256": "c03af5ac1dac90c403272bfd3b1c81d90f74a03f5735e72c5542e6a298a187c5",
+      "uploaded": true
+    },
+    {
+      "path": "pmt_tasks/env_cfgs/pgmt/stage2.py",
+      "sha256": "7485f97ad81465d93a680c3821998a8ee36cb3bc7dbd426ff4eda87a6a158e60",
+      "uploaded": true
+    },
+    {
+      "path": "pmt_tasks/pgmt_runtime.py",
+      "sha256": "f0655a8be563bbe2330d4e38e4738084fdea906252df96c48c3413335dfcdb3f",
+      "uploaded": true
+    },
+    {
+      "path": "pmt_tasks/pgmt_math.py",
+      "sha256": "64e96c97cfc0096159b63a3c9f88ff7ca2fce75bcce4f43aaab4db0352aac992",
+      "uploaded": true
+    },
+    {
+      "path": "pmt_tasks/pgmt_terrain_importer.py",
+      "sha256": "0e18f2fb3b0e222516e60811ede35d4dde8b71a444bd897e8fa6235e6f6b6ba0",
+      "uploaded": true
+    },
+    {
+      "path": "motion_tracking_rl/networks/pgmt_actor_critic.py",
+      "sha256": "7d41520a17333aa635e21e56fdadb2471ee7c61722d1e45e80a4626169d31445",
+      "uploaded": true
+    },
+    {
+      "path": "motion_tracking_rl/utils/pgmt_checkpoint.py",
+      "sha256": "d51f9d513cb00be5d3091a48bee8d06ba88341cae25bffdfa7079ef9f0a576d7",
+      "uploaded": true
+    },
+    {
+      "path": "scripts/train_pgmt_stage2.py",
+      "sha256": "5a9e10b4386da3168d98beb4d3a4dfa118519918344862c94d20c047877f6437",
+      "uploaded": true
+    },
+    {
+      "path": "scripts/train_pgmt_stage2.sh",
+      "sha256": "780d2fd400ff50828be46eb65dd486761577bcc38da23eda30045df0c6ad2d06",
+      "uploaded": true
+    }
+  ],
+  "existing_physx_diagnosis": {
+    "path": "logs/pgmt_physx_diagnosis/report.json",
+    "sha256": "7a1f4dd6cb6bb8ab6fb6a607550e69138b7ec7ec489780839d4db59cb4d240f1",
+    "uploaded": false,
+    "status": "root_cause_confirmed",
+    "production_config_modified": false,
+    "verified_scope": "blind initialization, reset and 3 control steps; no PPO or checkpoint",
+    "root_cause": "envIdInBoundsBitCount=4 expands shared terrain AABBs globally; every robot shape pairs with every terrain mesh",
+    "native_environment": {
+      "isaac_sim": "6.0.1",
+      "omni_physx": "110.1.13",
+      "device": "cuda:1"
+    },
+    "official_physx_source_commit": "517a0073715120e114ee055b63b26c95e00d9039",
+    "allocation": {
+      "num_envs": 1024,
+      "shapes_per_robot": 29,
+      "shared_meshes": 804,
+      "bytes_per_multimanifold": 1216,
+      "candidate_mesh_pairs": 23875584,
+      "requested_bytes": 29032710144,
+      "original_log": "logs/pgmt_p245/cost_1024_blind.log"
+    },
+    "runs": [
+      {
+        "name": "baseline_160_b",
+        "path": "logs/pgmt_physx_diagnosis/baseline_160_b/training_status.json",
+        "sha256": "2ae328a0e121c948dc2172f5e464ed00c2c22db512c4d875fc336219832106bf",
+        "uploaded": false,
+        "status": "passed",
+        "arguments": {
+          "log_dir": "logs/pgmt_physx_diagnosis/baseline_160_b",
+          "num_envs": 160,
+          "spacing": 0.0,
+          "bootstrap_z": 0.78,
+          "classic_filter": false,
+          "disable_terrain_collision": false,
+          "steps": 3,
+          "enable_cameras": false,
+          "xr": false,
+          "device": "cuda:1",
+          "cpu": false,
+          "verbose": false,
+          "info": false,
+          "rendering_mode": null,
+          "kit_args": "--/exts/omni.syntheticdata/menubar/visible=false",
+          "anim_recording_enabled": false,
+          "anim_recording_start_time": 0,
+          "anim_recording_stop_time": 10,
+          "multi_gpu": false,
+          "fast_shutdown": true,
+          "headless": true,
+          "hide_ui": true,
+          "create_new_stage": false,
+          "physics_gpu": 1,
+          "active_gpu": 1
+        },
+        "bootstrap": {
+          "unique_positions": 1,
+          "min": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "max": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "scene_attributes": {
+            "/physicsScene": {
+              "physxScene:envIdInBoundsBitCount": "4"
+            }
+          }
+        },
+        "samples": {
+          "constructed": {
+            "nb_discrete_contact_pairs_total": 3730880,
+            "gpu_mem_heap_narrowphase": 6631036614,
+            "gpu_mem_collision_stack_size": 89533584,
+            "gpu_mem_rigid_contact_count": 0,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 15544 MiB, 32607 MiB\n"
+          },
+          "step_3": {
+            "nb_discrete_contact_pairs_total": 3731811,
+            "gpu_mem_heap_narrowphase": 6944847518,
+            "gpu_mem_collision_stack_size": 89695032,
+            "gpu_mem_rigid_contact_count": 2067,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 317 MiB, 32607 MiB\n1, 16190 MiB, 32607 MiB\n"
+          }
+        }
+      },
+      {
+        "name": "spaced_160",
+        "path": "logs/pgmt_physx_diagnosis/spaced_160/training_status.json",
+        "sha256": "d42095fa7e48afa85b55069b6f8fa1f891b8864b94f9840bfa82341dc1e7fb13",
+        "uploaded": false,
+        "status": "passed",
+        "arguments": {
+          "log_dir": "logs/pgmt_physx_diagnosis/spaced_160",
+          "num_envs": 160,
+          "spacing": 3.0,
+          "bootstrap_z": 0.78,
+          "classic_filter": false,
+          "disable_terrain_collision": false,
+          "steps": 3,
+          "enable_cameras": false,
+          "xr": false,
+          "device": "cuda:1",
+          "cpu": false,
+          "verbose": false,
+          "info": false,
+          "rendering_mode": null,
+          "kit_args": "--/exts/omni.syntheticdata/menubar/visible=false",
+          "anim_recording_enabled": false,
+          "anim_recording_start_time": 0,
+          "anim_recording_stop_time": 10,
+          "multi_gpu": false,
+          "fast_shutdown": true,
+          "headless": true,
+          "hide_ui": true,
+          "create_new_stage": false,
+          "physics_gpu": 1,
+          "active_gpu": 1
+        },
+        "bootstrap": {
+          "unique_positions": 160,
+          "min": [
+            -19.5,
+            -16.5,
+            0.7799999713897705
+          ],
+          "max": [
+            19.5,
+            16.5,
+            0.7799999713897705
+          ],
+          "scene_attributes": {
+            "/physicsScene": {
+              "physxScene:envIdInBoundsBitCount": "4"
+            }
+          }
+        },
+        "samples": {
+          "constructed": {
+            "nb_discrete_contact_pairs_total": 3730880,
+            "gpu_mem_heap_narrowphase": 6631036614,
+            "gpu_mem_collision_stack_size": 89563488,
+            "gpu_mem_rigid_contact_count": 623,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 15528 MiB, 32607 MiB\n"
+          },
+          "step_3": {
+            "nb_discrete_contact_pairs_total": 3731811,
+            "gpu_mem_heap_narrowphase": 6944847518,
+            "gpu_mem_collision_stack_size": 89695032,
+            "gpu_mem_rigid_contact_count": 2067,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 317 MiB, 32607 MiB\n1, 16171 MiB, 32607 MiB\n"
+          }
+        }
+      },
+      {
+        "name": "bits0_160",
+        "path": "logs/pgmt_physx_diagnosis/bits0_160/training_status.json",
+        "sha256": "cb1a4a74ed3356d30d1c015ad5c91a7996315a0875955b1bceed2c24826bdfc4",
+        "uploaded": false,
+        "status": "passed",
+        "arguments": {
+          "log_dir": "logs/pgmt_physx_diagnosis/bits0_160",
+          "num_envs": 160,
+          "spacing": 0.0,
+          "bootstrap_z": 0.78,
+          "classic_filter": false,
+          "env_id_bits": 0,
+          "disable_terrain_collision": false,
+          "steps": 3,
+          "enable_cameras": false,
+          "xr": false,
+          "device": "cuda:1",
+          "cpu": false,
+          "verbose": false,
+          "info": false,
+          "rendering_mode": null,
+          "kit_args": "--/exts/omni.syntheticdata/menubar/visible=false",
+          "anim_recording_enabled": false,
+          "anim_recording_start_time": 0,
+          "anim_recording_stop_time": 10,
+          "multi_gpu": false,
+          "fast_shutdown": true,
+          "headless": true,
+          "hide_ui": true,
+          "create_new_stage": false,
+          "physics_gpu": 1,
+          "active_gpu": 1
+        },
+        "bootstrap": {
+          "unique_positions": 1,
+          "min": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "max": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "scene_attributes": {
+            "/physicsScene": {
+              "physxScene:envIdInBoundsBitCount": "0"
+            }
+          }
+        },
+        "samples": {
+          "constructed": {
+            "nb_discrete_contact_pairs_total": 4160,
+            "gpu_mem_heap_narrowphase": 1130397894,
+            "gpu_mem_collision_stack_size": 92304,
+            "gpu_mem_rigid_contact_count": 0,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 9955 MiB, 32607 MiB\n"
+          },
+          "step_3": {
+            "nb_discrete_contact_pairs_total": 2991,
+            "gpu_mem_heap_narrowphase": 1138111654,
+            "gpu_mem_collision_stack_size": 200776,
+            "gpu_mem_rigid_contact_count": 2066,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 10072 MiB, 32607 MiB\n"
+          }
+        }
+      },
+      {
+        "name": "bits0_1024",
+        "path": "logs/pgmt_physx_diagnosis/bits0_1024/training_status.json",
+        "sha256": "93cdac8c29b9793b9ff87a640128c0d69636c22abdbd1897a993b33c9d94f045",
+        "uploaded": false,
+        "status": "passed",
+        "arguments": {
+          "log_dir": "logs/pgmt_physx_diagnosis/bits0_1024",
+          "num_envs": 1024,
+          "spacing": 0.0,
+          "bootstrap_z": 0.78,
+          "classic_filter": false,
+          "env_id_bits": 0,
+          "disable_terrain_collision": false,
+          "steps": 3,
+          "enable_cameras": false,
+          "xr": false,
+          "device": "cuda:1",
+          "cpu": false,
+          "verbose": false,
+          "info": false,
+          "rendering_mode": null,
+          "kit_args": "--/exts/omni.syntheticdata/menubar/visible=false",
+          "anim_recording_enabled": false,
+          "anim_recording_start_time": 0,
+          "anim_recording_stop_time": 10,
+          "multi_gpu": false,
+          "fast_shutdown": true,
+          "headless": true,
+          "hide_ui": true,
+          "create_new_stage": false,
+          "physics_gpu": 1,
+          "active_gpu": 1
+        },
+        "bootstrap": {
+          "unique_positions": 1,
+          "min": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "max": [
+            0.0,
+            0.0,
+            0.7799999713897705
+          ],
+          "scene_attributes": {
+            "/physicsScene": {
+              "physxScene:envIdInBoundsBitCount": "0"
+            }
+          }
+        },
+        "samples": {
+          "constructed": {
+            "nb_discrete_contact_pairs_total": 26624,
+            "gpu_mem_heap_narrowphase": 1164951750,
+            "gpu_mem_collision_stack_size": 589968,
+            "gpu_mem_rigid_contact_count": 0,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 10782 MiB, 32607 MiB\n"
+          },
+          "step_3": {
+            "nb_discrete_contact_pairs_total": 19704,
+            "gpu_mem_heap_narrowphase": 1214719570,
+            "gpu_mem_collision_stack_size": 1333248,
+            "gpu_mem_rigid_contact_count": 15306,
+            "gpu_snapshot": "index, memory.used [MiB], memory.total [MiB]\n0, 315 MiB, 32607 MiB\n1, 11049 MiB, 32607 MiB\n"
+          }
+        }
+      }
+    ],
+    "original_launch_script": {
+      "path": "logs/pgmt_physx_diagnosis/launch.sh",
+      "sha256": "fee36961506d752378621782e696f5f248a3473af0a38e830b3c914d30f37578",
+      "uploaded": false
+    },
+    "diagnostic_script_sha256": "fd931383fdada422ff834d51f801655aafbdf1505bc370145c81e2b2bdeca60b"
+  },
+  "runtime_inputs": [
+    {
+      "path": "assets/terrain/pgmt_stage2_v6/manifest.json",
+      "sha256": "f3ea564bec413f1b2cc603febdcbf1791242fa167d27ebf2540703544e449ad8",
+      "uploaded": false
+    },
+    {
+      "path": "logs/pgmt_p1_acceptance/native_robot/main.usd",
+      "sha256": "88bd275f989accba16fbd8196a1703289c0639cf181affb0c15f076c4b747c10",
+      "uploaded": false
+    }
+  ],
+  "reward_audit": {
+    "path": "docs/PGMT_P3_REWARD_AUDIT.zh-CN.md",
+    "current_terms": 21,
+    "current_value_groups": [
+      "upper",
+      "lower",
+      "auxiliary"
+    ],
+    "current_weights": {
+      "upper_body_position": 1.0,
+      "upper_body_orientation": 1.0,
+      "upper_body_linear_velocity": 0.5,
+      "upper_body_angular_velocity": 0.5,
+      "upper_joint_position": 1.0,
+      "upper_joint_velocity": 0.5,
+      "lower_body_position": 0.5,
+      "lower_body_orientation": 2.0,
+      "lower_body_linear_velocity": 0.5,
+      "lower_body_angular_velocity": 0.5,
+      "lower_joint_position": 0.5,
+      "lower_joint_velocity": 0.5,
+      "auxiliary_root_orientation": 0.5,
+      "auxiliary_root_velocity": 2.0,
+      "auxiliary_anchor_position": 1.0,
+      "auxiliary_base_acceleration": -0.001,
+      "auxiliary_end_effector_acceleration": -0.001,
+      "auxiliary_action_rate": -0.05,
+      "auxiliary_joint_limit": -15.0,
+      "auxiliary_undesired_contacts": -0.1,
+      "auxiliary_anchor_contact_force": -1e-05
+    },
+    "proposed_total_terms": 28,
+    "proposed_value_groups": [
+      "upper",
+      "lower",
+      "terrain",
+      "auxiliary"
+    ],
+    "implemented": false,
+    "t1_discussion": {
+      "support": "Filtered foot-terrain normal force, positive world Z > 10 N",
+      "activation": "Once per valid touchdown control step; no repeated standing reward",
+      "window_size_m": [
+        0.2,
+        0.1
+      ],
+      "window_center_forward_m": 0.039,
+      "points": 9,
+      "pending_engineering_choices": [
+        "2 consecutive unsupported control steps",
+        "actual-foot yaw template",
+        "clean mesh height query with scan coverage mask",
+        "all nine samples valid",
+        "quality scale 0.03 m"
+      ]
+    },
+    "t6_documentation": "Latest proposed formula is -1e-6 times summed foot-force squared norms, without a 350 N threshold; summary and 450 N example reconciled to that formula",
+    "audit_scope": "Archives existing paper/source audit and discussion. This version task checked current weight/scale parity and existing reward tests; it did not repeat the paper rendering or implement candidates."
+  },
+  "remaining_work": [
+    "Apply envIdInBoundsBitCount=0 in the production PGMT scene after cloning and before first physics reset, with read-back verification",
+    "Validate environment collision isolation and cross-tile contacts after the production change",
+    "Run full 1024-environment P2 PPO, checkpoint resume and throughput acceptance",
+    "Finalize and implement P3 terrain rewards, four-head migration, tolerances and recovery"
+  ],
+  "evidence_note": "PhysX results are from existing local diagnostic runs, not new simulation. 1024 diagnostic initialization/reset/three steps do not constitute PPO acceptance. Production full-PPO acceptance remains at 160 environments from the previous milestone. Checkpoints, generated assets and raw logs remain local; source, documentation, summaries and hashes are committed."
+}

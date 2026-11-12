@@ -1,0 +1,37 @@
+# Formal P3 terrain training: 27 rewards and four value heads; no recovery.
+defaults:
+  - robot: g1
+  - terrain: pgmt_stage2_v8
+  - motion: pgmt_emd
+  - scene: none
+  - sensor: pgmt_height_scan
+  - obs: pgmt_stage2
+  - reward: pgmt_stage2_terrain
+  - network: pgmt_perception
+  - algorithm: ppo
+  - stage: scratch
+experiment_name: pgmt_stage2_terrain
+motion:
+  motion_files: ${oc.env:PMT_PGMT_MOTION_ROOT,${oc.env:PMT_REPO_ROOT,.}/assets/motions/pgmt_clipped_50hz_tcrs_v1}
+  chunk_length: 0
+  enable_frame_sampling: false
+  fixed_start_frame: -1
+  placement_xy_mode: center
+terrain_asset: ${oc.env:PMT_REPO_ROOT,.}/assets/terrain/pgmt_stage2_v8
+algorithm:
+  learning_rate: 1.0e-4
+# Terrain-aware lower-body tracking is enabled in this task.
+# Semantic groups: both stair variants use stairs; platforms and obstacles use boxes.
+tracking_relaxation:
+  enabled: true
+  position_max: 0.20
+  orientation_max: 0.70
+  joint_max: 0.50
+  terrain_families: [stairs, slope, boxes]
+  level_max: 9
+  alpha:
+    lower_body_position: {}
+    lower_body_orientation: {}
+    lower_joint_position: {}
+network:
+  value_groups: [upper, lower, terrain, auxiliary]

@@ -1,0 +1,24 @@
+# Exact geometry exported from the sibling P-BFM repository's training_mix.
+type: pgmt_pbfm_source
+version: pgmt_stage2_v8
+source_repository: ../P-BFM
+source_generator: pbfm.terrains.presets.make_training_mix_generator_cfg
+source_versions: {mjlab: 1.4.0, mujoco: 3.8.0}
+seed: 0
+curriculum: true
+difficulty_range: [0.0, 1.0]
+num_rows: 10
+num_cols: 7
+families: [flat, rough, stairs_up, stairs_down, platforms, slope, boxes]
+source_families: [flat, perlin_rough, low_stairs_up, low_stairs_down, low_platforms, hf_pyramid_slope_inv, boxes]
+family_proportions: {flat: 0.20, rough: 0.10, stairs_up: 0.20, stairs_down: 0.20, platforms: 0.10, slope: 0.10, boxes: 0.10}
+region_size: [5.0, 5.0]
+patch_grid: [1, 1]
+patch_size: [5.0, 5.0]
+spawn_patch_grid: [1, 1]
+border_width: 12.0
+spawn_preview:
+  samples_per_patch: 16
+  boundary_margin: 0.25
+  yaw_range: [-3.141592653589793, 3.141592653589793]
+  fixed_start_frame: 0

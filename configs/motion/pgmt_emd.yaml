@@ -1,0 +1,18 @@
+# P-BFM clip-level EMD priorities; within-clip time remains uniform.
+command_class: PGMTTerrainMotionCommand
+motion_files: ${oc.env:PMT_PGMT_MOTION_ROOT,${oc.env:PMT_REPO_ROOT,.}/assets/motions/pgmt_clipped_50hz_tcrs_v1}
+terrain_motion_files: null
+sampler: emd
+storage_mode: eager
+chunk_length: 0
+enable_frame_sampling: false
+fixed_start_frame: -1
+decimation: 4
+sim_dt: 0.005
+emd:
+  min_value: 0.5
+  max_value: 2.0
+  scale: 2.0
+  evaluation_interval: 9600000
+  evaluation_num_envs: 64
+  evaluation_seed: 1729

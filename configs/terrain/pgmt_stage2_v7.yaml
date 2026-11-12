@@ -1,0 +1,81 @@
+# Stage2 terrain mix from docs/pbfm_terrain.md. Distances are metres.
+type: pgmt_pbfm_patch_regions
+version: pgmt_stage2_v7
+seed: 1731
+curriculum: true
+difficulty_range: [0.0, 1.0]
+num_rows: 10
+num_cols: 7
+families: [flat, rough, stairs_up, stairs_down, platforms, slope, boxes]
+# Allocation of training environments, independent of map column widths.
+family_proportions:
+  flat: 0.20
+  rough: 0.10
+  stairs_up: 0.20
+  stairs_down: 0.20
+  platforms: 0.10
+  slope: 0.10
+  boxes: 0.10
+region_size: [24.0, 24.0]
+patch_grid: [4, 4]
+patch_size: [6.0, 6.0]
+border_width: 20.0
+horizontal_scale: 0.10
+vertical_scale: 0.005
+flat:
+  class_name: MeshPlaneTerrainCfg
+rough:
+  class_name: PerlinRoughTerrainCfg
+  # Maximum absolute height before vertical quantization; scales with difficulty.
+  height_range: [0.02, 0.06]
+  horizontal_scale: 0.15
+  border_width: 0.25
+  slope_threshold: 0.75
+  # PBFM's table does not specify the noise spectrum; explicit local defaults.
+  wavelength: 1.20
+  octaves: 3
+  persistence: 0.50
+  lacunarity: 2.0
+stairs_up:
+  class_name: MeshPyramidStairsTerrainCfg
+  step_height_range: [0.10, 0.20]
+  step_width: 0.32
+  platform_width: 2.0
+  border_width: 1.0
+stairs_down:
+  class_name: MeshInvertedPyramidStairsTerrainCfg
+  step_height_range: [0.10, 0.20]
+  step_width: 0.32
+  platform_width: 2.0
+  border_width: 1.0
+platforms:
+  class_name: MeshRandomGridTerrainCfg
+  # Native semantics: cell tops sample [-H, H], with H increasing by level.
+  grid_height_range: [0.03, 0.10]
+  grid_width: 0.70
+  platform_width: 0.0
+  connection_width: 0.40
+  holes: false
+slope:
+  class_name: HfInvertedPyramidSlopedTerrainCfg
+  # Rise/run, not degrees: the maximum angle is atan(0.2) = 11.31 degrees.
+  slope_range: [0.0, 0.2]
+  platform_width: 0.5
+  border_width: 0.25
+boxes:
+  class_name: HfDiscreteObstaclesTerrainCfg
+  obstacle_height_range: [0.05, 0.15]
+  # Positive pillars. Width/count are local defaults absent from the PBFM table.
+  obstacle_height_mode: fixed
+  obstacle_width_range: [0.40, 0.80]
+  num_obstacles: 20
+  platform_width: 0.0
+  border_width: 0.25
+  # Keep a single-valued height field. Native steep-face vertex shifting can
+  # fold triangles at touching obstacle corners and disagree with PhysX rays.
+  slope_threshold: null
+spawn_preview:
+  samples_per_patch: 16
+  boundary_margin: 0.25
+  yaw_range: [-3.141592653589793, 3.141592653589793]
+  fixed_start_frame: 0

@@ -1,0 +1,15 @@
+# axis: checkpoint  (PMT plan §5 — named prior run)
+# The DISTILLED vision-transformer student (stage P2), warm-started into the P3
+# PPO-finetune policy. The finetune policy is a standalone VisionTransformerActorCritic
+# initialized from this ckpt's model_state_dict via base_policy_ckpt; the network's
+# _smart_load_checkpoint strips the "student." prefix and loads the overlapping tensors
+# (the distilled student carries the vision encoder, so transfer is FULL).
+#
+# REAL distill run: Distill-RGMT...VisionTeacher-SteppingStone-G1-v0 trained on the
+# big_map mesh + walk_dance1sub2start paired optimized/raw clips, policy_class=
+# VisionStudentTeacher (student = VisionTransformerActorCritic, 133 params).
+# CKPT_ROOT resolves per profile (e.g. $PMT_DATA_ROOT/logs/rsl_rl).
+# NB: bump `checkpoint:` to the latest model_*.pt of the chosen distill run.
+# Updated 2026-06-30: resumed distill run (from 2026-06-27 model_4600) reached model_5000.
+run_dir: ${paths.CKPT_ROOT}/pmt_distill_bigmap_walkdance/2026-06-29_15-01-16_16gpu-resume
+checkpoint: model_5000.pt

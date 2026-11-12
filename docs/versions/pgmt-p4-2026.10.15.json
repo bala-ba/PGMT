@@ -1,0 +1,1248 @@
+{
+  "schema": "pmt.milestone.v1",
+  "version": "pgmt-p4-2026.10.15",
+  "recorded_at": "2026-10-15T10:43:50+08:00",
+  "base_commit": "6423d172534907945c44f7a9b42ca39aa9a9b265",
+  "base_version": "pgmt-p2-2026.10.14",
+  "source_revision": "Resolve annotated Git tag pgmt-p4-2026.10.15",
+  "scope": "27-reward four-head terrain training without recovery; production PhysX fix; 1024 PPO/resume and 8192 run stopped and saved after 383 updates; fixed evaluation/convergence remain unverified",
+  "source_files": [
+    {
+      "path": "configs/reward/pgmt_stage2_terrain.yaml",
+      "sha256": "3704a25f60682fc590658a0fabb76fa0684c441c1e6e196c2ab3cdbfc84ab254"
+    },
+    {
+      "path": "configs/task/pgmt_stage2.yaml",
+      "sha256": "7d9b549b6aaa2e1ea51a4d557ef1766fa1d1ac1bc2162d3bd9c11a00798f0dda"
+    },
+    {
+      "path": "configs/task/pgmt_stage2_terrain.yaml",
+      "sha256": "bae35b2a819d2e56184c6f40e3a678505ce1a6374fd901d922bd50485c6f56ad"
+    },
+    {
+      "path": "motion_tracking_rl/algorithms/ppo.py",
+      "sha256": "fe7c46d62f26a14504704fe0cf278296ad86f0d267b982855d9bf5427bc25e45"
+    },
+    {
+      "path": "motion_tracking_rl/networks/pgmt_actor_critic.py",
+      "sha256": "6c4cfba043e9476f48e6abcb6dc6fc54d1ca37d3e3fb17c553158118cc2b0842"
+    },
+    {
+      "path": "motion_tracking_rl/pgmt_value_contract.py",
+      "sha256": "e1131c4bd1b8524a6095df0d853a6a69fd8d73799b5811a92fd2a5583bf2568f"
+    },
+    {
+      "path": "motion_tracking_rl/runners/pgmt_runner.py",
+      "sha256": "772511716bdfc8ac05984bb13956e09281a16267f2aed09028ff3d5c2333071f"
+    },
+    {
+      "path": "motion_tracking_rl/utils/pgmt_checkpoint.py",
+      "sha256": "ccb14b0496e356a376e92bc3eb2c3490bd704883b98c74c9d483aa0e70fa34fc"
+    },
+    {
+      "path": "pmt_tasks/agent_cfgs/pgmt.py",
+      "sha256": "99ac2bcefdfb492d7cb497ce03abc22b7d4f78dafe32afe6d58614b983bcdcf1"
+    },
+    {
+      "path": "pmt_tasks/builder.py",
+      "sha256": "c4714bf30d340c763cb134c7e025195008aae4b8387186526e6c032d2af2bebf"
+    },
+    {
+      "path": "pmt_tasks/env_cfgs/pgmt/stage2.py",
+      "sha256": "972c201a4d037b0ff7ce07641c1319be0c52491bc32edda460612839ccc5bd15"
+    },
+    {
+      "path": "pmt_tasks/env_cfgs/pgmt/terrain_rewards.py",
+      "sha256": "1c45547f3a5b5dff3feab07949f26ebae2c54b2e7e1300605d9221be40bc2b22"
+    },
+    {
+      "path": "pmt_tasks/env_cfgs/pgmt/terrain_training.py",
+      "sha256": "fbdf3c9e8588723efa385946b9e370e72e6710d480d55cb10d695b57200fa878"
+    },
+    {
+      "path": "pmt_tasks/mdp/commands/pgmt_motion_command.py",
+      "sha256": "6529d483ec0d1464b367952d58c57545f306ea03bc3b1139d04f49151c738a76"
+    },
+    {
+      "path": "pmt_tasks/mdp/pgmt_terminations.py",
+      "sha256": "82e8f48cb784e1ecebfe8036ee1493a411641266703d0e8783e7e0990fb03db5"
+    },
+    {
+      "path": "pmt_tasks/pgmt_contact_force.py",
+      "sha256": "a2a69e7465333cf6f3cd6561a1f0e7760bb45d335300d292ca5b46c793bb4ceb"
+    },
+    {
+      "path": "pmt_tasks/pgmt_contact_match.py",
+      "sha256": "eb64be5a0a0150620b6356f0c6c0e3abec2001077fd3d228b8b69fba788714a6"
+    },
+    {
+      "path": "pmt_tasks/pgmt_contact_state.py",
+      "sha256": "8545a559517486cfa1f0ad8eedd7e74d309bcbb88756bb90d9db2557b0016683"
+    },
+    {
+      "path": "pmt_tasks/pgmt_contact_switching.py",
+      "sha256": "edc7a97a3a9abff7537a3cd7ed2a1e09d269690d7cda654ee2b8252ce7982246"
+    },
+    {
+      "path": "pmt_tasks/pgmt_curriculum.py",
+      "sha256": "ec70e9fc5c2e8d54c2481fbeb86b0b94af32cbc2e8daa6452e40cec07e02c1dd"
+    },
+    {
+      "path": "pmt_tasks/pgmt_math.py",
+      "sha256": "ede1bafcff1ebcdfdc6b53276436d22a7db1443a18adf6a134384b910b1b0249"
+    },
+    {
+      "path": "pmt_tasks/pgmt_physx.py",
+      "sha256": "cb56c79a2153d697aa4284c9f2b81f498b18d70762a34ceeab1253a77f3c6ff3"
+    },
+    {
+      "path": "pmt_tasks/pgmt_runtime.py",
+      "sha256": "cf98a5694c8a328fd589190f15cfc4ee7408fa8dc708346e3a6c4c472add4fed"
+    },
+    {
+      "path": "pmt_tasks/pgmt_slip.py",
+      "sha256": "9b757541b8576e9a95af4339d4cfeb75f7ec400fccd5df615b66ef642a2c7763"
+    },
+    {
+      "path": "pmt_tasks/pgmt_stumble.py",
+      "sha256": "2704c8cef96385fb432e3251357d5276d73bb25e7904f426aa6f5e004c7af78a"
+    },
+    {
+      "path": "pmt_tasks/pgmt_terminations.py",
+      "sha256": "5aee80237099dc6d33a337f62868dc5c1d0760ace7d7072b0fb77c8634696ded"
+    },
+    {
+      "path": "pmt_tasks/pgmt_terrain_importer.py",
+      "sha256": "25dd5faf719c1660d6a8a82df255882e617a78c87caaa27a1dd45a1eae985489"
+    },
+    {
+      "path": "pmt_tasks/pgmt_touchdown.py",
+      "sha256": "71d05d6bfe5b0c3c878009c7ade0afb0f02a5f0b428bdb0044c1b98595923e1d"
+    },
+    {
+      "path": "pmt_tasks/pgmt_tracking_relaxation.py",
+      "sha256": "9c7323e77970dce78ccb9960391ad9ad69be0bc365851cae4e223a9104153980"
+    },
+    {
+      "path": "pmt_tasks/pgmt_training_metrics.py",
+      "sha256": "63bda568c5f1e4ec55c011ade6b494964dfb2a45e3ea36181efb373ab48c09ea"
+    },
+    {
+      "path": "pmt_tasks/registry_gym.py",
+      "sha256": "36fac7ab78bbcac8ebdec9f36e87fd81143ab5edb17b270f75f5f04932780f85"
+    },
+    {
+      "path": "scripts/pgmt_contact_force_checks.py",
+      "sha256": "cad25d87582c0765545cc245a9baedc5770d4f2d08b9926874584f93e1e7d15f"
+    },
+    {
+      "path": "scripts/pgmt_contact_match_checks.py",
+      "sha256": "b0dc5de220acbc1ef4d8254164d7be973f2b75023eff6ee89cbefcff565b071b"
+    },
+    {
+      "path": "scripts/pgmt_contact_switching_checks.py",
+      "sha256": "61344fc81a9744bd0288ddcae46ab629aac1ddecb44633bfc37ed91da33fdc64"
+    },
+    {
+      "path": "scripts/pgmt_slip_checks.py",
+      "sha256": "f0491cc29535182ac4487cc473d035ad002c6e5eaa3ad079773518e96e2c2a2c"
+    },
+    {
+      "path": "scripts/pgmt_stumble_checks.py",
+      "sha256": "968c691e431df9c87efcb5d5b1abecff37bb0214a809548820f2720577f9dd28"
+    },
+    {
+      "path": "scripts/pgmt_touchdown_checks.py",
+      "sha256": "129368d01e0f82f9b4d6f2515ee7aee976d27834701a164ab431de893005211e"
+    },
+    {
+      "path": "scripts/pgmt_touchdown_visualization.py",
+      "sha256": "f8913b438f9d86eedcb118694d879bb9addf56084686c51b168bf3a8bc5ba832"
+    },
+    {
+      "path": "scripts/report_pgmt_four_head.py",
+      "sha256": "9f6315f3063b1c9c0c558f22ee7722fa320cda5135223cabc0929bfe75ceb338"
+    },
+    {
+      "path": "scripts/report_pgmt_p4.py",
+      "sha256": "85275f83825fe5d9452dac4b2d04929acec98306bcc9d0defc8903494cd6fb43"
+    },
+    {
+      "path": "scripts/run_pgmt_p4_long.py",
+      "sha256": "e881e20507ff73508f3a126c0646d216c27a32947a22db6378052c7349343d5f"
+    },
+    {
+      "path": "scripts/train_pgmt_stage2.py",
+      "sha256": "f973bdbd7d478ed92d99b4c9c28f2dd6f81e52265d3181d0d9e80c08fd20434c"
+    },
+    {
+      "path": "scripts/train_pgmt_terrain.sh",
+      "sha256": "f02971a187999e57e31f600b633c1d558e5f02e9146906c0c75ffa2a71ee75a4"
+    },
+    {
+      "path": "scripts/validate_pgmt_body_contacts.py",
+      "sha256": "b95a447f3e3fea6619767fef50b86e3271346d9e135cb041a84057470d63070f"
+    },
+    {
+      "path": "scripts/validate_pgmt_body_contacts.sh",
+      "sha256": "61c3c15b2bc8c0b55ff585c3d3005f3efef7e6de8729fc29696f198698738153"
+    },
+    {
+      "path": "scripts/validate_pgmt_contact_state.py",
+      "sha256": "f9d7bfb07f282b981af60a369fada3c9550808ef405b5e06f7e1f1438cb39cdb"
+    },
+    {
+      "path": "scripts/validate_pgmt_contact_state.sh",
+      "sha256": "818662bbf2b08356d789d013ebd8e6c9f711d79a4813832289e67ab0fcca7b3d"
+    },
+    {
+      "path": "scripts/validate_pgmt_four_head.sh",
+      "sha256": "1bf33f7f450cf7c3ed5c8ad3e11b81064a828fa5c2957153f8088d8261ed6741"
+    },
+    {
+      "path": "scripts/validate_pgmt_physics_scaling.py",
+      "sha256": "6365be979a88831d5423d5c21cf47143a412443055e2c90ff0fe6956ce6d6198"
+    },
+    {
+      "path": "scripts/validate_pgmt_physics_scaling.sh",
+      "sha256": "f7f051051de416eef56bd2aad392f3fa71c66bdf842de6a4a3db02161b5c1679"
+    },
+    {
+      "path": "scripts/validate_pgmt_terminations.py",
+      "sha256": "bd15ee34b478e884411d427a91bf587536bb9795e03fb1edb41a54be9c21d6b3"
+    },
+    {
+      "path": "scripts/validate_pgmt_terminations.sh",
+      "sha256": "e568c3a7325b0bee68fe2954efe0e1f6d58e6189543e3a270a92cd942690102b"
+    },
+    {
+      "path": "scripts/validate_pgmt_tracking_relaxation.py",
+      "sha256": "f423ff792fd5eaef04f5c745e77de415adab32fe04197a01b51e9815992ae6fe"
+    },
+    {
+      "path": "scripts/validate_pgmt_tracking_relaxation.sh",
+      "sha256": "297649877ea65cb16e37e6fda09f64645ec771ea661a4067b518b5abdb385d3f"
+    },
+    {
+      "path": "scripts/view_pgmt_contacts.py",
+      "sha256": "167604b04d2240908bee6a550199d58a9014ddea6697de332bdca72da3f1560f"
+    },
+    {
+      "path": "scripts/view_pgmt_contacts.sh",
+      "sha256": "f6ec3aaffa70d4f232c67079e88a734ef6a32581f8aed74668d530c7d23cca9d"
+    },
+    {
+      "path": "tests/test_pgmt_contact_force.py",
+      "sha256": "b39ea727b5340ec7f9a0bddf79fbafce470423b29628df352d8fac72e7f1e78d"
+    },
+    {
+      "path": "tests/test_pgmt_contact_match.py",
+      "sha256": "1328d740031598cb662637861ba16f3ff7f559e7a06b62925897ed4bc31aff50"
+    },
+    {
+      "path": "tests/test_pgmt_contact_state.py",
+      "sha256": "5d43f1dd4bb99a2462b0764c9b80257b94fb7745c91bfb74f84b7e3a9f0baf70"
+    },
+    {
+      "path": "tests/test_pgmt_contact_switching.py",
+      "sha256": "8bc5399be40b6ae2e54cc09077ba0268e029419f84a1ca510e82d6df4db440d7"
+    },
+    {
+      "path": "tests/test_pgmt_four_head.py",
+      "sha256": "0c8587c9d8fc4e84455759a4e8c186ff78c625aa98e105c848b52020de9f7898"
+    },
+    {
+      "path": "tests/test_pgmt_mdp.py",
+      "sha256": "3cfae9b706cb115b9ac13a2219814570d2f87e81617bd86fa9d6ba1726052171"
+    },
+    {
+      "path": "tests/test_pgmt_physx.py",
+      "sha256": "e491ef2636872c70281ac5b06d1a5d42f3642ee4a32efe732e47ac810d9ecfeb"
+    },
+    {
+      "path": "tests/test_pgmt_rl.py",
+      "sha256": "068cc5be7156221e3720a25ce34cdd537fd575fc78a5167f7a586275e8d99edc"
+    },
+    {
+      "path": "tests/test_pgmt_slip.py",
+      "sha256": "a08cd057f11773affc7d75306a8d5ba56f0ef0c8df1407dc1ca321a772db5b55"
+    },
+    {
+      "path": "tests/test_pgmt_stumble.py",
+      "sha256": "80d3c1f360c3b967b1336eafc9a9841d4ae361cd679b9e2a2161d9ee9cde09bf"
+    },
+    {
+      "path": "tests/test_pgmt_terminations.py",
+      "sha256": "5c09bec0a4c82613fd97b7ec39a898bd8a5c71b1ff25d6859cd3edad145c2a95"
+    },
+    {
+      "path": "tests/test_pgmt_touchdown.py",
+      "sha256": "683d91d8e81e28138ea2733d3d5111df15101118df3a91412db4cecfd513516d"
+    },
+    {
+      "path": "tests/test_pgmt_tracking_relaxation.py",
+      "sha256": "9ecfb26d401de6ba4078c88637a7cd1480da63fe967b4e80283c87c33674dfd5"
+    },
+    {
+      "path": "tests/test_pgmt_training_metrics.py",
+      "sha256": "d2332129a7ee9e1c627671942624da166c87b1d049ec5669d327229b457e8e98"
+    }
+  ],
+  "previous_snapshot": {
+    "path": "docs/versions/pgmt-p2-2026.10.14.json",
+    "sha256": "448571a593a6204649b96a1061a577170c46adea49f5e86bb05702a1677477ab",
+    "uploaded": true
+  },
+  "validation_this_task": {
+    "unique_tests_passed": 1017,
+    "failed": 0,
+    "skipped": 0,
+    "excluded": 1,
+    "main_suite": {
+      "path": "/tmp/pmt-release-20261015-main.xml",
+      "sha256": "9015f72bbb3918b9a999652a523be30cf9c38f16f785394120e50a9a6ebaadb4",
+      "uploaded": false,
+      "tests": 990,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "time_s": 35.359,
+      "cuda_cases": 77
+    },
+    "four_head_suite": {
+      "path": "/tmp/pmt-release-20261015-four-head.xml",
+      "sha256": "5ae9ef2e9a004e403bfa7eddb75808535fae547372439a26e607e1242f7dd218",
+      "uploaded": false,
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "time_s": 5.839,
+      "cuda_cases": 2
+    },
+    "main_command": "/home/lzp/miniconda3/envs/pmt/bin/python -m pytest -q tests/test_pgmt*.py tests/test_normalization_resume.py tests/test_all_tasks_resolve.py tests/test_builder_slice.py tests/test_compat_matrix.py tests/test_group_yaml_valid.py -k 'not test_sonic_agent_cfg_modes_resolve_release_onnx and not test_pgmt_four_head' --junitxml=/tmp/pmt-release-20261015-main.xml -o junit_family=legacy -rs",
+    "four_head_command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /home/lzp/miniconda3/envs/isaacsim/bin/python -m pytest -q tests/test_pgmt_four_head.py --junitxml=/tmp/pmt-release-20261015-four-head.xml -o junit_family=legacy -rs",
+    "coverage": "Final XML case identities are disjoint and their union exactly matches the original 1017 selected cases; main-suite deselection includes 27 cases moved to the four-head suite plus one SONIC exclusion.",
+    "exclusion": "test_sonic_agent_cfg_modes_resolve_release_onnx: known interactive Isaac EULA bootstrap; not counted as passed",
+    "preliminary_numpy1": {
+      "path": "/tmp/pmt-release-20261015.xml",
+      "sha256": "9638ca9e0656c2d937b3312615a16dab251bbde6745a57b5e5142bb4df3b9772",
+      "uploaded": false,
+      "tests": 1017,
+      "failures": 9,
+      "errors": 0,
+      "skipped": 0,
+      "time_s": 39.276,
+      "cuda_cases": 79
+    },
+    "preliminary_numpy2": {
+      "path": "/tmp/pmt-release-20261015-numpy2.xml",
+      "sha256": "2aa875f16235aa2fc912bd272b1bc29492471ae791e3e44f36264f6d1548bd05",
+      "uploaded": false,
+      "tests": 1017,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "time_s": 37.451,
+      "cuda_cases": 79
+    },
+    "environment_limits": [
+      "NumPy 1 cannot load the NumPy 2 RNG pickle in the real P2 checkpoint: initial 1008 passed / 9 failed.",
+      "Training-environment SciPy rejects the Euler input shape in two offline motion fixtures: 1015 passed / 2 failed.",
+      "Automatic third-party pytest typeguard plugin fails due to a typing_extensions version mismatch; disabled for the training-environment suite."
+    ],
+    "python_ast": {
+      "passed": true,
+      "files": 59
+    },
+    "shell_syntax": {
+      "passed": true,
+      "files": 8
+    },
+    "diff_check": "passed",
+    "formal_snapshot_matching_files": 449,
+    "finite_checkpoint_persistent_fields_reverified": [
+      "model_state_dict",
+      "optimizer_state_dict",
+      "policy_metadata",
+      "training_contract",
+      "environment_state_dict",
+      "learning_rate",
+      "next_iteration",
+      "iter",
+      "initialization",
+      "tot_timesteps",
+      "tot_time"
+    ],
+    "formal_checkpoint_reloaded": true,
+    "formal_checkpoint_and_optimizer_finite": true,
+    "isaac_launched": false,
+    "gui_launched": false,
+    "simulation_training_launched": false
+  },
+  "formal_source_snapshot": {
+    "path": "logs/pgmt_p4_20261014/source_snapshot_formal.zip",
+    "sha256": "a2e9269557f92a64546c544fe127572b1baa5c4732975fd76b47d22d7f671946",
+    "uploaded": false,
+    "manifest": {
+      "path": "logs/pgmt_p4_20261014/source_manifest_formal.json",
+      "sha256": "a0520c29a2a3c886bb1a855474b8defca0ebab2f43f04d8eca1028d968bea7b7",
+      "uploaded": false
+    },
+    "matched_python_shell_yaml_files": 449,
+    "different_files": []
+  },
+  "source_checkpoint": {
+    "path": "logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+    "sha256": "40708024acb51c6ce3cd87d6a067f59ff822763b6d8b73d3e2473d9953793087",
+    "uploaded": false
+  },
+  "final_checkpoint": {
+    "path": "logs/pgmt_p4_20261014/formal_8192/final.pt",
+    "sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+    "uploaded": false,
+    "kind": "pgmt_terrain_training",
+    "version": 1,
+    "iteration": 383,
+    "tot_timesteps": 75300864,
+    "learning_rate": 0.00014778918800354004,
+    "model_state_count": 59,
+    "optimizer_state_count": 47,
+    "value_groups": [
+      "upper",
+      "lower",
+      "terrain",
+      "auxiliary"
+    ],
+    "environment_state_keys": [
+      "kind",
+      "curriculum",
+      "sampler"
+    ],
+    "rng_state_keys": [
+      "python",
+      "numpy",
+      "torch",
+      "cuda"
+    ],
+    "training_contract_sha256": "6daa687868e8de1bb1c192df9047ed5ba3b727ffeb45ab8cf9b2fc2f9616e73e"
+  },
+  "formal_training": {
+    "path": "logs/pgmt_p4_20261014/formal_8192/training_status.json",
+    "sha256": "eb860ad34a5fedbc814809a841c09a0ee350f47a6410e521943312df28590f5b",
+    "uploaded": false,
+    "summary": {
+      "status": "completed",
+      "started_at": "2026-10-14T23:26:53.318441",
+      "updated_at": "2026-10-15T10:17:35.827812",
+      "completed_updates": 383,
+      "start_iteration": 0,
+      "next_iteration": 383,
+      "policy_value_groups": [
+        "upper",
+        "lower",
+        "terrain",
+        "auxiliary"
+      ],
+      "physics_setup": [
+        {
+          "scene": "/physicsScene",
+          "before": 4,
+          "after": 0,
+          "replicate_physics": true,
+          "filter_collisions": true
+        }
+      ],
+      "stop_reason": "stop_file",
+      "training_walltime_s": 38952.579515301004,
+      "source_checkpoint_unchanged": true,
+      "mean_collection_s": 99.25187270553948,
+      "mean_update_s": 2.432057670273706,
+      "active_rewards": [
+        "upper_body_position",
+        "upper_body_orientation",
+        "upper_body_linear_velocity",
+        "upper_body_angular_velocity",
+        "upper_joint_position",
+        "upper_joint_velocity",
+        "lower_body_position",
+        "lower_body_orientation",
+        "lower_body_linear_velocity",
+        "lower_body_angular_velocity",
+        "lower_joint_position",
+        "lower_joint_velocity",
+        "auxiliary_root_orientation",
+        "auxiliary_root_velocity",
+        "auxiliary_anchor_position",
+        "auxiliary_base_acceleration",
+        "auxiliary_end_effector_acceleration",
+        "auxiliary_action_rate",
+        "auxiliary_joint_limit",
+        "auxiliary_undesired_contacts",
+        "auxiliary_anchor_contact_force",
+        "terrain_touchdown_quality",
+        "terrain_reference_contact_match",
+        "terrain_slip",
+        "terrain_stumble",
+        "terrain_contact_switching",
+        "terrain_contact_force"
+      ],
+      "reward_group_audit": {
+        "steps": 9192,
+        "done_events": 209186,
+        "timeout_events": 97890,
+        "max_group_sum_error": 2.288818359375e-05,
+        "terrain_nonzero_samples": 74407570
+      },
+      "tracking_relaxation": {
+        "enabled": true,
+        "position_max": 0.2,
+        "orientation_max": 0.7,
+        "joint_max": 0.5,
+        "terrain_families": [
+          "stairs",
+          "slope",
+          "boxes"
+        ],
+        "level_max": 9,
+        "alpha": {
+          "lower_body_position": {},
+          "lower_body_orientation": {},
+          "lower_joint_position": {}
+        }
+      },
+      "curriculum_outcomes": [
+        92461,
+        111472,
+        5253,
+        0,
+        0,
+        0
+      ],
+      "terrain_level_histogram": [
+        2139,
+        1737,
+        982,
+        551,
+        444,
+        347,
+        384,
+        407,
+        486,
+        715
+      ],
+      "simulator_version": "Isaac Sim 6 compatibility / Isaac Lab 2.3",
+      "gpu_name": "NVIDIA GeForce RTX 5090"
+    }
+  },
+  "formal_launch": {
+    "path": "logs/pgmt_p4_20261014/formal_8192/launch.json",
+    "sha256": "864ab4587097fd3944dbb5845694b19e591dc9aab35429e9eeb7bca509c57969",
+    "uploaded": false,
+    "summary": {
+      "task": "pgmt_stage2_terrain",
+      "num_envs": 8192,
+      "device": "cuda:0",
+      "headless": true,
+      "max_iterations": 20000,
+      "save_interval": 50,
+      "max_runtime_s": 43199.999913550004,
+      "stop_file": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/STOP_REQUESTED",
+      "env_id_bits": 0,
+      "flat_only": false,
+      "seed": 722,
+      "initialize_from": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_stage1/pgmt_8192x20000/model_15000.pt",
+      "resume": null
+    }
+  },
+  "formal_progress": {
+    "path": "logs/pgmt_p4_20261014/formal_8192/progress.jsonl",
+    "sha256": "f7b0ef1fc0a428e729f9ded24e8fb8e27c5f5f55afdf9a9a67444aa5bc277283",
+    "uploaded": false,
+    "updates": 383
+  },
+  "supervisor": {
+    "path": "logs/pgmt_p4_20261014/overnight_status.json",
+    "sha256": "9f535f557d2e803a50e977bad17fe95cda61151c656ce022ebe3c294b6a8da4f",
+    "uploaded": false,
+    "summary": {
+      "status": "completed",
+      "device": "cuda:0",
+      "started_at": "2026-10-14T23:26:53.223239",
+      "active_num_envs": 8192,
+      "completed_updates": 383,
+      "next_iteration": 383,
+      "finished_at": "2026-10-15T10:18:08.866159",
+      "stop_reason": "stop_file",
+      "hours": 12.0,
+      "max_iterations": 20000
+    }
+  },
+  "stop_verification": {
+    "path": "logs/pgmt_p4_20261014/stop_verification.json",
+    "sha256": "ce3ce5108f5e89e58d6c9fbce368877a7c2fc526d1d34a792bea6a5d586ae5ae",
+    "uploaded": false,
+    "summary": {
+      "verified_at": "2026-10-15T10:17:57.732236",
+      "status": "passed",
+      "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/formal_8192/final.pt",
+      "size_bytes": 15292594,
+      "sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+      "next_iteration": 383,
+      "tot_timesteps": 75300864,
+      "optimizer_parameter_states": 47,
+      "environment_state_keys": [
+        "kind",
+        "curriculum",
+        "sampler"
+      ],
+      "policy_value_groups": [
+        "upper",
+        "lower",
+        "terrain",
+        "auxiliary"
+      ],
+      "model_and_optimizer_finite": true,
+      "stop_reason": "stop_file",
+      "supervisor_status": "completed",
+      "guard_exit_code": 0,
+      "training_worker_exited": true,
+      "training_gpu_context_released": true,
+      "tensorboard_retained": true
+    }
+  },
+  "finite_acceptance": {
+    "path": "logs/pgmt_p4_20261014/finite_acceptance.json",
+    "sha256": "13ef5966c202d6de1fd5054b0b75a1609d1b9d8e8324cd209cd30801c274ef20",
+    "uploaded": false,
+    "summary": {
+      "status": "passed",
+      "restored_fields_exact": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "policy_metadata",
+        "training_contract",
+        "environment_state_dict",
+        "learning_rate",
+        "next_iteration",
+        "iter",
+        "initialization",
+        "tot_timesteps",
+        "tot_time"
+      ],
+      "runs": {
+        "flat_160": {
+          "num_envs": 160,
+          "updates": 3,
+          "next_iteration": 3,
+          "mean_collection_s": 8.738341450691223,
+          "mean_update_s": 0.7808293104171753,
+          "reward_audit": {
+            "steps": 72,
+            "done_events": 2,
+            "timeout_events": 0,
+            "max_group_sum_error": 1.4901161193847656e-07,
+            "terrain_nonzero_samples": 11477
+          },
+          "curriculum_outcomes": [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/flat_160/final.pt"
+        },
+        "short_160": {
+          "num_envs": 160,
+          "updates": 25,
+          "next_iteration": 25,
+          "mean_collection_s": 10.561771919329962,
+          "mean_update_s": 0.7694451113541921,
+          "reward_audit": {
+            "steps": 600,
+            "done_events": 266,
+            "timeout_events": 67,
+            "max_group_sum_error": 3.814697265625e-06,
+            "terrain_nonzero_samples": 95435
+          },
+          "curriculum_outcomes": [
+            62,
+            199,
+            5,
+            0,
+            0,
+            0
+          ],
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/short_160/final.pt"
+        },
+        "resume_160": {
+          "num_envs": 160,
+          "updates": 5,
+          "next_iteration": 30,
+          "mean_collection_s": 9.308889150619507,
+          "mean_update_s": 0.7362474203109741,
+          "reward_audit": {
+            "steps": 120,
+            "done_events": 22,
+            "timeout_events": 3,
+            "max_group_sum_error": 2.384185791015625e-07,
+            "terrain_nonzero_samples": 19013
+          },
+          "curriculum_outcomes": [
+            62,
+            219,
+            7,
+            0,
+            0,
+            0
+          ],
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/resume_160/final.pt"
+        },
+        "restore_160": {
+          "num_envs": 160,
+          "updates": 0,
+          "next_iteration": 30,
+          "mean_collection_s": null,
+          "mean_update_s": null,
+          "reward_audit": {
+            "steps": 0,
+            "done_events": 0,
+            "timeout_events": 0,
+            "max_group_sum_error": 0.0,
+            "terrain_nonzero_samples": 0
+          },
+          "curriculum_outcomes": null,
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/restore_160/final.pt"
+        },
+        "scale_1024": {
+          "num_envs": 1024,
+          "updates": 3,
+          "next_iteration": 3,
+          "mean_collection_s": 25.958743810653687,
+          "mean_update_s": 0.8803187608718872,
+          "reward_audit": {
+            "steps": 72,
+            "done_events": 54,
+            "timeout_events": 0,
+            "max_group_sum_error": 2.384185791015625e-07,
+            "terrain_nonzero_samples": 73113
+          },
+          "curriculum_outcomes": [
+            0,
+            54,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/scale_1024/final.pt"
+        },
+        "resume_1024": {
+          "num_envs": 1024,
+          "updates": 1,
+          "next_iteration": 4,
+          "mean_collection_s": 22.336507320404053,
+          "mean_update_s": 0.9986274242401123,
+          "reward_audit": {
+            "steps": 24,
+            "done_events": 0,
+            "timeout_events": 0,
+            "max_group_sum_error": 1.1920928955078125e-07,
+            "terrain_nonzero_samples": 24387
+          },
+          "curriculum_outcomes": [
+            0,
+            54,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checkpoint": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p4_20261014/resume_1024/final.pt"
+        }
+      },
+      "scope": "Numerical/finite training/restore and 1024 scalability; no convergence or 30-second benchmark claim"
+    }
+  },
+  "finite_run_artifacts": [
+    {
+      "name": "flat_160",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/flat_160/training_status.json",
+        "sha256": "ddb3e06c43d0087c4267186507a19ac4dc9b84e3fab9a1cf1e2dc18f44cb5179",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/flat_160/final.pt",
+        "sha256": "72f5052f4fa0f2a9a30ab392265c6a1604010e648d670fbd4ffd5f1072ed1fc8",
+        "uploaded": false,
+        "next_iteration": 3
+      }
+    },
+    {
+      "name": "short_160",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/short_160/training_status.json",
+        "sha256": "407eda7d73f5b1797b6061d63c1d771a02c931730b7bbe806c586de3d199beab",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/short_160/final.pt",
+        "sha256": "90661637157cfea8a706abcd295c2368c5ca132812d74f62bc242befbc5eb589",
+        "uploaded": false,
+        "next_iteration": 25
+      }
+    },
+    {
+      "name": "resume_160",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/resume_160/training_status.json",
+        "sha256": "129d494904e3fcfafbf6d4520ece370029d3043f803278e85143cd44a819b105",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/resume_160/final.pt",
+        "sha256": "5a1ea58829d5f49a020d0b218a2101645b637e306214fc7a0aea3d2923a3222b",
+        "uploaded": false,
+        "next_iteration": 30
+      }
+    },
+    {
+      "name": "restore_160",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/restore_160/training_status.json",
+        "sha256": "269bf7e0438ac700f1c3c0bb9949fc5efb7ac529f750a19aa9776e6efc0620bd",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/restore_160/final.pt",
+        "sha256": "470961d3629d0372b8adae8d1d350286bf3c3ae830db832a852a31e8cb2cb784",
+        "uploaded": false,
+        "next_iteration": 30
+      }
+    },
+    {
+      "name": "scale_1024",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/scale_1024/training_status.json",
+        "sha256": "cc65b9995ca7dd7e2b2eaaeaff0d359cbf747f8802e418ce777b09ee4e839937",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/scale_1024/final.pt",
+        "sha256": "dc473f050ec706d66baff3273985025a2b4035d5008b4a0b40bd1a5016d56c4d",
+        "uploaded": false,
+        "next_iteration": 3
+      }
+    },
+    {
+      "name": "resume_1024",
+      "status": {
+        "path": "logs/pgmt_p4_20261014/resume_1024/training_status.json",
+        "sha256": "6e7e483276d006b665ec50ea275ced2c7dfd99adea636276b9c85bc69ae8cbbd",
+        "uploaded": false
+      },
+      "checkpoint": {
+        "path": "logs/pgmt_p4_20261014/resume_1024/final.pt",
+        "sha256": "33a0fc10373a932ca75cdba6ae8a63bc9355386f3bd4ce51a98c4735b79bec61",
+        "uploaded": false,
+        "next_iteration": 4
+      }
+    }
+  ],
+  "physics_acceptance": {
+    "path": "logs/pgmt_p4_20261014/physics_01/training_status.json",
+    "sha256": "586503c8cbdf66d1cf875f60b21e905355e19b7fa86fa04a96201841e5eae9ae",
+    "uploaded": false,
+    "summary": {
+      "status": "passed",
+      "pid": 654881,
+      "physics_setup": [
+        {
+          "scene": "/physicsScene",
+          "before": 4,
+          "after": 0,
+          "replicate_physics": true,
+          "filter_collisions": true
+        }
+      ],
+      "overlapping_airborne_robots": {
+        "steps": 8,
+        "max_force_n": 0.0,
+        "max_pose_difference_m": 0.0
+      },
+      "control_steps": 32,
+      "crossing": [
+        {
+          "birth_family": 0,
+          "actual_family": 1,
+          "max_upward_force_n": 155.04556274414062
+        },
+        {
+          "birth_family": 0,
+          "actual_family": 2,
+          "max_upward_force_n": 829.389404296875
+        },
+        {
+          "birth_family": 0,
+          "actual_family": 3,
+          "max_upward_force_n": 232.95248413085938
+        },
+        {
+          "birth_family": 0,
+          "actual_family": 4,
+          "max_upward_force_n": 757.9155883789062
+        }
+      ],
+      "reference_and_birth_preserved": true,
+      "collision_filtering_preserved": true
+    }
+  },
+  "historical_p3_acceptance": {
+    "path": "logs/pgmt_p3_acceptance_20261014/p3_acceptance.json",
+    "sha256": "daf760b768b8687f0ca524ff87695516ee78711c80d1c64e1b4eadbe09091f9a",
+    "uploaded": false,
+    "summary": {
+      "status": "partial",
+      "p3_complete": false,
+      "tests": {
+        "passed": 600,
+        "failed": 0,
+        "log": "logs/pgmt_p3_acceptance_20261014/cpu_cuda_tests.txt"
+      },
+      "current_configuration": {
+        "task": "pgmt_stage2_terrain",
+        "num_envs": 160,
+        "device": "cuda:1",
+        "reward_groups": [
+          "upper",
+          "lower",
+          "terrain",
+          "auxiliary"
+        ],
+        "reward_count": 27,
+        "ee_acceleration_bodies": [
+          "left_wrist_yaw_link",
+          "right_wrist_yaw_link"
+        ],
+        "tracking_duration_s": {
+          "root_xy": 0.2,
+          "anchor_pos": 0.2,
+          "ee_body_pos": 0.2,
+          "anchor_ori": 0.2
+        },
+        "episode_length_s": 10,
+        "tracking_relaxation": {
+          "enabled": true,
+          "position_max": 0.2,
+          "orientation_max": 0.7,
+          "joint_max": 0.5,
+          "terrain_families": [
+            "stairs",
+            "slope",
+            "boxes"
+          ],
+          "level_max": 9,
+          "alpha": {
+            "lower_body_position": {},
+            "lower_body_orientation": {},
+            "lower_joint_position": {}
+          }
+        },
+        "recovery_enabled": false
+      },
+      "native_training": {
+        "report": "logs/pgmt_p3_acceptance_20261014/acceptance_report.json",
+        "additional_updates": [
+          3,
+          2
+        ],
+        "control_steps": 120,
+        "transitions": 19200,
+        "done_events": 11,
+        "timeout_events": 0,
+        "terrain_nonzero_samples": 19067,
+        "max_group_sum_error": 4.76837158203125e-07,
+        "final_iteration": 5,
+        "restores": [
+          "resume_160_01",
+          "restore_160_01"
+        ],
+        "p2_migration": "passed",
+        "all_processes_exited": true,
+        "pids": [
+          586268,
+          588020,
+          589620,
+          590820
+        ]
+      },
+      "pending": [
+        {
+          "task": "P3.5",
+          "work": "Physical head/chest impact probes and matching sensor/reward validation; necessary knee/hand contact penalty statistics for crawling motions"
+        },
+        {
+          "task": "P3.6",
+          "work": "Sufficient complete-clip evaluations per terrain family/difficulty; return/contact-event/termination distributions and false-termination review"
+        }
+      ],
+      "excluded_by_user": [
+        "recovery pool",
+        "recovery upward velocity",
+        "recovery curriculum"
+      ],
+      "risks": [
+        "Initial PPO approximate KL 0.158 and clip fraction 0.536; later KL decreases but five updates do not establish convergence",
+        "Single-point torso ground height may differ from physical support surface; 0.2 s persistence does not remove a sustained geometric mismatch"
+      ]
+    }
+  },
+  "specialist_acceptance": [
+    {
+      "path": "logs/pgmt_p3_contact_state/isaac_03/training_status.json",
+      "sha256": "22484372f103b4f5849d2e45cc626441bcf4a08e6a257df332586c5012a02c03",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 137164,
+        "started_at": "2026-10-14T15:17:51.307617",
+        "terrain_collider_count": 800,
+        "control_steps": 67,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_touchdown/isaac_02/training_status.json",
+      "sha256": "4db6a770546e646d4b40610ba15254798ab2fed66fdd061afae8cbd5e7066d69",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 189920,
+        "started_at": "2026-10-14T16:07:14.312806",
+        "terrain_collider_count": 800,
+        "control_steps": 67,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_contact_match/isaac_01/training_status.json",
+      "sha256": "16b23f2634cabff67046d22a5c614cc8a792ceaad4e0bf7d6e04ae0961c46df6",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 253229,
+        "started_at": "2026-10-14T17:09:55.409806",
+        "terrain_collider_count": 800,
+        "control_steps": 72,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_slip/isaac_01/training_status.json",
+      "sha256": "128ccd24795dd55505cd58bc7d99676bdecb167f489335fca73e51b0ef31cb0f",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 272306,
+        "started_at": "2026-10-14T17:24:44.351553",
+        "terrain_collider_count": 800,
+        "control_steps": 72,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_stumble/isaac_02/training_status.json",
+      "sha256": "35b2cfb483794d51d9f95602f98113a382afd0ce603f400605133487b48dfe13",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 290332,
+        "started_at": "2026-10-14T17:37:45.188890",
+        "terrain_collider_count": 800,
+        "control_steps": 102,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_contact_switching/isaac_01/training_status.json",
+      "sha256": "bac817f10d85775eaacf6098aa72b26b7e082e1bf7cb17d3bbde38cda8396fb1",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 300151,
+        "started_at": "2026-10-14T17:44:57.736053",
+        "terrain_collider_count": 800,
+        "control_steps": 102,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_contact_force/isaac_01/training_status.json",
+      "sha256": "7b5c62a79f751a4e9f149fa6c4e457557b0bea6f2dc8432f9e818f414ac97d41",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 334012,
+        "started_at": "2026-10-14T18:33:11.832326",
+        "terrain_collider_count": 800,
+        "control_steps": 102,
+        "terminal_reset_checked": true,
+        "duplicate_reads_checked": true,
+        "nonterrain_max_net_force_n": 820.644287109375,
+        "nonterrain_max_filtered_force_n": 0.0
+      }
+    },
+    {
+      "path": "logs/pgmt_p3_tracking_relaxation/isaac_01/training_status.json",
+      "sha256": "b4161318a1d96c104296b271bd7f143143cb61cf2e946f60577b14f5002596ab",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 393294,
+        "started_at": "2026-10-14T19:36:19.680848",
+        "control_steps": 14,
+        "regions_checked": 50,
+        "max_raw_error_difference": 6.201964870000687e-07,
+        "crossing_birth_reference_preserved": true,
+        "terminal_reset_checked": true,
+        "map_exit_truncation_checked": true,
+        "duplicate_reads_checked": true,
+        "original_other_18_terms_unchanged": true,
+        "weighted_dt_and_four_group_sums_checked": true
+      }
+    },
+    {
+      "path": "logs/pgmt_termination_delay/isaac_01/training_status.json",
+      "sha256": "85888616ee1c6e54d35041ecb544d2b04404ce87497fb87aad1b2b21a92704c0",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 580220,
+        "started_at": "2026-10-14T22:21:34.212683",
+        "regions_checked": 50,
+        "stage1_unchanged": true,
+        "episode_length_s": 10.0,
+        "max_episode_length": 500,
+        "tracking_duration_s": 0.2,
+        "tracking_required_steps": 10,
+        "repeated_reads_reference_unchanged": true
+      }
+    },
+    {
+      "path": "logs/pgmt_body_contacts/isaac_06/training_status.json",
+      "sha256": "82575f16e6fd71af1253b9042d3c5d66883ff016500886f2bad3aaa7342470ef",
+      "uploaded": false,
+      "summary": {
+        "status": "passed",
+        "pid": 633725,
+        "started_at": "2026-10-14T22:55:29.504152",
+        "asset": "/home/lzp/projects/perceptive_tracking/PMT/logs/pgmt_p1_acceptance/native_robot/main.usd",
+        "asset_sha256": "88bd275f989accba16fbd8196a1703289c0639cf181affb0c15f076c4b747c10",
+        "post_reset_raw_torso_force_n": 58.55240249633789,
+        "control_steps": 44,
+        "environments": 5,
+        "physics_dt": 0.005,
+        "control_dt": 0.02,
+        "decimation": 4,
+        "foot_only_steps": 3,
+        "contact_reports": 44,
+        "terminal_old_reward_preserved": true,
+        "post_reset_stale_force_absent": true,
+        "duplicate_reads_checked": true,
+        "contact_evidence": "GPU contact points/normals/forces; unique capsule surface geometry; obstacle filter",
+        "scope": "Real collision and reward plumbing; no policy learning or necessary crawl contact assessment"
+      }
+    },
+    {
+      "path": "logs/pgmt_body_contacts/isaac_06/analysis_report.json",
+      "sha256": "fb588b1db6146781afbeee63bcb7cf05e5dcac5d35c24028953785ba2525920e",
+      "uploaded": false,
+      "summary": {
+        "status": "passed_with_sampling_limitation",
+        "control_steps": 44,
+        "transitions": 220,
+        "physics_samples": 176,
+        "max_relative_impact_rate_error": 4.6339736184768325e-08,
+        "max_weighted_contribution_error": 9.709836867877186e-08,
+        "unique_contact_points": 10,
+        "max_closest_capsule_surface_distance_m": 0.00012710400239306086,
+        "min_other_capsule_surface_distance_m": 0.05056807322391549,
+        "reset_contract": "Native raw force may retain last physics result; live PGMT state invalid after reset, terminal reward frozen, next airborne physics step zero",
+        "sampling_limitation": "Current reward reads the last 5 ms physics substep each 20 ms; short impact peaks can fall between reward samples",
+        "production_changes": false,
+        "pending": "Necessary crawling knee/hand contacts and P3.6 policy performance remain pending"
+      }
+    }
+  ],
+  "collection_profile": {
+    "path": "logs/pgmt_collection_profile/conclusion.json",
+    "sha256": "5422b8abb9f552f9382f97b14ac9606b9d80ac69d41f20512b3390a703c89b4c",
+    "uploaded": false,
+    "summary": {
+      "status": "passed",
+      "checked_at": "2026-10-15T10:30:28.518784",
+      "collection_s": 80.6308057308197,
+      "ppo_update_s": 2.501016616821289,
+      "physics_step_s": 79.1463414489408,
+      "physics_fraction_of_collection": 0.9815893656472356,
+      "physics_substeps": 96,
+      "physics_step_mean_s": 0.8244410567598001,
+      "formal_checkpoint_unchanged_sha256": "a10c42292b9023e9a786ca3336754fd1aaee6716c91411fecf60c14d3206c62d",
+      "formal_next_iteration": 383,
+      "diagnostic_next_iteration": 384,
+      "diagnostic_processes_exited": true,
+      "render_calls": 0,
+      "reset_calls": 0,
+      "limitation": "Host wall time attributes synchronization waits to the enclosing call, not pure GPU kernel durations; one fresh 24-step rollout; native simulate internals are not subdivided."
+    }
+  },
+  "collection_wall_times": {
+    "path": "logs/pgmt_collection_profile/wall_8192/wall_times.json",
+    "sha256": "6145f836dddd21eb2e35aa5629eacb9f1ebcb4174ae3c6ad8a77d5573b3b7a48",
+    "uploaded": false
+  },
+  "runtime_inputs": [
+    {
+      "path": "assets/terrain/pgmt_stage2_v6/manifest.json",
+      "sha256": "f3ea564bec413f1b2cc603febdcbf1791242fa167d27ebf2540703544e449ad8",
+      "uploaded": false
+    },
+    {
+      "path": "logs/pgmt_p1_acceptance/native_robot/main.usd",
+      "sha256": "88bd275f989accba16fbd8196a1703289c0639cf181affb0c15f076c4b747c10",
+      "uploaded": false
+    }
+  ],
+  "deferred_by_user": [
+    "Recovery pool, recovery upward velocity and recovery curriculum; not prerequisites for this no-recovery variant"
+  ],
+  "remaining_validation": [
+    "Short-impact peak loss from 200 Hz physics / 50 Hz final-substep reward sampling",
+    "Necessary knee/hand contacts versus undesired-contact penalty for crawling motions",
+    "Sufficient family/level policy performance and fixed 30-second benchmark",
+    "Convergence, deployment/export and paper-level performance comparison",
+    "Further native simulate profiling; no performance fix implemented"
+  ],
+  "evidence_note": "Existing Isaac/PPO reports were not rerun. This task reran CPU/CUDA tests in their compatible environments, checked source snapshot equality, and independently read saved checkpoints and persistent-state restore chains. The formal run stopped at the user request, not at the 12-hour/20000-update budget. Profiling checkpoints at iteration 384 do not replace formal iteration 383. Assets, weights, source archives and raw logs remain local."
+}

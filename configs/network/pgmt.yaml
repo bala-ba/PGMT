@@ -1,0 +1,10 @@
+name: PGMTActorCritic
+embedding_dim: 128
+num_heads: 4
+history_frames: 10
+command_frames: 8
+rope_base: 10000.0
+actor_hidden_dims: [512, 256, 128]
+critic_hidden_dims: [512, 256, 128]
+activation: elu
+init_noise_std: 1.0
